@@ -30,7 +30,7 @@ $l['gomobile_settings_strings'] = "Separated by a new line, enter the strings yo
 $l['gomobile_mobile_version'] = "Mobile Version";
 $l['gomobile_switch_full'] = "Switch to Full Version";
 $l['gomobile_redirect_notice'] = "Redirect Notice";
-$l['gomobile_posted_from'] = "Posted from GoMobile";
+$l['gomobile_posted_from'] = "Posted from Mobile Device";
 $l['gomobile_ucp'] = "UCP";
 $l['gomobile_mcp'] = "MCP";
 $l['gomobile_acp'] = "ACP";
@@ -45,7 +45,7 @@ $l['gomobile_post_warn'] = "Warn";
 $l['gomobile_post_pm'] = "PM";
 $l['gomobile_page'] = "Page:";
 $l['gomobile_of'] = "of";
-$l['gomobile_copyrights'] = "Powered by <a href='http://mybb.com' target='_blank'>MyBB</a>, mobile version by <a href='http://mybbgm.com' target='_blank'>MyBB GoMobile</a>.";
+$l['gomobile_copyrights'] = "<a href='http://mybbgm.com' target='_blank'>MyBB Mobile Version</a>.";
 $l['gomobile_showsig'] = "Display your Signature?";
 $l['gomobile_disablesmilies'] = "Disable smilies in this message?";
 $l['gomobile_savecopy'] = "Save a copy?";
