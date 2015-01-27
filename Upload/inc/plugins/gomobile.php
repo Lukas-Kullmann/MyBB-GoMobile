@@ -42,8 +42,8 @@ function gomobile_info()
 		"website"		=> "http://www.mybbgm.com",
 		"author"		=> "MyBB GoMobile",
 		"authorsite"	=> "http://www.mybbgm.com",
-		"version"		=> "1.1",
-		"compatibility" => "16*"
+		"version"		=> "1.1.9",
+		"compatibility" => "18*"
 	);
 }
 
@@ -139,7 +139,11 @@ AvantGo
 DoCoMo
 Pre/
 UP.Browser
-Playstation Vita";
+Playstation Vita
+Blazer
+Bolt
+Doris
+Dorothy";
 
 	// Edit existing templates (shows when posts are from GoMobile)
 	require_once MYBB_ROOT."inc/adminfunctions_templates.php";
