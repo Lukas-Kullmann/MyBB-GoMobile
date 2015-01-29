@@ -4,9 +4,6 @@
 * Licensed under GNU/GPL v3
 */
 
-// ACP Strings
-$l['gomobile'] = "MyBB GoMobile";
-$l['gomobile_desc'] = "The free mobile MyBB solution.";
 
 // Setting Strings
 $l['gomobile_settings_mobile_name_title'] = "Mobile Board Name";
