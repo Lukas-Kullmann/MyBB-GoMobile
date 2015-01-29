@@ -1,6 +1,6 @@
 <?php
 /*
-* MyBB GoMobile - 1.1
+* MyBB GoMobile - 1.2
 * Licensed under GNU/GPL v3
 */
 
@@ -42,7 +42,7 @@ function gomobile_info()
 		"website"		=> "http://www.mybbgm.com",
 		"author"		=> "MyBB GoMobile",
 		"authorsite"	=> "http://www.mybbgm.com",
-		"version"		=> "1.1.9",
+		"version"		=> "1.2",
 		"compatibility" => "18*"
 	);
 }
