@@ -31,14 +31,11 @@ $plugins->add_hook("misc_start", "gomobile_switch_version");
 // Plugin information
 function gomobile_info()
 {
-	global $lang;
-	
-	$lang->load("gomobile");
 
 	// Plugin information
 	return array(
-		"name"			=> $lang->gomobile,
-		"description"	=> $lang->gomobile_desc,
+		'name'			=> 'MyBB GoMobile',
+		'description'	=> 'The free mobile MyBB solution.',
 		"website"		=> "http://www.mybbgm.com",
 		"author"		=> "MyBB GoMobile",
 		"authorsite"	=> "http://www.mybbgm.com",
@@ -50,9 +47,8 @@ function gomobile_info()
 // Installation functions
 function gomobile_install()
 {
-	global $db, $mybb, $lang;
+	global $db, $mybb;
 
-	$lang->load("gomobile");
 	
 	// Clean up the database before installing
 	// MyBB tables cleanup
