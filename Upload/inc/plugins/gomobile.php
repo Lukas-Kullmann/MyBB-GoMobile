@@ -311,12 +311,8 @@ function gomobile_showthread(){
 
 if($postcount > $perpage){
 	$pj_template = "<div class=\"float_left\" style=\"padding-top: 12px;\">
-			<a href=\"".get_thread_link($thread['tid'])."\" class=\"pagination_a\">{$lang->gomobile_jump_fpost}
-
-</a>
-			<a href=\"".get_thread_link($thread['tid'], 0, 'lastpost')."\" class=\"pagination_a\">{$lang->gomobile_jump_lpost}
-
-</a>
+			<a href=\"".get_thread_link($thread['tid'])."\" class=\"pagination_a\">{$lang->gomobile_jump_fpost}</a>
+			<a href=\"".get_thread_link($thread['tid'], 0, 'lastpost')."\" class=\"pagination_a\">{$lang->gomobile_jump_lpost}</a>
 			</div>";
 $pagejump = $pj_template;
 }
