@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<theme name="MyBB GoMobile" version="1803">
+<theme name="MyBB GoMobile" version="1804">
 	<properties>
 		<templateset><![CDATA[26]]></templateset>
 		<editortheme><![CDATA[default]]></editortheme>
@@ -10,7 +10,7 @@
 		<disporder><![CDATA[a:7:{s:14:"showthread.css";i:1;s:17:"thread_status.css";i:2;s:10:"usercp.css";i:3;s:9:"modcp.css";i:4;s:10:"global.css";i:5;s:16:"star_ratings.css";i:6;s:8:"css3.css";i:7;}]]></disporder>
 	</properties>
 	<stylesheets>
-		<stylesheet name="showthread.css" attachedto="showthread.php" version="1803"><![CDATA[ul.thread_tools, ul.thread_tools li {
+		<stylesheet name="showthread.css" attachedto="showthread.php" version="1804"><![CDATA[ul.thread_tools, ul.thread_tools li {
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -42,7 +42,7 @@ ul.thread_tools li.subscription_remove a {
 		
 		]]>
 		</stylesheet>
-		<stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1803"><![CDATA[div.usercp_nav_item {
+		<stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1804"><![CDATA[div.usercp_nav_item {
 	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
 	color: #fff;
 	padding: 7px;
@@ -71,9 +71,9 @@ div.usercp_nav_item a {
 }
 
 .usercp_navigation {
-	background: #305262 url(images/mobile/gradient.png) bottom left repeat-x;
+	background: #226884 url(images/mobile/gradient.png) bottom left repeat-x;
 	width: 100%;
-	border: 1px solid #305262;
+	border: 1px solid #226884;
 	padding: 4px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -92,7 +92,7 @@ div.usercp_nav_item a {
 		
 		]]>
 		</stylesheet>
-		<stylesheet name="modcp.css" attachedto="modcp.php" version="1803"><![CDATA[div.modcp_nav_item {
+		<stylesheet name="modcp.css" attachedto="modcp.php" version="1804"><![CDATA[div.modcp_nav_item {
 	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
 	color: #fff;
 	padding: 7px;
@@ -139,7 +139,7 @@ div.modcp_nav_item a {
 		
 		]]>
 		</stylesheet>
-		<stylesheet name="global.css" version="1803"><![CDATA[body {
+		<stylesheet name="global.css" version="1804"><![CDATA[body {
 	background: #fff;
 	width: auto;
 	color: #000;
@@ -193,7 +193,7 @@ img.middle {
 }
 
 #logo {
-	background: #0C2D3D url(images/mobile/gradient.png) bottom left repeat-x;
+	background: #143E4E  url(images/mobile/gradient.png) bottom left repeat-x;
 	text-align: center;
 	padding: 8px;
 	text-shadow: 0 1px 0 #98A2A6;
@@ -234,7 +234,7 @@ table {
 }
 
 .thead {
-	background: #355B6C url(images/mobile/gradient.png) bottom left repeat-x;
+	background: #226884 url(images/mobile/gradient.png) bottom left repeat-x;
 	color: #FFFFFF;
 	padding: 4px 6px;
 	border-color: #305363;
@@ -253,7 +253,7 @@ table {
 }
 
 .tcat {
-	background: #305363;
+	background: #465156;
 	color: #fff;
 	padding: 4px 6px;
 	font-size: 12px;
@@ -1337,13 +1337,13 @@ td.forum_on {
 	<div><a href="private.php">Unread Message(s).</a></div>
 </div>]]></template>
 		<template name="global_unreadreports" version="1601"><![CDATA[<div class="red_alert" style="text-align: center;"><a href="modcp.php?action=reports">{$lang->gomobile_unreadreports}</a></div>]]></template>
-		<template name="header" version="1601"><![CDATA[<a name="top" id="top"></a>
+		<template name="header" version="1803"><![CDATA[<a name="top" id="top"></a>
 	<div id="header">
 		<div id="panel">
 			{$welcomeblock}
 		</div>
 		<div id="logo">
-			<a href="{$mybb->settings['bburl']}/index.php">{$mybb->settings['gomobile_mobile_name']}</a>
+  			<a href="/forums"><img style="max-height:35px; max-width:200px; margin-top: -7px;" src="/img/logo-w.png"></a>
 		</div>
 		<div id="menu">
 			<a href="{$mybb->settings['bburl']}/search.php?action=getnew">{$lang->welcome_newposts}</a>
@@ -1513,178 +1513,6 @@ td.forum_on {
 	<td class="trow2 smalltext" width="25%" align="right"><strong>{$lang->warning_level}</strong></td>
 	<td class="trow2"><a href="{$warning_link}">{$warning_level}</a> {$warn_user}</td>
 </tr>]]></template>
-		<template name="member_register" version="1606"><![CDATA[<html>
-<head>
-<title>{$mybb->settings['bbname']} - {$lang->registration}</title>
-{$headerinclude}
-<script src="{$mybb->asset_url}/jscripts/validate/jquery.validate.min.js"></script>
-</head>
-<body>
-{$header}
-<form action="member.php" method="post" id="registration_form"><input type="text" style="visibility: hidden;" value="" name="regcheck1" /><input type="text" style="visibility: hidden;" value="true" name="regcheck2" />
-{$regerrors}
-<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
-<tr>
-<td class="thead" colspan="2"><strong>{$lang->registration}</strong></td>
-</tr>
-<tr>
-<td width="50%" class="trow1" valign="top">
-<fieldset class="trow2">
-<legend><strong>{$lang->account_details}</strong></legend>
-<table cellspacing="0" cellpadding="{$theme['tablespace']}" width="100%">
-<tr>
-<td colspan="2"><span class="smalltext"><label for="username">{$lang->username}</label></span></td>
-</tr>
-<tr>
-<td colspan="2"><input type="text" class="textbox" name="username" id="username" style="width: 100%" value="{$username}" /></td>
-</tr>
-{$passboxes}
-<tr>
-<td width="50%" valign="top"><span class="smalltext"><label for="email">{$lang->email}</label></span></td>
-<td width="50%" valign="top"><span class="smalltext"><label for="email2">{$lang->confirm_email}</label></span></td>
-</tr>
-<tr>
-<td width="50%" valign="top"><input type="text" class="textbox" name="email" id="email" style="width: 100%" maxlength="50" value="{$email}" /></td>
-<td width="50%" valign="top"><input type="text" class="textbox" name="email2" id="email2" style="width: 100%" maxlength="50" value="{$email2}" /></td>
-</tr>
-<tr>
-	<td colspan="2" style="display: none;" id="email_status">&nbsp;</td>
-</tr>
-{$hiddencaptcha}
-</table>
-</fieldset>
-{$requiredfields}
-{$customfields}
-{$referrer}
-{$regimage}
-{$questionbox}
-</td>
-<td width="50%" class="trow1" valign="top">
-<fieldset class="trow2">
-<legend><strong>{$lang->account_prefs}</strong></legend>
-<table cellspacing="0" cellpadding="{$theme['tablespace']}" width="100%">
-<tr>
-<td valign="top" width="1"><input type="checkbox" class="checkbox" name="allownotices" id="allownotices" value="1" {$allownoticescheck} /></td>
-<td valign="top"><span class="smalltext"><label for="allownotices">{$lang->allow_notices}</label></span></td>
-</tr>
-<tr>
-<td valign="top" width="1"><input type="checkbox" class="checkbox" name="hideemail" id="hideemail" value="1" {$hideemailcheck} /></td>
-<td valign="top"><span class="smalltext"><label for="hideemail">{$lang->hide_email}</label></span></td>
-</tr>
-<tr>
-<td valign="top" width="1"><input type="checkbox" class="checkbox" name="receivepms" id="receivepms" value="1" {$receivepmscheck} /></td>
-<td valign="top"><span class="smalltext"><label for="receivepms">{$lang->receive_pms}</label></span></td>
-</tr>
-<tr>
-<td valign="top" width="1"><input type="checkbox" class="checkbox" name="pmnotice" id="pmnotice" value="1"{$pmnoticecheck} /></td>
-<td valign="top"><span class="smalltext"><label for="pmnotice">{$lang->pm_notice}</label></span></td>
-</tr>
-<tr>
-<td valign="top" width="1"><input type="checkbox" class="checkbox" name="pmnotify" id="pmnotify" value="1" {$pmnotifycheck} /></td>
-<td valign="top"><span class="smalltext"><label for="pmnotify">{$lang->email_notify_newpm}</label></span></td>
-</tr>
-<tr>
-<td valign="top" width="1"><input type="checkbox" class="checkbox" name="invisible" id="invisible" value="1" {$invisiblecheck} /></td>
-<td valign="top"><span class="smalltext"><label for="invisible">{$lang->invisible_mode}</label></span></td>
-</tr>
-<tr>
-<td colspan="2"><span class="smalltext"><label for="subscriptionmethod">{$lang->subscription_method}</label></span></td>
-</tr>
-<tr>
-<td colspan="2">
-	<select name="subscriptionmethod" id="subscriptionmethod">
-		<option value="0" {$no_auto_subscribe_selected}>{$lang->no_auto_subscribe}</option>
-		<option value="1" {$no_subscribe_selected}>{$lang->no_subscribe}</option>
-		<option value="2" {$instant_email_subscribe_selected}>{$lang->instant_email_subscribe}</option>
-		<option value="3" {$instant_pm_subscribe_selected}>{$lang->instant_pm_subscribe}</option>
-	</select>
-</td>
-</tr>
-</table>
-</fieldset>
-<br />
-<fieldset class="trow2">
-<legend><strong><label for="timezone">{$lang->time_offset}</label></strong></legend>
-<table cellspacing="0" cellpadding="{$theme['tablespace']}" width="100%">
-<tr>
-<td><span class="smalltext">{$lang->time_offset_desc}</span></td>
-</tr>
-<tr>
-<td>{$tzselect}</td>
-</tr>
-<tr>
-<td><span class="smalltext">{$lang->dst_correction}</span></td>
-</tr>
-<tr>
-<td>
-	<select name="dstcorrection">
-		<option value="2" {$dst_auto_selected}>{$lang->dst_correction_auto}</option>
-		<option value="1" {$dst_enabled_selected}>{$lang->dst_correction_enabled}</option>
-		<option value="0" {$dst_disabled_selected}>{$lang->dst_correction_disabled}</option>
-	</select>
-</td>
-</tr>
-</table>
-</fieldset>
-{$boardlanguage}
-</td>
-</tr>
-</table>
-<br />
-<div align="center">
-<input type="hidden" name="regtime" value="{$time}" />
-<input type="hidden" name="step" value="registration" />
-<input type="hidden" name="action" value="do_register" />
-<input type="submit" class="button" name="regsubmit" value="{$lang->submit_registration}" />
-</div>
-</form>
-<script type="text/javascript">
-<!--
-$().ready(function() {
-	// validate registration_form
-	$("#registration_form").validate({
-		rules: {
-          username: {
-            required: true,
-            minlength: {$mybb->settings['minnamelength']},
-			maxlength: {$mybb->settings['maxnamelength']},
-			remote:{
-				url: "xmlhttp.php?action=username_availability",
-				type: "post",
-              	dataType: "json",
-				data:
-				{
-					my_post_key: my_post_key
-				},
-			},
-          },
-          email: {
-				required: true,
-				email: true,
-          },
-          email2: {
-				required: true,
-				email: true,
-				equalTo: "#email"
-          },
-		},
-		messages: {
-            username: {
-              		minlength: "{$lang->js_validator_username_length}",
-              		maxlength: "{$lang->js_validator_username_length}",
-            },
-          	email: "{$lang->js_validator_invalid_email}",
-			email2: "{$lang->js_validator_email_match}",
-		}
-	});
-
-   {$validator_extra}
-});
-// -->
-</script>
-{$footer}
-</body>
-</html>]]></template>
 		<template name="member_register_agreement" version="1413"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->agreement}</title>
@@ -2941,7 +2769,7 @@ $().ready(function() {
 	$('quick_delete_{$post['pid']}').style.display = '';
 // -->
 </script>]]></template>
-		<template name="postbit_quote" version="1601"><![CDATA[<a href="newreply.php?tid={$tid}&amp;pid={$post['pid']}" class="button">{$lang->gomobile_post_quote}</a>]]></template>
+		<template name="postbit_quote" version="1804"><![CDATA[ <a href="newreply.php?tid={$tid}&amp;replyto={$post['pid']}" class="button">{$lang->gomobile_post_quote}</a>]]></template>
 		<template name="postbit_replyall_pm" version="1601"><![CDATA[<a href="private.php?action=send&amp;pmid={$id}&amp;do=replyall" class="button">{$lang->gomobile_pm_replyall}</a>]]></template>
 		<template name="postbit_reply_pm" version="1601"><![CDATA[<a href="private.php?action=send&amp;pmid={$id}&amp;do=reply" class="button">{$lang->gomobile_pm_reply}</a>]]></template>
 		<template name="postbit_reputation" version="1601"><![CDATA[[{$post['userreputation']}]]]></template>
