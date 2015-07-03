@@ -254,14 +254,14 @@ img.middle {
 #panel {
     background:none repeat scroll 0 0 #243D54;
     color:#fff;
-    height:40px;
+    height:30px;
     font-size:14px;
     text-align:right
 }
 
 #panel a {
     color:#fff;
-    padding:10px;
+    padding:5px;
     text-decoration:none;
     line-height:25px
 }
@@ -1402,9 +1402,9 @@ ul.thread_tools li a {
 		<li><a href="{$mybb->settings['bburl']}/misc.php?action=help">{$lang->toplinks_help}</a></li>
 		<li><a href="{$mybb->settings['bburl']}/search.php">{$lang->toplinks_search}</a></li>
 		<li><a href="{$mybb->settings['bburl']}/search.php?action=getnew">{$lang->welcome_newposts}</a></li>
-	</ul>		
+	</ul>
 </div>
-
+<br />
 
 			
 	<div id="container">
