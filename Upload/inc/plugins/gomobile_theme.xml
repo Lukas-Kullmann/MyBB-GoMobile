@@ -1,48 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<theme name="MyBB GoMobile" version="1804">
+<theme name="MyBB GoMobile" version="1805">
 	<properties>
-		<templateset><![CDATA[26]]></templateset>
+		<templateset><![CDATA[8]]></templateset>
 		<editortheme><![CDATA[default]]></editortheme>
 		<imgdir><![CDATA[images/mobile]]></imgdir>
 		<logo><![CDATA[]]></logo>
 		<tablespace><![CDATA[6]]></tablespace>
 		<borderwidth><![CDATA[0]]></borderwidth>
-		<disporder><![CDATA[a:7:{s:14:"showthread.css";i:1;s:17:"thread_status.css";i:2;s:10:"usercp.css";i:3;s:9:"modcp.css";i:4;s:10:"global.css";i:5;s:16:"star_ratings.css";i:6;s:8:"css3.css";i:7;}]]></disporder>
+		<disporder><![CDATA[a:7:{s:14:"showthread.css";i:1;s:10:"usercp.css";i:2;s:8:"css3.css";i:3;s:9:"modcp.css";i:4;s:17:"thread_status.css";i:5;s:10:"global.css";i:6;s:16:"star_ratings.css";i:7;}]]></disporder>
 	</properties>
 	<stylesheets>
-		<stylesheet name="showthread.css" attachedto="showthread.php" version="1804"><![CDATA[ul.thread_tools, ul.thread_tools li {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-ul.thread_tools li a {
-	padding: 7px;
-	display: block;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-}
-
-ul.thread_tools li.subscription_add a {
-	background: #84db7d;
-	color: #145d0e;
-	border: 1px solid #54ac4d;
-}
-
-ul.thread_tools li.subscription_remove a {
-	background: #db7d7d;
-	border: 1px solid #ac4d4d;
-	color: #5d0e0e;
-}
-
-
-		
-		
-		
-		
-		]]>
-		</stylesheet>
-		<stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1804"><![CDATA[div.usercp_nav_item {
+		<stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1805"><![CDATA[div.usercp_nav_item {
 	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
 	color: #fff;
 	padding: 7px;
@@ -71,12 +39,12 @@ div.usercp_nav_item a {
 }
 
 .usercp_navigation {
-	background: #226884 url(images/mobile/gradient.png) bottom left repeat-x;
-	width: 100%;
-	border: 1px solid #226884;
-	padding: 4px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+  background: #23ffaa url(images/mobile/gradient.png) bottom left repeat-x;
+  width: 100%;
+  border: 1px solid #23ffaa;
+  padding: 0px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
 
 .usercp_navigation td {
@@ -92,7 +60,7 @@ div.usercp_nav_item a {
 		
 		]]>
 		</stylesheet>
-		<stylesheet name="modcp.css" attachedto="modcp.php" version="1804"><![CDATA[div.modcp_nav_item {
+		<stylesheet name="modcp.css" attachedto="modcp.php" version="1805"><![CDATA[div.modcp_nav_item {
 	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
 	color: #fff;
 	padding: 7px;
@@ -117,9 +85,9 @@ div.modcp_nav_item a {
 }
 
 .modcp_navigation {
-	background: #305262 url(images/mobile/gradient.png) bottom left repeat-x;
+	background: #23a0da url(images/mobile/gradient.png) bottom left repeat-x;
 	width: 100%;
-	border: 1px solid #305262;
+	border: 1px solid #1379a8;
 	padding: 4px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -139,899 +107,971 @@ div.modcp_nav_item a {
 		
 		]]>
 		</stylesheet>
-		<stylesheet name="global.css" version="1804"><![CDATA[body {
-	background: #fff;
-	width: auto;
-	color: #000;
-	text-align: center;
-	line-height: 1.4;
-	margin: 0;
-	-webkit-text-size-adjust: none;
-	font-family: Arial, Helvetica, Sans-Serif;
-	font-size: 13px;
+		<stylesheet name="global.css" version="1805"><![CDATA[@import //fonts.googleapis.com/css?family=Noto+Sans:400,700;
+
+body {
+    background:none repeat scroll 0 0 #EEE!important;
+    width:auto;
+    color:#000;
+    text-align:center;
+    margin:0;
+    -webkit-text-size-adjust:none;
+    font-family:"Noto Sans",sans-serif!important;
+    font-size:13px
+}
+
+ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    position:absolute
+}
+
+li {
+    display:inline-block;
+    float:left;
+    margin-right:0
+}
+
+li a {
+    display:block;
+    min-width:140px;
+    height:20px;
+    text-align:center;
+    line-height:50px;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#fff;
+    text-decoration:none
+}
+
+li:hover a {
+    background:silver
+}
+
+li:hover ul a {
+    background:#f3f3f3;
+    color:#2f3036;
+    height:40px;
+    line-height:40px
+}
+
+li ul {
+    display:none
+}
+
+li ul li {
+    display:block;
+    float:none
+}
+
+li ul li a {
+    width:auto;
+    min-width:100px;
+    padding:0 20px
+}
+
+ul li a:hover + .hidden,.hidden:hover {
+    display:block
+}
+
+.show-menu {
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-decoration:none;
+    color:#fff;
+    background:#243D54;
+    text-align:center;
+    padding:10px 0;
+    display:none
+}
+
+input[type=checkbox] {
+    display:none
+}
+
+input[type=checkbox]:checked ~ #menu {
+    display:block
+}
+
+@media screen and (max-width : 760px) {
+ul {
+    position:static;
+    display:none
+}
+
+li {
+    margin-bottom:0
+}
+
+ul li,li a {
+    width:100%
+}
+
+ul a {
+    background:#383838
+}
+
+.show-menu {
+    display:block
+}
+}
+
+#navbar {
+    background:none repeat scroll 0 0 #243D54;
+    color:#fff;
+    height:40px;
+    font-size:14px;
+    text-align:right
+}
+
+#navbar a {
+    color:#fff;
+    padding:10px;
+    text-decoration:none;
+    line-height:40px
+}
+
+#navbar a:hover {
+    background:#333;
+    text-decoration:none
 }
 
 a {
-	color: #186f97;
-	text-decoration: none;
-}
-
-a:hover, a:active {
-	color: #000;
-	text-decoration: underline;
+    color:#186f97;
+    text-decoration:none
 }
 
 img.middle {
-	vertical-align: middle;
+    vertical-align:middle
 }
 
 #container {
-	width: auto;
-	margin: auto auto;
-	text-align: left;
-	padding: 8px;
+    width:auto;
+    margin:auto;
+    text-align:left;
+    padding:8px
 }
 
 #panel {
-	background: #1D1D1D;
-	color: #fff;
-	padding: 8px;
-	text-align: center;
-	font-size: 14px;
-	font-weight: bold;
+    background:none repeat scroll 0 0 #243D54;
+    color:#fff;
+    height:40px;
+    font-size:14px;
+    text-align:right
 }
 
 #panel a {
-	color: #fff;
-	padding: 10px;
-	text-decoration: none;
+    color:#fff;
+    padding:10px;
+    text-decoration:none;
+    line-height:25px
 }
 
 #panel a:hover {
-	background: #333;
-	text-decoration: none;
-}
-
-#logo {
-	background: #143E4E  url(images/mobile/gradient.png) bottom left repeat-x;
-	text-align: center;
-	padding: 8px;
-	text-shadow: 0 1px 0 #98A2A6;
-	font-size: 24px;
-}
-
-#logo a {
-	color: #FFF;
-	text-decoration: none;
-}
-
-#menu {
-	background: #1B3F51;
-	color: #fff;
-	text-align: center;
-	padding: 7px;
-	font-size: 13px;
-	font-weight: bold;
-	text-shadow: 0 -1px 0 #095578;
-}
-
-#menu a {
-	color: #fff;
-	padding: 4px;
-	margin: 0 5px;
-	text-decoration: none;
+    background:#333;
+    text-decoration:none
 }
 
 table {
-	color: #000000;
-	font-family: Arial, Helvetica, Sans-Serif;
-	font-size: 14px;
+    color:#000;
+    font-family:Arial,Helvetica,Sans-Serif;
+    font-size:14px
 }
 
 .tborder {
-	width: 100%;
-	margin-bottom: 8px;
+    width:100%;
+    margin-bottom:8px
 }
 
 .thead {
-	background: #226884 url(images/mobile/gradient.png) bottom left repeat-x;
-	color: #FFFFFF;
-	padding: 4px 6px;
-	border-color: #305363;
-	border-style: solid;
-	border-width: 1px 1px 2px 1px;
-	text-shadow: 0 1px 0 #000000;
-	-moz-border-radius: 5px 5px 0 0;
-	-webkit-border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;
-	font-size: 13px;
+    background:#243D54 url(images/mobile/gradient.png) bottom left repeat-x;
+    color:#FFF;
+    padding:4px 5px;
+    font-size:13px
 }
 
 .thead a {
-	color: #FFFFFF;
-	text-decoration: none;
+    color:#FFF;
+    text-decoration:none
 }
 
 .tcat {
-	background: #465156;
-	color: #fff;
-	padding: 4px 6px;
-	font-size: 12px;
+    background:#444;
+    color:#fff;
+    padding:4px 6px;
+    font-size:12px
 }
 
 .tcat a {
-	color: #fff;
+    color:#fff
 }
 
-.trow1, .trow2 {
-	border-bottom: 1px solid #ddd;
+.trow1,.trow2 {
+    border-bottom:1px solid #ddd
 }
 
 .trow3 {
-	background: #eee;
-	border-bottom: 1px solid #ddd;
-	padding: 4px;
+    background:#eee;
+    border-bottom:1px solid #ddd;
+    padding:4px
 }
 
 .trow_shaded {
-	background: #ffdde0;
-	border-bottom: 1px solid #fcc;
+    background:#ffdde0;
+    border-bottom:1px solid #fcc
 }
 
 .trow_selected td {
-	background: #FFFBD9;
+    background:#FFFBD9
 }
 
 .trow_sep {
-	background: #ddd;
-	color: #555;
-	padding: 4px;
-	text-align: center;
-	
-	font-size: 12px;
-	font-weight: bold;
+    background:#ddd;
+    color:#555;
+    padding:4px;
+    text-align:center;
+    font-size:12px;
+    font-weight:700
 }
 
 .tfoot {
-	background: #305363url(images/mobile/gradient.png) bottom left repeat-x;
-	color: #fff;
-	border-color: #305363;
-	border-style: solid;
-	border-width: 2px 1px 1px 1px;
-	vertical-align: middle;
-	padding: 6px;
-	-moz-border-radius: 0 0 5px 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-webkit-border-bottom-right-radius: 5px;
-	text-shadow: 0 -1px 0 #333;
-	font-size: 12px;
+    background:#737373 url(images/mobile/gradient.png) bottom left repeat-x;
+    color:#fff;
+    padding:5px;
+    -moz-border-radius:0 0 5px 5px;
+    font-size:12px
 }
 
 .tfoot a {
-	color: #fff;
-	text-decoration: none;
+    color:#fff;
+    text-decoration:none
 }
 
 .bottommenu {
-	background: #1D1D1D url(images/mobile/gradient.png) bottom left repeat-x;
-	color: #fff;
-	border: 1px solid #1D1D1D;
-	padding: 7px;
-	text-transform: lowercase;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	
-	font-size: 13px;
-	font-weight: bold;
+    background:#20374C url(images/mobile/gradient.png) bottom left repeat-x;
+    color:#fff;
+    padding:5px;
+    font-size:13px;
+    font-weight:700
 }
 
 .bottommenu a {
-	color: #fff;
-	text-decoration: none;
+    color:#fff;
+    text-decoration:none
 }
 
 .forumjump {
-	background: #1C313A;
-	color: #FFF;
-	padding: 6px;
-	margin: 5px 0;
-	clear: both;
-	text-align: center;
-	border: 1px solid #1C313A;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
+    background:#9dbcca;
+    color:#444;
+    padding:6px;
+    margin:5px 0;
+    clear:both;
+    text-align:center;
+    border:1px solid #7998a7;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px
 }
 
 .navigation {
-	background: #315464;
-	color: #888;
-	border-bottom: 1px solid #c2c2c2;
-	text-align: left;
-	padding: 7px;
-	
-	font-size: 14px;
+    background:#ccc;
+    color:#888;
+    border-bottom:1px solid #c2c2c2;
+    text-align:left;
+    padding:7px;
+    font-size:14px
 }
 
 .navigation a:link {
-color: #FFF;
-text-decoration: none;
+    color:#444;
+    text-decoration:none
 }
 
 .navigation a:visited {
-color: #FFF;
-text-decoration: none;
+    color:#444;
+    text-decoration:none
 }
 
-.navigation a:hover, .navigation a:active {
-	color: #FFF;
-	text-decoration: none;
+.navigation a:hover,.navigation a:active {
+    color:#444;
+    text-decoration:none
 }
 
 .navigation .active {
-color: #FFF;
-font-weight: bold;
+    color:#444;
+    font-weight:700
 }
 
 .smalltext {
-	font-size: 12px;
+    font-size:12px
 }
 
 .largetext {
-	font-size: 15px;
-	font-weight: bold;
+    font-size:15px;
+    font-weight:700
 }
 
 input.textbox {
-	background: #ddd;
-	color: #333;
-	border: 1px solid #444;
-	padding: 3px;
-	margin: 1px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	
-	font-size: 13px;
+    background:#ddd;
+    color:#333;
+    border:1px solid #444;
+    padding:3px;
+    margin:1px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    font-size:13px
 }
 
 input.button {
-	background: #0D314F url(images/mobile/gradient.png) bottom left repeat-x;
-	color: #fff;
-	border: 1px solid #222;
-	padding: 5px 7px;
-	margin: 1px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	
-	font-family: Arial, Helvetica, Sans-Serif;
-	font-size: 12px;
-	font-weight: bold;
+    background:#1f89e2 url(images/mobile/gradient.png) bottom left repeat-x;
+    color:#fff;
+    border:1px solid #222;
+    padding:5px 7px;
+    margin:1px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    font-family:Arial,Helvetica,Sans-Serif;
+    font-size:12px;
+    font-weight:700
 }
 
 textarea {
-	background: #ddd;
-	color: #333;
-	border: 1px solid #444;
-	line-height: 1.4;
-	margin: 1px;
-	padding: 5px;
-	font-family: Arial, Helvetica, Sans-Serif;
-	font-size: 13px;
+    background:#ddd;
+    color:#333;
+    border:1px solid #444;
+    line-height:1.4;
+    margin:1px;
+    padding:5px;
+    font-family:Arial,Helvetica,Sans-Serif;
+    font-size:13px
 }
 
 select {
-	background: #ddd;
-	color: #333;
-	border: 1px solid #444;
-	padding: 3px;
-	margin: 1px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	max-width: 75%;
-	font-size: 13px;
+    background:#ddd;
+    color:#333;
+    border:1px solid #444;
+    padding:3px;
+    margin:1px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    max-width:75%;
+    font-size:13px
 }
 
 fieldset {
-	border: 1px solid #999;
-	padding: 6px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+    border:1px solid #999;
+    padding:6px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px
 }
 
 .editor {
-	background: #f1f1f1;
-	border: 1px solid #ccc;
+    background:#f1f1f1;
+    border:1px solid #ccc
 }
 
 .autocomplete {
-	background: #fff;
-	border: 1px solid #000;
-	color: black;
+    background:#fff;
+    border:1px solid #000;
+    color:#000
 }
 
 .autocomplete_selected {
-	background: #adcee7;
-	color: #000;
+    background:#adcee7;
+    color:#000
 }
 
 .trow_reputation_positive {
-	background: #ccffcc;
+    background:#cfc
 }
 
 .trow_reputation_negative {
-	background: #ffcccc;
+    background:#fcc
 }
 
 .reputation_positive {
-	color: green;
+    color:green
 }
 
 .reputation_neutral {
-	color: #444;
+    color:#444
 }
 
 .reputation_negative {
-	color: red;
+    color:red
 }
 
 .invalid_field {
-	background: #ea9697;
-	color: #962424;
-	border: 1px solid #bf3a3a;
-	padding: 3px;
-	margin: 1px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	
-	font-size: 13px;
+    background:#ea9697;
+    color:#962424;
+    border:1px solid #bf3a3a;
+    padding:3px;
+    margin:1px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    font-size:13px
 }
 
 .valid_field {
-	background: #9cea96;
-	color: #2c9624;
-	border: 1px solid #44bf3a;
-	padding: 3px;
-	margin: 1px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	font-size: 13px;
+    background:#9cea96;
+    color:#2c9624;
+    border:1px solid #44bf3a;
+    padding:3px;
+    margin:1px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    font-size:13px
 }
 
 .validation_error {
-	background: url(images/invalid.gif) no-repeat center left;
-	color: #f30;
-	margin: 5px 0;
-	padding: 5px;
-	font-weight: bold;
-	font-size: 11px;
-	padding-left: 22px;
+    background:url(images/invalid.gif) no-repeat center left;
+    color:#f30;
+    margin:5px 0;
+    padding:5px;
+    font-weight:700;
+    font-size:11px;
+    padding-left:22px
 }
 
 .validation_success {
-	background: url(images/valid.gif) no-repeat center left;
-	color: #00b200;
-	margin: 5px 0;
-	padding: 5px;
-	font-weight: bold;
-	font-size: 11px;
-	padding-left: 22px;
+    background:url(images/valid.gif) no-repeat center left;
+    color:#00b200;
+    margin:5px 0;
+    padding:5px;
+    font-weight:700;
+    font-size:11px;
+    padding-left:22px
 }
 
 .validation_loading {
-	background: url(images/spinner.gif) no-repeat center left;
-	color: #555;
-	margin: 5px 0;
-	padding: 5px;
-	font-weight: bold;
-	font-size: 11px;
-	padding-left: 22px;
+    background:url(images/spinner.gif) no-repeat center left;
+    color:#555;
+    margin:5px 0;
+    padding:5px;
+    font-weight:700;
+    font-size:11px;
+    padding-left:22px
 }
 
 /* Additional CSS (Master) */
 img {
-	border: none;
-	vertical-align: middle;
+    border:none;
+    vertical-align:middle
 }
 
 .clear {
-	clear: both;
+    clear:both
 }
 
 .hidden {
-	display: none;
-	float: none;
-	width: 1%;
+    display:none;
+    float:none;
+    width:1%
 }
 
 .float_left {
-	float: left;
+    float:left
 }
 
 .float_right {
-	float: right;
+    float:right
 }
 
 .menu ul {
-	list-style: none;
-	margin: 0;
+    list-style:none;
+    margin:0
 }
 
 .menu li {
-	display: inline;
-	padding-left: 5px;
+    display:inline;
+    padding-left:5px
 }
 
 img.attachment {
-	border: 1px solid #E9E5D7;
-	padding: 2px;
+    border:1px solid #E9E5D7;
+    padding:2px
 }
 
 hr {
-	background-color: #000000;
-	color: #000000;
-	height: 1px;
-	border: 0px;
+    background-color:#000;
+    color:#000;
+    height:1px;
+    border:0
 }
 
 #copyright {
-	padding: 3px 8px 8px 8px;
-	text-align: center;
-	font-size: 11px;
+    padding:3px 8px 8px;
+    text-align:center;
+    font-size:11px
 }
 
 blockquote {
-	background: #f2f2f2;
-	border: 1px solid #ccc;
-	margin: 0;
-	padding: 4px;
+    background:#f2f2f2;
+    border:1px solid #ccc;
+    margin:0;
+    padding:4px
 }
 
 blockquote cite {
-	background: #daebff;
-	color: #021b3a;
-	border-bottom: 1px solid #ccc;
-	display: block;
-	margin: -4px -4px 4px -4px;
-	padding: 5px;
-	font-style: normal;
-	font-weight: bold;
+    background:#daebff;
+    color:#021b3a;
+    border-bottom:1px solid #ccc;
+    display:block;
+    margin:-4px -4px 4px;
+    padding:5px;
+    font-style:normal;
+    font-weight:700
 }
 
 blockquote blockquote cite {
-	background: #c2ffd2;
-	color: #033c12;
+    background:#c2ffd2;
+    color:#033c12
 }
 
 blockquote blockquote blockquote cite {
-	background: #f6d9ff;
-	color: #2e033c;
+    background:#f6d9ff;
+    color:#2e033c
 }
 
 blockquote cite span {
-	float: right;
-	font-weight: normal;
+    float:right;
+    font-weight:400
 }
 
 blockquote cite span.highlight {
-	float: none;
-	font-weight: bold;
-	padding-bottom: 0;
+    float:none;
+    font-weight:700;
+    padding-bottom:0
 }
 
 .codeblock {
-	background: #f2f2f2;
-	border: 1px solid #ccc;
+    background:#f2f2f2;
+    border:1px solid #ccc
 }
 
 .codeblock .title {
-	background: #ffecc8;
-	color: #3a2702;
-	border-bottom: 1px solid #ccc;
-	padding: 5px;
-	font-weight: bold;
+    background:#ffecc8;
+    color:#3a2702;
+    border-bottom:1px solid #ccc;
+    padding:5px;
+    font-weight:700
 }
 
 .codeblock code {
-	overflow: auto;
-	height: auto;
-	max-height: 200px;
-	display: block;
-	padding: 4px;
-	font-family: Monaco, Consolas, Courier, monospace;
-	font-size: 13px;
+    overflow:auto;
+    height:auto;
+    max-height:200px;
+    display:block;
+    padding:4px;
+    font-family:Monaco,Consolas,Courier,monospace;
+    font-size:13px
 }
 
 .subforumicon {
-	border: 0;
-	vertical-align: middle;
+    border:0;
+    vertical-align:middle
 }
 
 .separator {
-	margin: 5px;
-	padding: 0;
-	height: 0px;
-	font-size: 1px;
-	list-style-type: none;
+    margin:5px;
+    padding:0;
+    height:0;
+    font-size:1px;
+    list-style-type:none
 }
 
 form {
-	margin: 0;
-	padding: 0;
+    margin:0;
+    padding:0
 }
 
 .autocomplete {
-	text-align: left;
+    text-align:left
 }
 
 .subject_new {
-	font-weight: bold;
+    font-weight:700
 }
 
 .highlight {
-	background: #FFFFCC;
-	padding: 3px;
+    background:#FFC;
+    padding:3px
 }
 
 .pm_alert {
-	background: #FFF6BF url(images/mobile/gradient.png) bottom left repeat-x;
-	border: 1px solid #b79f18;
-	padding: 10px;
-	margin-bottom: 10px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	text-shadow: 1px 1px 0px #f4f0db;
-	
-	font-size: 13px;
-	font-weight: bold;
+    background:#FFF6BF url(images/mobile/gradient.png) bottom left repeat-x;
+    border:1px solid #b79f18;
+    padding:10px;
+    margin-bottom:10px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    text-shadow:1px 1px 0 #f4f0db;
+    font-size:13px;
+    font-weight:700
 }
 
 .pm_alert a {
-	color: #b79f18;
+    color:#b79f18
 }
 
 .red_alert {
-	background: #FBE3E4 url(images/mobile/gradient.png) bottom left repeat-x;
-	color: #A5161A;
-	border: 1px solid #A5161A;
-	padding: 10px;
-	margin-bottom: 10px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	text-shadow: 1px 1px 0px #f1c9c9;
-	font-size: 13px;
+    background:#FBE3E4 url(images/mobile/gradient.png) bottom left repeat-x;
+    color:#A5161A;
+    border:1px solid #A5161A;
+    padding:10px;
+    margin-bottom:10px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    text-shadow:1px 1px 0 #f1c9c9;
+    font-size:13px
 }
 
 .red_alert a {
-	color: #a5161a;
-	border-bottom: 1px dotted #a5161a;
+    color:#a5161a;
+    border-bottom:1px dotted #a5161a
 }
 
 .high_warning {
-	color: #CC0000;
+    color:#C00
 }
 
 .moderate_warning {
-	color: #F3611B;
+    color:#F3611B
 }
 
 .low_warning {
-	color: #AE5700;
+    color:#AE5700
 }
 
 div.error {
-	padding: 5px 10px;
-	border-top: 2px solid #FFD324;
-	border-bottom: 2px solid #FFD324;
-	background: #FFF6BF;
-	font-size: 12px;
+    padding:5px 10px;
+    border-top:2px solid #FFD324;
+    border-bottom:2px solid #FFD324;
+    background:#FFF6BF;
+    font-size:12px
 }
 
 div.error p {
-	margin: 0;
-	color: #000;
-	font-weight: normal;
+    margin:0;
+    color:#000;
+    font-weight:400
 }
 
 div.error p em {
-	font-style: normal;
-	font-weight: bold;
-	padding-left: 24px;
-	display: block;
-	color: #C00;
-	background: url(images/error.gif) no-repeat 0;
+    font-style:normal;
+    font-weight:700;
+    padding-left:24px;
+    display:block;
+    color:#C00;
+    background:url(images/error.gif) no-repeat 0
 }
 
 div.error.ul {
-	margin-left: 24px;
+    margin-left:24px
 }
 
 .online {
-	color: #15A018;
+    color:#15A018
 }
 
 .offline {
-	color: #C7C7C7;
+    color:#C7C7C7
 }
 
 .pagination {
-	background: #ddd;
-	border: 1px solid #aaa;
-	padding: 10px;
-	text-align: center;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	font-size: 11px;
+    background:#ddd;
+    border:1px solid #aaa;
+    padding:10px;
+    text-align:center;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    font-size:11px
 }
 
 .pagination .pages {
-	font-weight: bold;
+    font-weight:700
 }
 
-.pagination_current, .pagination_a {
-	padding: 6px 12px;
-	margin-bottom: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
+.pagination_current,.pagination_a {
+    padding:6px 12px;
+    margin-bottom:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px
 }
 
 .pagination_a {
-background: #355B6C url(images/mobile/gradient.png) bottom left repeat-x;
-color: #fff;
-border: 1px solid #355B6C;
-text-shadow: 0 -1px 0 #355B6C;
-font-size: 11px;
-font-weight: bold;
+    background:#158fc2 url(images/mobile/gradient.png) bottom left repeat-x;
+    color:#fff;
+    border:1px solid #0b658b;
+    text-shadow:0 -1px 0 #0b658b;
+    font-size:11px;
+    font-weight:700
 }
 
 .pagination_current {
-	background: #d2d2d2 url(images/mobile/gradient.png) bottom left repeat-x;
-	color: #444;
-	border: 1px solid #999;
-	text-shadow: 0 1px 0 #eee;
-	font-weight: bold;
+    background:#d2d2d2 url(images/mobile/gradient.png) bottom left repeat-x;
+    color:#444;
+    border:1px solid #999;
+    text-shadow:0 1px 0 #eee;
+    font-weight:700
 }
 
 .pagination_a:hover {
-	background: #355B6C url(images/mobile/gradient.png) bottom left repeat-x;
-	color: #fff;
-	text-decoration: none;
+    background:#26a6db url(images/mobile/gradient.png) bottom left repeat-x;
+    color:#fff;
+    text-decoration:none
 }
 
 .success_message {
-	color: #00b200;
-	font-weight: bold;
-	font-size: 10px;
-	margin-bottom: 10px;
+    color:#00b200;
+    font-weight:700;
+    font-size:10px;
+    margin-bottom:10px
 }
 
 .error_message {
-	color: #C00;
-	font-weight: bold;
-	font-size: 10px;
-	margin-bottom: 10px;
+    color:#C00;
+    font-weight:700;
+    font-size:10px;
+    margin-bottom:10px
 }
 
 .quick_jump {
-	background: url(images/jump.gif) no-repeat 0;
-	width: 13px;
-	height: 13px;
-	padding-left: 13px; /* amount of padding needed for image to fully show */
-	vertical-align: middle;
-	border: none;
+    background:url(images/jump.gif) no-repeat 0;
+    width:13px;
+    height:13px;
+    padding-left:13px;
+/* amount of padding needed for image to fully show */
+    vertical-align:middle;
+    border:none
 }
 
 /* Button CSS */
 div.big_button {
-	padding: 10px 0 15px 0;
+    padding:10px 0 15px
 }
 
 a.big_button {
-	background: #14aea8 url(images/mobile/gradient.png) bottom left repeat-x;
-	color: #023836;
-	padding: 9px;
-	border: 1px solid #0a7c78;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	text-shadow: 0 1px 0 #25c5bf;
-	font-size: 13px;
-	font-weight: bold;
+    background:#14aea8 url(images/mobile/gradient.png) bottom left repeat-x;
+    color:#023836;
+    padding:9px;
+    border:1px solid #0a7c78;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    text-shadow:0 1px 0 #25c5bf;
+    font-size:13px;
+    font-weight:700
 }
 
 a.big_button_closed {
-	background: #b84c4c url(images/mobile/gradient.png) bottom left repeat-x;
-	color: #461010;
-	padding: 9px;
-	border: 1px solid #760202;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	text-shadow: 0 1px 0 #e35e5e;
-	font-size: 13px;
-	font-weight: bold;
+    background:#b84c4c url(images/mobile/gradient.png) bottom left repeat-x;
+    color:#461010;
+    padding:9px;
+    border:1px solid #760202;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    text-shadow:0 1px 0 #e35e5e;
+    font-size:13px;
+    font-weight:700
 }
 
 /* Redirect CSS */
 .redirect_title {
-	background: #355B6C url(images/mobile/gradient.png) bottom left repeat-x;
-	color: #FFF;
-	border-bottom: 1px solid #355B6C;
-	padding: 6px 8px;
-	text-align: left;
-	text-shadow: 0 1px 0 #355B6C;
-	
-	font-size: 14px;
-	font-weight: bold;
+    background:#243D54 url(images/mobile/gradient.png) bottom left repeat-x;
+    color:#fff;
+    padding:6px 8px;
+    font-size:14px;
+    font-weight:700
 }
 
 .redirect_body {
-	padding: 8px;
-	text-align: left;
+    padding:8px;
+    text-align:left
 }
 
 .redirect_nowait {
-	background: #eee;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-	padding: 6px;
-	text-align: center;
-	
-	font-size: 12px;
+    background:#eee;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    padding:6px;
+    text-align:center;
+    font-size:12px
 }
 
 .subforum {
-	padding-top: 3px;
-	font-size: 11px;
+    padding-top:3px;
+    font-size:11px
 }
 
 a.lastpost {
-	color: #606060;
-	white-space: nowrap;
-	text-decoration: none;
-	font-weight: bold;
+    color:#606060;
+    white-space:nowrap;
+    text-decoration:none;
+    font-weight:700
 }
 
 a.lastpost img {
-	margin-top: -2px;
+    margin-top:-2px
 }
 
 .lastbytext {
-	color: #DA3D3D;
-	font-size: 11px;
+    color:#888;
+    font-size:11px
 }
 
 .modbox {
-	background: #efe4a5;
-	border: 1px solid #ac9e54;
-	padding: 6px;
-	clear: both;
-	text-align: center;
-	margin-top: 5px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
+    background:#efe4a5;
+    border:1px solid #ac9e54;
+    padding:6px;
+    clear:both;
+    text-align:center;
+    margin-top:5px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px
 }
 
 .hiddenrow {
-	display: none;
+    display:none
 }
 
 .selectall {
-	background: #dac96a;
-	text-align: center;
+    background:#dac96a;
+    text-align:center
 }
 
 #breadcrumb_multipage {
-	display: none;
+    display:none
 }
 
 /* Post Styles */
 .post_author {
-	background: #1B3F51;
-	color: #111;
-	padding: 5px;
-	
-	font-size: 14px;
-	font-weight: bold;
+    background:#b2b2b2;
+    color:#111;
+    padding:5px;
+    font-size:14px;
+    font-weight:700
 }
 
 .portal_avatar img {
-	width: 20px;
-	height: 20px;
+    width:20px;
+    height:20px
 }
 
 .post_ignored {
-	background: #ffdde0;
-	color: #111;
-	border: 1px solid #fcc;
-	padding: 5px;
-	
-	font-size: 13px;
-	font-weight: bold;
+    background:#ffdde0;
+    color:#111;
+    border:1px solid #fcc;
+    padding:5px;
+    font-size:13px;
+    font-weight:700
 }
 
-.post_author a,
-.post_ignored a {
-	color: #FFF;
-	text-decoration: underline;
+.post_author a,.post_ignored a {
+    color:#111;
+    text-decoration:underline
 }
 
 .post_avatar {
-	width: 20px;
-	height: 20px;
+    width:20px;
+    height:20px
 }
 
 .post_body {
-	background: #fff;
-	border: 1px solid #b2b2b2;
-	margin-bottom: 6px;
+    background:#fff;
+    border:1px solid #b2b2b2;
+    margin-bottom:6px
 }
 
 .post_manage {
-	background: #dedede;
-	padding: 4px;
-	text-align: right;
-	
-	font-size: 12px;
+    background:#dedede;
+    padding:4px;
+    text-align:right;
+    font-size:12px
 }
 
 .post_manage a.button {
-	color: #444;
-	padding: 4px;
-	margin: 0 2px;
+    color:#444;
+    padding:4px;
+    margin:0 2px
 }
 
 .post_content {
-	padding: 8px;
-	overflow: auto;
+    padding:8px;
+    overflow:auto
 }
 
 .post_attachments {
-	background: #eee;
-	color: #888;
-	border: 1px solid #bbb;
-	margin: 0 5px 5px 5px;
-	padding: 5px;
+    background:#eee;
+    color:#888;
+    border:1px solid #bbb;
+    margin:0 5px 5px;
+    padding:5px
 }
 
 .datetime {
-	color: #fff;
-	padding-top: 2px;
-	font-weight: normal;
+    color:#fff;
+    padding-top:2px;
+    font-weight:400
 }
 
 /* Adjust for maximum posted image width */
 .post_content img {
-	max-width: 50%;
+    max-width:50%
 }
 
 .lastpost img {
-	height: 10px;
-	width: 10px;
-	margin-top: -2px;
-	vertical-align: middle;
+    height:10px;
+    width:10px;
+    margin-top:-2px;
+    vertical-align:middle
 }
 
 a.tclosed_1 {
-	color: #bb0000;
+    color:#b00
 }
 
-a.forum_on,
-a.forum_minion {
-	color: #629BC3;
+a.forum_on,a.forum_minion {
+    color:#186f97
 }
 
-a.forum_off,
-a.forum_minioff {
-	color: #606060;
-	font-weight: normal;
+a.forum_off,a.forum_minioff {
+    color:#606060;
+    font-weight:400
 }
 
-a.forum_offlock,
-a.forum_miniofflock {
-	color: #a42d16;
-	font-weight: normal;
+a.forum_offlock,a.forum_miniofflock {
+    color:#a42d16;
+    font-weight:400
 }
 
 td.forum_on {
-	background: #e5fbfb;
-	border-bottom: 1px solid #a9cbde;
+    background:#e5fbfb;
+    border-bottom:1px solid #a9cbde
+}]]>
+		</stylesheet>
+		<stylesheet name="showthread.css" attachedto="showthread.php" version="1805"><![CDATA[ul.thread_tools, ul.thread_tools li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+
+ul.thread_tools li.subscription_add a {
+  background: #1B7BCB;
+  color: #FFFFFF;
+}
+
+ul.thread_tools li.subscription_remove a {
+	background: #db7d7d;
+  color: #FFFFFF;
+}
+ul.thread_tools li a {
+  display: block;
+  min-width: 140px;
+  height: 20px;
+  text-align: center;
+  line-height: 25px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #fff;
+  text-decoration: none;
 }
 
 
@@ -1147,7 +1187,7 @@ td.forum_on {
 </tr>
 </table>
 </form>]]></template>
-		<template name="footer" version="1803"><![CDATA[<div class="bottommenu">
+		<template name="footer" version="1805"><![CDATA[<div class="bottommenu">
 					<a href="#top" class="float_right">{$lang->bottomlinks_returntop} <img src="{$theme['imgdir']}/top.gif" class="middle" height="10" width="10" /></a>
 					<a href="{$mybb->settings['gomobile_homelink']}"><img src="{$theme['imgdir']}/home.gif" class="middle" height="10" width="10" /> {$mybb->settings['gomobile_homename']}</a>
 				</div>
@@ -1160,7 +1200,10 @@ td.forum_on {
 					{$auto_dst_detection}
 				<!-- End Do not removes. -->
 			</div>
-		</div>]]></template>
+		</div>
+<!-- Remove "#" from the debug part to enable it.
+<#debugstuff>
+-->]]></template>
 		<template name="forumbit_depth1_cat" version="1601"><![CDATA[<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
 <thead>
 <tr>
@@ -1337,26 +1380,38 @@ td.forum_on {
 	<div><a href="private.php">Unread Message(s).</a></div>
 </div>]]></template>
 		<template name="global_unreadreports" version="1601"><![CDATA[<div class="red_alert" style="text-align: center;"><a href="modcp.php?action=reports">{$lang->gomobile_unreadreports}</a></div>]]></template>
-		<template name="header" version="1803"><![CDATA[<a name="top" id="top"></a>
+		<template name="header" version="1805"><![CDATA[<a name="top" id="top"></a>
 	<div id="header">
-		<div id="panel">
-			{$welcomeblock}
+       <div id="navbar">    
+         {$welcomeblock}
+      </div>
+      
+      <div id="logo">  
+		<h1>
+			<a href="{$mybb->settings['bburl']}/index.php">{$mybb->settings['gomobile_mobile_name']}</a>
+			</h1>
 		</div>
-		<div id="logo">
-  			<a href="/forums"><img style="max-height:35px; max-width:200px; margin-top: -7px;" src="/img/logo-w.png"></a>
-		</div>
-		<div id="menu">
-			<a href="{$mybb->settings['bburl']}/search.php?action=getnew">{$lang->welcome_newposts}</a>
-			<a href="{$mybb->settings['bburl']}/misc.php?action=help">{$lang->toplinks_help}</a>
-			<a href="{$mybb->settings['bburl']}/search.php">{$lang->toplinks_search}</a>
-		</div>
-	</div>
-	<navigation>
+      
+       <div id="panel">   
+	<label for="show-menu" class="show-menu">Show Menu</label>
+	<input type="checkbox" id="show-menu" role="button">
+		<ul id="menu">
+		<li><a href="{$mybb->settings['bburl']}/index.php">{$lang->gomobile_home}</a></li>
+		<li><a href="{$mybb->settings['bburl']}/portal.php">{$lang->toplinks_portal}</a></li>
+		<li><a href="{$mybb->settings['bburl']}/memberlist.php">{$lang->toplinks_memberlist}</a></li>
+		<li><a href="{$mybb->settings['bburl']}/misc.php?action=help">{$lang->toplinks_help}</a></li>
+		<li><a href="{$mybb->settings['bburl']}/search.php">{$lang->toplinks_search}</a></li>
+		<li><a href="{$mybb->settings['bburl']}/search.php?action=getnew">{$lang->welcome_newposts}</a></li>
+	</ul>		
+</div>
+
+
+			
 	<div id="container">
 			{$pm_notice}
 			{$bannedwarning}
 			{$bbclosedwarning}
-			{$unreadreports}]]></template>
+			{$unreadreports}{$myprofile_alertbar}]]></template>
 		<template name="headerinclude" version="1605"><![CDATA[<link rel="alternate" type="application/rss+xml" title="{$lang->latest_threads} (RSS 2.0)" href="{$mybb->settings['bburl']}/syndication.php" />
 <link rel="alternate" type="application/atom+xml" title="{$lang->latest_threads} (Atom 1.0)" href="{$mybb->settings['bburl']}/syndication.php?type=atom1.0" />
 <meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
@@ -1513,6 +1568,136 @@ td.forum_on {
 	<td class="trow2 smalltext" width="25%" align="right"><strong>{$lang->warning_level}</strong></td>
 	<td class="trow2"><a href="{$warning_link}">{$warning_level}</a> {$warn_user}</td>
 </tr>]]></template>
+		<template name="member_register" version="1606"><![CDATA[<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->registration}</title>
+{$headerinclude}
+<script type="text/javascript" src="jscripts/validator.js"></script>
+</head>
+<body>
+{$header}
+<form action="member.php" method="post" id="registration_form"><input type="text" style="visibility: hidden;" value="" name="regcheck1" /><input type="text" style="visibility: hidden;" value="true" name="regcheck2" />
+{$regerrors}
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
+<tr>
+<td class="thead"><strong>{$lang->registration}</strong></td>
+</tr>
+<tr>
+<td class="trow1"><span class="smalltext"><label for="username"><strong>{$lang->username}</strong></label></span><br /><input type="text" class="textbox" name="username" id="username" style="width: 95%" value="{$username}" /></td>
+</tr>
+{$passboxes}
+<tr>
+<td class="trow1"><span class="smalltext"><label for="email"><strong>{$lang->email}</strong></label></span><br /><input type="text" class="textbox" name="email" id="email" style="width: 95%" maxlength="50" value="{$email}" /><br /><br />
+<span class="smalltext"><label for="email2"><strong>{$lang->confirm_email}</strong></label></span><br /><input type="text" class="textbox" name="email2" id="email2" style="width: 95%" maxlength="50" value="{$email2}" />
+<div style="display: none;" id="email_status" class="validation_error">&nbsp;</div></td>
+</tr>
+{$requiredfields}
+{$referrer}
+{$regimage}
+</table>
+</td>
+<td width="50%" class="trow1" valign="top">
+<fieldset class="trow2">
+<legend><strong>{$lang->account_prefs}</strong></legend>
+<table cellspacing="0" cellpadding="{$theme['tablespace']}" width="100%">
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="allownotices" id="allownotices" value="1" {$allownoticescheck} /></td>
+<td valign="top"><span class="smalltext"><label for="allownotices">{$lang->allow_notices}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="hideemail" id="hideemail" value="1" {$hideemailcheck} /></td>
+<td valign="top"><span class="smalltext"><label for="hideemail">{$lang->hide_email}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="receivepms" id="receivepms" value="1" {$receivepmscheck} /></td>
+<td valign="top"><span class="smalltext"><label for="receivepms">{$lang->receive_pms}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="pmnotice" id="pmnotice" value="1"{$pmnoticecheck} /></td>
+<td valign="top"><span class="smalltext"><label for="pmnotice">{$lang->pm_notice}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="emailpmnotify" id="emailpmnotify" value="1" {$emailpmnotifycheck} /></td>
+<td valign="top"><span class="smalltext"><label for="emailpmnotify">{$lang->email_notify_newpm}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="invisible" id="invisible" value="1" {$invisiblecheck} /></td>
+<td valign="top"><span class="smalltext"><label for="invisible">{$lang->invisible_mode}</label></span></td>
+</tr>
+<tr>
+<td colspan="2"><span class="smalltext"><label for="subscriptionmethod">{$lang->subscription_method}</label></span></td>
+</tr>
+<tr>
+<td colspan="2">
+	<select name="subscriptionmethod" id="subscriptionmethod">
+		<option value="0" {$no_subscribe_selected}>{$lang->no_auto_subscribe}</option>
+		<option value="1" {$no_email_subscribe_selected}>{$lang->no_email_subscribe}</option>
+		<option value="2" {$instant_email_subscribe_selected}>{$lang->instant_email_subscribe}</option>
+	</select>
+</td>
+</tr>
+
+</table>
+</fieldset>
+<br />
+<fieldset class="trow2">
+<legend><strong><label for="timezone">{$lang->time_offset}</label></strong></legend>
+<table cellspacing="0" cellpadding="{$theme['tablespace']}" width="100%">
+<tr>
+<td><span class="smalltext">{$lang->time_offset_desc}</span></td>
+</tr>
+<tr>
+<td>{$tzselect}</td>
+</tr>
+<tr>
+<td><span class="smalltext">{$lang->dst_correction}</span></td>
+</tr>
+<tr>
+<td>
+	<select name="dstcorrection">
+		<option value="2" {$dst_auto_selected}>{$lang->dst_correction_auto}</option>
+		<option value="1" {$dst_enabled_selected}>{$lang->dst_correction_enabled}</option>
+		<option value="0" {$dst_disabled_selected}>{$lang->dst_correction_disabled}</option>
+	</select>
+</td>
+</tr>
+</table>
+</fieldset>
+<br />
+<fieldset class="trow2">
+<legend><strong><label for="language">{$lang->lang_select}</label></strong></legend>
+<table cellspacing="0" cellpadding="{$theme['tablespace']}" width="100%">
+<tr>
+<td colspan="2"><span class="smalltext">{$lang->lang_select_desc}</span></td>
+</tr>
+<tr>
+<td><select name="language" id="language"><option value="">{$lang->lang_select_default}</option><option value="">-----------</option>{$langoptions}</select></td>
+</tr>
+</table>
+</fieldset>
+</td>
+</tr>
+</table>
+<br />
+<div align="center">
+<input type="hidden" name="step" value="registration" />
+<input type="hidden" name="action" value="do_register" />
+<input type="submit" class="button" name="regsubmit" value="{$lang->submit_registration}" />
+</div>
+</form>
+<script type="text/javascript">
+<!--
+	regValidator = new FormValidator('registration_form');
+	regValidator.register('username', 'notEmpty', {failure_message:'{$lang->js_validator_no_username}'});
+    regValidator.register('email', 'regexp', {match_field:'email2', regexp:'^([a-zA-Z0-9_\\.\\+\\-])+\\@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9]{2,4})+$', failure_message:'{$lang->js_validator_invalid_email}'});
+	regValidator.register('email2', 'matches', {match_field:'email', status_field:'email_status', failure_message:'{$lang->js_validator_email_match}'});
+{$validator_extra}
+	regValidator.register('username', 'ajax', {url:'xmlhttp.php?action=username_availability', loading_message:'{$lang->js_validator_checking_username}'}); // needs to be last
+// -->
+</script>
+{$footer}
+</body>
+</html>]]></template>
 		<template name="member_register_agreement" version="1413"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->agreement}</title>
@@ -2710,7 +2895,7 @@ td.forum_on {
 		<div class="post_manage"><span style="float: left;">{$lang->posted_by} {$profilelink}</span><a href="{$mybb->settings['bburl']}/sendthread.php?tid={$announcement['tid']}"><img src="{$theme['imgdir']}/send.gif" alt="{$lang->send_to_friend}" title="{$lang->send_to_friend}" /></a></div>
 	</div>
 </div>]]></template>
-		<template name="postbit" version="1601"><![CDATA[{$ignore_bit}
+		<template name="postbit" version="1805"><![CDATA[{$ignore_bit}
 <div id="post_{$post['pid']}" style="{$post_visibility}">
 	<a name="pid{$post['pid']}" id="pid{$post['pid']}"></a>
 	<div class="post_author">
@@ -2720,7 +2905,7 @@ td.forum_on {
 	<div class="post_body">
 		<div class="post_content {$unapproved_shade}">{$post['message']}</div>
 		{$post['attachments']}
-		<div class="post_manage"><span style="float: left;"><img src="{$mybb->settings['bburl']}/{$theme['imgdir']}/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" /></span>{$post['button_warn']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
+		<div class="post_manage"><span style="float: left;"><img src="{$theme['imgdir']}/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" /></span>{$post['button_warn']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
 	</div>
 </div>]]></template>
 		<template name="postbit_attachments" version="1413"><![CDATA[<div class="post_attachments">
@@ -2762,14 +2947,14 @@ td.forum_on {
 </script>]]></template>
 		<template name="postbit_inlinecheck" version="1601"><![CDATA[<input type="checkbox" class="checkbox" name="inlinemod_{$post['pid']}" id="inlinemod_{$post['pid']}" value="1" style="vertical-align: middle; margin: 0;" {$inlinecheck} />]]></template>
 		<template name="postbit_pm" version="1601"><![CDATA[<a href="private.php?action=send&amp;uid={$post['uid']}" class="button">{$lang->gomobile_post_pm}</a>]]></template>
-		<template name="postbit_posturl" version="1601"><![CDATA[<div style="float: right; width: auto; vertical-align: top"><img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.png" alt="" width="{$post['mobile']}6" height="{$post['mobile']}2" title="Arrow indicates this post was sent from GoMobile" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <span class="smalltext"><strong>{$lang->postbit_post} <a href="{$post['postlink']}#pid{$post['pid']}">#{$postcounter}</a></strong>{$post['inlinecheck']}</span></div>]]></template>
+		<template name="postbit_posturl" version="1601"><![CDATA[<div style="float: right; width: auto; vertical-align: top"><img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.png" alt="" width="{$post['mobile']}6" height="{$post['mobile']}2" title="Arrow indicates this post was sent from GoMobile" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <span class="smalltext"><strong>{$lang->postbit_post} <a href="{$post['postlink']}#pid{$post['pid']}">#{$postcounter}</a></strong>{$post['inlinecheck']}</span></div>]]></template>
 		<template name="postbit_quickdelete" version="1601"><![CDATA[<a href="editpost.php?pid={$post['pid']}" onclick="Thread.deletePost({$post['pid']}); return false;" style="display: none;" id="quick_delete_{$post['pid']}" class="button">{$lang->gomobile_post_delete}</a>
 <script type="text/javascript">
 // <!--
 	$('quick_delete_{$post['pid']}').style.display = '';
 // -->
 </script>]]></template>
-		<template name="postbit_quote" version="1804"><![CDATA[ <a href="newreply.php?tid={$tid}&amp;replyto={$post['pid']}" class="button">{$lang->gomobile_post_quote}</a>]]></template>
+		<template name="postbit_quote" version="1601"><![CDATA[<a href="newreply.php?tid={$tid}&amp;pid={$post['pid']}" class="button">{$lang->gomobile_post_quote}</a>]]></template>
 		<template name="postbit_replyall_pm" version="1601"><![CDATA[<a href="private.php?action=send&amp;pmid={$id}&amp;do=replyall" class="button">{$lang->gomobile_pm_replyall}</a>]]></template>
 		<template name="postbit_reply_pm" version="1601"><![CDATA[<a href="private.php?action=send&amp;pmid={$id}&amp;do=reply" class="button">{$lang->gomobile_pm_reply}</a>]]></template>
 		<template name="postbit_reputation" version="1601"><![CDATA[[{$post['userreputation']}]]]></template>
@@ -2781,7 +2966,6 @@ td.forum_on {
 {$attachment['filename']} ({$attachment['size']})
 {$attach_mod_options} {$attach_rem_options} {$postinsert}
 </td></tr>]]></template>
-		<template name="post_attachments_attachment_postinsert" version="1803"><![CDATA[<input type="button" class="button" name="insert" value="{$lang->insert_attachment_post}" onclick="MyBBEditor.insertText('[attachment={$attachment['aid']}]');" />]]></template>
 		<template name="post_attachments_new" version="1606"><![CDATA[<tr><td class="tcat"><strong>{$lang->new_attachment}</strong></td></tr>
 <tr><td class="trow2">
 	<div style="padding-bottom: 10px;"><input type="file" name="attachment" size="30" class="fileupload" /></div>
@@ -3323,7 +3507,7 @@ td.forum_on {
 		<div class="lastbytext">{$lang->gomobile_forum}{$thread['forumlink']}</div>
 	</td>
 </tr>]]></template>
-		<template name="showthread" version="1606"><![CDATA[<html>
+		<template name="showthread" version="1805"><![CDATA[<html>
 <head>
 <title>{$thread['subject']}</title>
 {$headerinclude}
@@ -3370,9 +3554,13 @@ td.forum_on {
 	{$moderationoptions}
 	{$threadexbox}
 	<br />
+	<br/>
 	<ul class="thread_tools">
 		<li class="subscription_{$add_remove_subscription}"><a href="usercp2.php?action={$add_remove_subscription}subscription&amp;tid={$tid}&amp;my_post_key={$mybb->post_code}">{$add_remove_subscription_text}</a></li>
+
 	</ul>
+	<br />
+
 	<br />
 	{$footer}
 </body>
@@ -3503,7 +3691,7 @@ td.forum_on {
 		<tbody style="{$collapsed['quickreply_e']}" id="quickreply_e">
 			<tr>
 				<td class="trow1" align="center">
-					<textarea style="width: 95%;" rows="6" name="message" id="message" tabindex="1"></textarea>{$codebuttons}{$closeoption}
+					<textarea style="width: 95%;" rows="6" name="message" id="message" tabindex="1"></textarea>{$closeoption}
 				</td>
 			</tr>
 			{$captcha}

@@ -1,6 +1,6 @@
 <?php
 /*
-* MyBB GoMobile - 1.2 Language File
+* MyBB GoMobile - 1.3 Language File
 * Licensed under GNU/GPL v3
 */
 
