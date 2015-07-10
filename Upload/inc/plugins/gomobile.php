@@ -1,5 +1,5 @@
 <?php
-	/*
+/*
 * MyBB GoMobile - 1.3
 * Licensed under GNU/GPL v3
 */	// Disallow direct access to this file for security reasons
