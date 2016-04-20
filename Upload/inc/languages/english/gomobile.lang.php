@@ -1,6 +1,6 @@
 <?php
 /*
-* MyBB GoMobile - 1.3 Language File
+* MyBB GoMobile - 1.3.2 Language File
 * Licensed under GNU/GPL v3
 */
 
@@ -57,7 +57,7 @@ $l['gomobile_newsubs'] = "New Posts in Subscribed Threads";
 $l['gomobile_redirect_portal'] = "Your Administrator has chosen to disable viewing the portal while browsing via GoMobile, redirecting to an alternative page...";
 $l['gomobile_use_mobile_version'] = "Use a mobile version if I visit from a mobile device?";
 $l['gomobile_clear_cookies'] = "clear cookies";
-$l['gomobile_switched_version'] = "Switching versions.<br />Please wait while we transfer you back...";
+$l['gomobile_switched_version'] = "Switching version.<br />Please wait while we transfer you back...";
 $l['gomobile_lastpost'] = "Last post: ";
 $l['gomobile_orderby'] = "Order by: ";
 $l['gomobile_forum'] = "Forum: ";
@@ -67,16 +67,20 @@ $l['gomobile_jump_lpost'] = "Last Post";
 $l['gomobile_votes'] = "Votes";
 $l['gomobile_error_message'] = "You don't have permission to access this page. Try logging in below, and if that doesn't work, maybe you're not supposed to be here.";
 $l['gomobile_home'] = "Home";
+$l['gomobile_showmenu'] = "Show Menu";
 
+// UCP Strings
 $l['gomobile_ucp_username'] = "Username:";
 $l['gomobile_ucp_avatar'] = "Avatar:";
 $l['gomobile_ucp_inbox'] = "Inbox";
 
+// PM Strings
 $l['gomobile_pm_reply'] = "Reply";
 $l['gomobile_pm_delete'] = "Delete";
 $l['gomobile_pm_forward'] = "Forward";
 $l['gomobile_pm_replyall'] = "Reply to All";
 
+// MCP Strings
 $l['gomobile_mcp_until'] = " - Until: ";
 $l['gomobile_mcp_reason'] = "Reason: ";
 $l['gomobile_mcp_controls'] = "Controls";
