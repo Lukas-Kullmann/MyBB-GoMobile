@@ -1,6 +1,6 @@
 <?php
 /*
-* MyBB GoMobile - 1.3
+* MyBB GoMobile - 1.3.2
 * Licensed under GNU/GPL v3
 */	// Disallow direct access to this file for security reasons
 	
@@ -24,7 +24,15 @@
 	// Plugin information
 	function gomobile_info(){
 		// Plugin information
-		return array('name'=> 'MyBB GoMobile','description'=> 'The free mobile MyBB solution.',"website"=> "http://www.mybbgm.com","author"=> "MyBB GoMobile","authorsite"=> "http://www.mybbgm.com","version"=> "1.3","compatibility" => "18*");
+	return array(
+		"name"		=> "MyBB GoMobile",
+		"description"		=> "The free mobile MyBB solution.",
+		"website"		=> "http://www.mybbgm.com",
+		"author"		=> "MyBB GoMobile",
+		"authorsite"		=> "http://www.mybbgm.com",
+		"version"		=> "1.3.2",
+		"compatibility"	=> "18*"
+		);
 	}
 
 	// Installation functions
@@ -156,12 +164,10 @@ Dorothy";
 		if($db->field_exists("mobile", "posts")){
 			$db->query("ALTER TABLE ".TABLE_PREFIX."posts DROP COLUMN mobile");
 		}
-
 		
 		if($db->field_exists("mobile", "threads")){
 			$db->query("ALTER TABLE ".TABLE_PREFIX."threads DROP COLUMN mobile");
 		}
-
 		
 		if($db->field_exists("usemobileversion", "users")){
 			$db->query("ALTER TABLE ".TABLE_PREFIX."users DROP COLUMN usemobileversion");
@@ -216,6 +222,7 @@ Dorothy";
 			// Fetch the theme permissions from the database
 			$tquery = $db->simple_select("themes", "*", "tid = '{$mybb->settings['gomobile_theme_id']}
 
+		
 		'");
 		$tperms = $db->fetch_field($tquery, "allowedgroups");
 		
@@ -304,7 +311,9 @@ function gomobile_showthread(){
 	if($pages > 0) {
 		$page_location = " {$lang->gomobile_of}
 
+	
 	 {$pages}
+
 
 ";
 }
@@ -314,8 +323,7 @@ function gomobile_showthread(){
 if($postcount > $perpage){
 	$pj_template = "<div class=\"float_left\" style=\"padding-top: 12px;\">
 			<a href=\"".get_thread_link($thread['tid'])."\" class=\"pagination_a\">{$lang->gomobile_jump_fpost}</a>
-			<a href=\"".get_thread_link($thread['tid'], 0, 'lastpost')."\" class=\"pagination_a\">{$lang->gomobile_jump_lpost}</a>
-			</div>";
+			<a href=\"".get_thread_link($thread['tid'], 0, 'lastpost')."\" class=\"pagination_a\">{$lang->gomobile_jump_lpost}</a></div>";
 $pagejump = $pj_template;
 }
 
@@ -370,8 +378,8 @@ function gomobile_usercp_options(){
 	}
 
 	$usercp_option = '</tr><tr>
-<td valign="top" width="1"><input type="checkbox" class="checkbox" name="usemobileversion" id="usemobileversion" value="1" {$GLOBALS[\'$usemobileversioncheck\']} /></td>
-<td><span class="smalltext"><label for="usemobileversion">{$lang->gomobile_use_mobile_version}</span></td>';
+	<td valign="top" width="1"><input type="checkbox" class="checkbox" name="usemobileversion" id="usemobileversion" value="1" {$GLOBALS[\'$usemobileversioncheck\']} /></td>
+	<td><span class="smalltext"><label for="usemobileversion">{$lang->gomobile_use_mobile_version}</span></td>';
 	$find = '{$lang->show_codebuttons}</label></span></td>';
 	$templates->cache['usercp_options'] = str_replace($find, $find.$usercp_option, $templates->cache['usercp_options']);
 	// We're just viewing the page
