@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<theme name="MyBB GoMobile" version="1805">
+<theme name="MyBB GoMobile" version="1807">
 	<properties>
-		<templateset><![CDATA[8]]></templateset>
+		<templateset><![CDATA[2]]></templateset>
 		<editortheme><![CDATA[default]]></editortheme>
 		<imgdir><![CDATA[images/mobile]]></imgdir>
 		<logo><![CDATA[]]></logo>
 		<tablespace><![CDATA[6]]></tablespace>
 		<borderwidth><![CDATA[0]]></borderwidth>
-		<disporder><![CDATA[a:7:{s:14:"showthread.css";i:1;s:10:"usercp.css";i:2;s:8:"css3.css";i:3;s:9:"modcp.css";i:4;s:17:"thread_status.css";i:5;s:10:"global.css";i:6;s:16:"star_ratings.css";i:7;}]]></disporder>
+		<disporder><![CDATA[a:7:{s:10:"usercp.css";i:1;s:9:"modcp.css";i:2;s:10:"global.css";i:3;s:8:"css3.css";i:4;s:14:"showthread.css";i:5;s:17:"thread_status.css";i:6;s:16:"star_ratings.css";i:7;}]]></disporder>
 	</properties>
 	<stylesheets>
-		<stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1805"><![CDATA[div.usercp_nav_item {
+		<stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1807"><![CDATA[div.usercp_nav_item {
 	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
 	color: #fff;
 	padding: 7px;
@@ -58,9 +58,10 @@ div.usercp_nav_item a {
 		
 		
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="modcp.css" attachedto="modcp.php" version="1805"><![CDATA[div.modcp_nav_item {
+		<stylesheet name="modcp.css" attachedto="modcp.php" version="1807"><![CDATA[div.modcp_nav_item {
 	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
 	color: #fff;
 	padding: 7px;
@@ -105,9 +106,10 @@ div.modcp_nav_item a {
 		
 		
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="global.css" version="1805"><![CDATA[@import //fonts.googleapis.com/css?family=Noto+Sans:400,700;
+		<stylesheet name="global.css" version="1807"><![CDATA[@import //fonts.googleapis.com/css?family=Noto+Sans:400,700;
 
 body {
     background:none repeat scroll 0 0 #EEE!important;
@@ -1066,9 +1068,10 @@ rep-tborder {
     margin:auto;
     border:1px solid #ccc;
     padding:1px
-}]]>
+}
+		]]>
 		</stylesheet>
-		<stylesheet name="showthread.css" attachedto="showthread.php" version="1805"><![CDATA[ul.thread_tools, ul.thread_tools li {
+		<stylesheet name="showthread.css" attachedto="showthread.php" version="1807"><![CDATA[ul.thread_tools, ul.thread_tools li {
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -1096,6 +1099,7 @@ ul.thread_tools li a {
 }
 
 
+		
 		
 		
 		
@@ -1401,7 +1405,7 @@ ul.thread_tools li a {
 	<div><a href="private.php">Unread Message(s).</a></div>
 </div>]]></template>
 		<template name="global_unreadreports" version="1601"><![CDATA[<div class="red_alert" style="text-align: center;"><a href="modcp.php?action=reports">{$lang->gomobile_unreadreports}</a></div>]]></template>
-		<template name="header" version="1805"><![CDATA[<a name="top" id="top"></a>
+		<template name="header" version="1807"><![CDATA[<a name="top" id="top"></a>
 	<div id="header">
        <div id="navbar">    
          {$welcomeblock}
@@ -1414,7 +1418,7 @@ ul.thread_tools li a {
 		</div>
       
        <div id="panel">   
-	<label for="show-menu" class="show-menu">Show Menu</label>
+	<label for="show-menu" class="show-menu">{$lang->gomobile_showmenu}</label>
 	<input type="checkbox" id="show-menu" role="button">
 		<ul id="menu">
 		<li><a href="{$mybb->settings['bburl']}/index.php">{$lang->gomobile_home}</a></li>
@@ -3010,7 +3014,7 @@ $("#backtop").hide();
 {$post['attachmentlist']}
 </div>]]></template>
 		<template name="postbit_attachments_attachment" version="1413"><![CDATA[<div>{$attachment['icon']}&nbsp;&nbsp;<a href="attachment.php?aid={$attachment['aid']}" target="_blank">{$attachment['filename']}</a> ({$lang->postbit_attachment_size} {$attachment['filesize']})</div>]]></template>
-		<template name="postbit_avatar" version="1601"><![CDATA[<a href="{$post['profilelink_plain']}"><img src="{$post['avatar']}" alt="" {$avatar_width_height} class="post_avatar" /></a>]]></template>
+		<template name="postbit_avatar" version="1807"><![CDATA[<a href="{$post['profilelink_plain']}"><img src="{$useravatar['image']}" alt="{$useravatar['width_height']}" class="post_avatar" /></a>]]></template>
 		<template name="postbit_classic" version="1601"><![CDATA[{$ignore_bit}
 <div id="post_{$post['pid']}" style="{$post_visibility}">
 	<a name="pid{$post['pid']}" id="pid{$post['pid']}"></a>
