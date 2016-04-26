@@ -1667,11 +1667,11 @@ $("#backtop").hide();
 	<td class="trow2 smalltext" width="25%" align="right"><strong>{$lang->warning_level}</strong></td>
 	<td class="trow2"><a href="{$warning_link}">{$warning_level}</a> {$warn_user}</td>
 </tr>]]></template>
-		<template name="member_register" version="1606"><![CDATA[<html>
+		<template name="member_register" version="1807"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->registration}</title>
 {$headerinclude}
-<script type="text/javascript" src="jscripts/validator.js"></script>
+<script type="text/javascript" src="{$mybb->asset_url}/jscripts/validate/jquery.validate.min.js?ver=1804"></script>
 </head>
 <body>
 {$header}
@@ -1679,65 +1679,40 @@ $("#backtop").hide();
 {$regerrors}
 <table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
 <tr>
-<td class="thead"><strong>{$lang->registration}</strong></td>
+<td class="thead" colspan="2"><strong>{$lang->registration}</strong></td>
 </tr>
 <tr>
-<td class="trow1"><span class="smalltext"><label for="username"><strong>{$lang->username}</strong></label></span><br /><input type="text" class="textbox" name="username" id="username" style="width: 95%" value="{$username}" /></td>
+<td width="50%" class="trow1" valign="top">
+<fieldset class="trow2">
+<legend><strong>{$lang->account_details}</strong></legend>
+<table cellspacing="0" cellpadding="{$theme['tablespace']}" width="100%">
+<tr>
+<td colspan="2"><span class="smalltext"><label for="username">{$lang->username}</label></span></td>
+</tr>
+<tr>
+<td colspan="2"><input type="text" class="textbox" name="username" id="username" style="width: 100%" value="{$username}" /></td>
 </tr>
 {$passboxes}
 <tr>
-<td class="trow1"><span class="smalltext"><label for="email"><strong>{$lang->email}</strong></label></span><br /><input type="text" class="textbox" name="email" id="email" style="width: 95%" maxlength="50" value="{$email}" /><br /><br />
-<span class="smalltext"><label for="email2"><strong>{$lang->confirm_email}</strong></label></span><br /><input type="text" class="textbox" name="email2" id="email2" style="width: 95%" maxlength="50" value="{$email2}" />
-<div style="display: none;" id="email_status" class="validation_error">&nbsp;</div></td>
-</tr>
-{$requiredfields}
-{$referrer}
-{$regimage}
-</table>
-</td>
-<td width="50%" class="trow1" valign="top">
-<fieldset class="trow2">
-<legend><strong>{$lang->account_prefs}</strong></legend>
-<table cellspacing="0" cellpadding="{$theme['tablespace']}" width="100%">
-<tr>
-<td valign="top" width="1"><input type="checkbox" class="checkbox" name="allownotices" id="allownotices" value="1" {$allownoticescheck} /></td>
-<td valign="top"><span class="smalltext"><label for="allownotices">{$lang->allow_notices}</label></span></td>
+<td width="50%" valign="top"><span class="smalltext"><label for="email">{$lang->email}</label></span></td>
+<td width="50%" valign="top"><span class="smalltext"><label for="email2">{$lang->confirm_email}</label></span></td>
 </tr>
 <tr>
-<td valign="top" width="1"><input type="checkbox" class="checkbox" name="hideemail" id="hideemail" value="1" {$hideemailcheck} /></td>
-<td valign="top"><span class="smalltext"><label for="hideemail">{$lang->hide_email}</label></span></td>
+<td width="50%" valign="top"><input type="text" class="textbox" name="email" id="email" style="width: 100%" maxlength="50" value="{$email}" /></td>
+<td width="50%" valign="top"><input type="text" class="textbox" name="email2" id="email2" style="width: 100%" maxlength="50" value="{$email2}" /></td>
 </tr>
 <tr>
-<td valign="top" width="1"><input type="checkbox" class="checkbox" name="receivepms" id="receivepms" value="1" {$receivepmscheck} /></td>
-<td valign="top"><span class="smalltext"><label for="receivepms">{$lang->receive_pms}</label></span></td>
+	<td colspan="2" style="display: none;" id="email_status">&nbsp;</td>
 </tr>
-<tr>
-<td valign="top" width="1"><input type="checkbox" class="checkbox" name="pmnotice" id="pmnotice" value="1"{$pmnoticecheck} /></td>
-<td valign="top"><span class="smalltext"><label for="pmnotice">{$lang->pm_notice}</label></span></td>
-</tr>
-<tr>
-<td valign="top" width="1"><input type="checkbox" class="checkbox" name="emailpmnotify" id="emailpmnotify" value="1" {$emailpmnotifycheck} /></td>
-<td valign="top"><span class="smalltext"><label for="emailpmnotify">{$lang->email_notify_newpm}</label></span></td>
-</tr>
-<tr>
-<td valign="top" width="1"><input type="checkbox" class="checkbox" name="invisible" id="invisible" value="1" {$invisiblecheck} /></td>
-<td valign="top"><span class="smalltext"><label for="invisible">{$lang->invisible_mode}</label></span></td>
-</tr>
-<tr>
-<td colspan="2"><span class="smalltext"><label for="subscriptionmethod">{$lang->subscription_method}</label></span></td>
-</tr>
-<tr>
-<td colspan="2">
-	<select name="subscriptionmethod" id="subscriptionmethod">
-		<option value="0" {$no_subscribe_selected}>{$lang->no_auto_subscribe}</option>
-		<option value="1" {$no_email_subscribe_selected}>{$lang->no_email_subscribe}</option>
-		<option value="2" {$instant_email_subscribe_selected}>{$lang->instant_email_subscribe}</option>
-	</select>
-</td>
-</tr>
-
+{$hiddencaptcha}
 </table>
 </fieldset>
+{$requiredfields}
+{$customfields}
+{$referrer}
+{$regimage}
+{$questionbox}
+
 <br />
 <fieldset class="trow2">
 <legend><strong><label for="timezone">{$lang->time_offset}</label></strong></legend>
@@ -1762,98 +1737,82 @@ $("#backtop").hide();
 </tr>
 </table>
 </fieldset>
-<br />
-<fieldset class="trow2">
-<legend><strong><label for="language">{$lang->lang_select}</label></strong></legend>
-<table cellspacing="0" cellpadding="{$theme['tablespace']}" width="100%">
-<tr>
-<td colspan="2"><span class="smalltext">{$lang->lang_select_desc}</span></td>
-</tr>
-<tr>
-<td><select name="language" id="language"><option value="">{$lang->lang_select_default}</option><option value="">-----------</option>{$langoptions}</select></td>
-</tr>
-</table>
-</fieldset>
+{$boardlanguage}
 </td>
 </tr>
 </table>
 <br />
 <div align="center">
+<input type="hidden" name="regtime" value="{$time}" />
 <input type="hidden" name="step" value="registration" />
 <input type="hidden" name="action" value="do_register" />
 <input type="submit" class="button" name="regsubmit" value="{$lang->submit_registration}" />
 </div>
+<br />
 </form>
 <script type="text/javascript">
-<!--
-	regValidator = new FormValidator('registration_form');
-	regValidator.register('username', 'notEmpty', {failure_message:'{$lang->js_validator_no_username}'});
-    regValidator.register('email', 'regexp', {match_field:'email2', regexp:'^([a-zA-Z0-9_\\.\\+\\-])+\\@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9]{2,4})+$', failure_message:'{$lang->js_validator_invalid_email}'});
-	regValidator.register('email2', 'matches', {match_field:'email', status_field:'email_status', failure_message:'{$lang->js_validator_email_match}'});
-{$validator_extra}
-	regValidator.register('username', 'ajax', {url:'xmlhttp.php?action=username_availability', loading_message:'{$lang->js_validator_checking_username}'}); // needs to be last
-// -->
+$(document).ready(function() {
+	$("#registration_form").validate({
+		rules: {
+			username: {
+				required: true,
+				minlength: {$mybb->settings['minnamelength']},
+				maxlength: {$mybb->settings['maxnamelength']},
+				remote: {
+					url: "xmlhttp.php?action=username_availability",
+					type: "post",
+					dataType: "json",
+					data:
+					{
+						my_post_key: my_post_key
+					},
+				},
+			},
+			email: {
+				required: true,
+				email: true,
+			},
+			email2: {
+				required: true,
+				email: true,
+				equalTo: "#email"
+			},
+		},
+		messages: {
+			username: {
+				minlength: "{$lang->js_validator_username_length}",
+				maxlength: "{$lang->js_validator_username_length}",
+			},
+			email: "{$lang->js_validator_invalid_email}",
+			email2: "{$lang->js_validator_email_match}",
+		},
+		errorPlacement: function(error, element) {
+			if(element.is(':checkbox') || element.is(':radio'))
+				error.insertAfter($('input[name="' + element.attr('name') + '"]').last().next('span'));
+			else
+				error.insertAfter(element);
+		}
+	});
+
+	{$validator_extra}
+});
 </script>
 {$footer}
 </body>
 </html>]]></template>
-		<template name="member_register_agreement" version="1413"><![CDATA[<html>
-<head>
-<title>{$mybb->settings['bbname']} - {$lang->agreement}</title>
-{$headerinclude}
-</head>
-<body>
-{$header}
-<form action="member.php" method="post">
-<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
-<tr>
-<td class="thead"><strong>{$mybb->settings['bbname']} - {$lang->agreement}</strong></td>
-</tr>
-{$coppa_agreement}
-<tr>
-<td class="trow1 smalltext">
-<p>{$lang->agreement_1}</p>
-<p>{$lang->agreement_2}</p>
-<p>{$lang->agreement_3}</p>
-<p>{$lang->agreement_4}</p>
-<p><strong>{$lang->agreement_5}</strong></p>
-</td>
-</tr>
-</table>
-
-<div align="center">
-<input type="hidden" name="step" value="agreement" />
-<input type="hidden" name="action" value="register" />
-<input type="submit" class="button" name="agree" value="{$lang->i_agree}" />
-</div>
-</form>
-<br />
-{$footer}
-</body>
-</html>]]></template>
-		<template name="member_register_password" version="1413"><![CDATA[<tr>
-	<td class="trow1"><span class="smalltext"><strong>{$lang->password}</strong></span><br /><input type="password" class="textbox" name="password" id="password" style="width: 95%" /><br /><br />
-	<span class="smalltext"><strong>{$lang->confirm_password}</strong></span><br /><input type="password" class="textbox" name="password2" id="password2" style="width: 95%" />
-	<div style="display: none;" id="password_status" class="validation_error">&nbsp;</div></td>
-</tr>]]></template>
-		<template name="member_register_referrer" version="1413"><![CDATA[<tr>
-<td class="trow1"><span class="smalltext"><label for="referrer"><strong>Referrer:<br /></strong>{$lang->referrer_desc}</label></span><br />
-<input type="text" class="textbox" name="referrername" id="referrer" value="{$referrername}" style="width: 95%;" />
-</td>
-</tr>
-<script type="text/javascript" src="jscripts/autocomplete.js?ver=1400"></script>
+		<template name="member_register_regimage" version="1807"><![CDATA[<br />
+<fieldset class="trow2">
 <script type="text/javascript">
 <!--
-	if(use_xmlhttprequest == "1")
-	{
-		new autoComplete("referrer", "xmlhttp.php?action=get_users", {valueSpan: "username"});
-	}
+	lang.captcha_fetch_failure = "{$lang->captcha_fetch_failure}";
 // -->
-</script>]]></template>
-		<template name="member_register_regimage" version="1413"><![CDATA[<script type="text/javascript" src="jscripts/captcha.js?ver=1400"></script>
+</script>
+<script type="text/javascript" src="{$mybb->asset_url}/jscripts/captcha.js?ver=1804"></script>
+<legend><strong>{$lang->image_verification}</strong></legend>
+<table cellspacing="0" cellpadding="{$theme['tablespace']}">
 <tr>
-<td><span class="smalltext"><strong>Human Verification:</strong><br />{$lang->verification_note}</span></td></tr>
-<tr><td align="center"><img src="captcha.php?action=regimage&amp;imagehash={$imagehash}" alt="{$lang->image_verification}" title="{$lang->image_verification}" id="captcha_img" /><br /><span style="color: red;" class="smalltext">{$lang->verification_subnote}</span>
+<td><span class="smalltext" align="center">{$lang->verification_note}</span></td>
+<img src="captcha.php?action=regimage&amp;imagehash={$imagehash}" alt="{$lang->image_verification}" title="{$lang->image_verification}" id="captcha_img" /><br /><span style="color: red;" class="smalltext">{$lang->verification_subnote}</span>
 <script type="text/javascript">
 <!--
 	if(use_xmlhttprequest == "1")
@@ -1862,32 +1821,16 @@ $("#backtop").hide();
 	}
 // -->
 </script>
-</td>
+
 </tr>
 <tr>
 <td><input type="text" class="textbox" name="imagestring" value="" id="imagestring" style="width: 100%;" /><input type="hidden" name="imagehash" value="{$imagehash}" id="imagehash" /></td>
 </tr>
 <tr>
 	<td id="imagestring_status"  style="display: none;" colspan="2">&nbsp;</td>
-</tr>]]></template>
-		<template name="member_register_regimage_recaptcha" version="1605"><![CDATA[<script type="text/javascript">
-<!--
-	var RecaptchaOptions = {
-		theme: 'clean'
-	};
-// -->
-</script>
-<tr><td><span class="smalltext"><strong>{$lang->image_verification}</strong></span></td></tr>
-<tr><td>
-	<table cellspacing="0" cellpadding="{$theme['tablespace']}">
-	<tr>
-		<td><span class="smalltext">{$lang->verification_note}</span></td>
-	</tr>
-	<tr>
-		<td><script type="text/javascript" src="{$server}/challenge?k={$public_key}"></script></td>
-	</tr>
+</tr>
 </table>
-<td></tr>]]></template>
+</fieldset>]]></template>
 		<template name="misc_help_section" version="1413"><![CDATA[<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder" style="clear: both;">
 <thead>
 <tr>
