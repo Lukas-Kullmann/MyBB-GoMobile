@@ -42,7 +42,7 @@ $l['gomobile_post_warn'] = "Warn";
 $l['gomobile_post_pm'] = "PM";
 $l['gomobile_page'] = "Page:";
 $l['gomobile_of'] = "of";
-$l['gomobile_copyrights'] = "<a href='http://mybbgm.com' target='_blank'>MyBB Mobile Version</a>.";
+$l['gomobile_copyrights'] = "<a href='https://github.com/Phumix/MyBB-GoMobile' target='_blank'>MyBB Mobile</a>.";
 $l['gomobile_showsig'] = "Display your Signature?";
 $l['gomobile_disablesmilies'] = "Disable smilies in this message?";
 $l['gomobile_savecopy'] = "Save a copy?";
@@ -86,4 +86,6 @@ $l['gomobile_mcp_reason'] = "Reason: ";
 $l['gomobile_mcp_controls'] = "Controls";
 $l['gomobile_mcp_pid'] = "Post #";
 $l['gomobile_mcp_in'] = " in ";
+$l['gomobile_mcp_reports'] = "Report Center";
+
 ?>
