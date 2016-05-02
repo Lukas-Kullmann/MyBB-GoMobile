@@ -86,9 +86,9 @@ div.modcp_nav_item a {
 }
 
 .modcp_navigation {
-	background: #23a0da url(images/mobile/gradient.png) bottom left repeat-x;
+	background: #23ffaa url(images/mobile/gradient.png) bottom left repeat-x;
 	width: 100%;
-	border: 1px solid #1379a8;
+	border: 1px solid #23ffaa;
 	padding: 4px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
@@ -2664,14 +2664,14 @@ $(document).ready(function() {
 		<label class="label_radio_delete"><input type="radio" class="radio radio_delete" name="threads[{$thread['tid']}]" value="delete" /> {$lang->delete}</label>
 		<label class="label_radio_approve"><input type="radio" class="radio radio_approve" name="threads[{$thread['tid']}]" value="approve" /> {$lang->approve}</label></td>
 </tr>]]></template>
-		<template name="modcp_nav" version="1601"><![CDATA[<table border="0" cellspacing="0" cellpadding="0" class="modcp_navigation">
+		<template name="modcp_nav" version="1807"><![CDATA[<table border="0" cellspacing="0" cellpadding="0" class="modcp_navigation">
 	<tr>
 		<td width="50%"><div class="modcp_nav_item"><a href="modcp.php?action=banning"><img src="{$theme['imgdir']}/cpanels/banning.png" alt="" class="middle" width="16" height="16" /> {$lang->mcp_nav_banning}</a></div></td>
 		<td width="50%"><div class="modcp_nav_item"><a href="modcp.php?action=announcements"><img src="{$theme['imgdir']}/cpanels/announcements.png" alt="" class="middle" width="16" height="16" /> {$lang->mcp_nav_announcements}</a></div></td>
 	</tr>
 	<tr>
 		<td><div class="modcp_nav_item"><a href="modcp.php?action=modqueue"><img src="{$theme['imgdir']}/cpanels/modqueue.png" alt="" class="middle" width="16" height="16" /> {$lang->mcp_nav_modqueue}</a></div></td>
-		<td><div class="modcp_nav_item"><a href="modcp.php?action=reports"><img src="{$theme['imgdir']}/cpanels/reports.png" alt="" class="middle" width="16" height="16" /> {$lang->mcp_nav_reported_posts}</a></div></td>
+		<td><div class="modcp_nav_item"><a href="modcp.php?action=reports"><img src="{$theme['imgdir']}/cpanels/reports.png" alt="" class="middle" width="16" height="16" /> {$lang->gomobile_mcp_reports}</a></div></td>
 	</tr>
 	<tr>
 		<td><div class="modcp_nav_item"><a href="modcp.php?action=modlogs"><img src="{$theme['imgdir']}/cpanels/modlogs.png" alt="" class="middle" width="16" height="16" /> {$lang->mcp_nav_modlogs}</a></div></td>
@@ -2679,9 +2679,9 @@ $(document).ready(function() {
 	</tr>
 </table>
 <br />]]></template>
-		<template name="modcp_reports" version="1607"><![CDATA[<html>
+		<template name="modcp_reports" version="1807"><![CDATA[<html>
 <head>
-<title>{$mybb->settings['bbname']} - {$lang->reported_posts}</title>
+<title>{$mybb->settings['bbname']} - {$lang->gomobile_mcp_reports}</title>
 {$headerinclude}
 </head>
 <body>
@@ -2695,7 +2695,7 @@ $(document).ready(function() {
 <td valign="top">
 <table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
 <tr>
-<td class="thead" align="center" colspan="6"><strong>{$lang->reported_posts_note}</strong></td>
+<td class="thead" align="center" colspan="6"><strong>{$lang->gomobile_mcp_reports}</strong></td>
 </tr>
 <tr>
 <td class="tcat" align="center" width="40%"><span class="smalltext"><strong>{$lang->thread}</strong></span></td>
@@ -2704,7 +2704,7 @@ $(document).ready(function() {
 {$reports}
 {$reportspages}
 <tr>
-<td class="tfoot" colspan="6" align="right"><span class="smalltext"><strong><a href="modcp.php?action=allreports">{$lang->view_all_reported_posts}</a></strong></span></td>
+<td class="tfoot" colspan="6" align="right"><span class="smalltext"><strong><a href="modcp.php?action=allreports">{$lang->view_all_reports}</a></strong></span></td>
 </tr>
 </table>
 <br />
@@ -3920,7 +3920,55 @@ $(document).ready(function() {
 <td class="{$trow}"><strong>{$draft['subject']}</strong><br /><span class="smalltext">{$detail}</span></td>
 <td class="{$trow}" align="right"><a href="{$editurl}">{$lang->edit_draft}</a></td>
 </tr>]]></template>
-		<template name="usercp_email" version="1606"><![CDATA[]]></template>
+		<template name="usercp_email" version="1807"><![CDATA[<html>
+<head>
+<title>{$mybb->settings['bbname']} - {$lang->change_email}</title>
+{$headerinclude}
+</head>
+<body>
+{$header}
+<form action="usercp.php" method="post">
+<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />
+<table width="100%" border="0" align="center">
+<tr>
+{$usercpnav}
+<td valign="top">
+{$errors}
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
+<tr>
+<td class="thead" colspan="2"><strong>{$lang->change_email}</strong></td>
+</tr>
+<tr>
+<td class="tcat" colspan="2"><strong>{$lang->password_confirmation}</strong></td>
+</tr>
+<tr>
+<td class="trow2"><strong>{$lang->current_password}</strong></td>
+<td class="trow1"><input type="password" class="textbox" name="password" size="25" /></td>
+</tr>
+<tr>
+<td class="tcat" colspan="2"><strong>{$lang->please_enter_confirm_new_email}</strong></td>
+</tr>
+<tr>
+<td class="trow2"><strong>{$lang->new_email}</strong></td>
+<td class="trow1"><input type="text" class="textbox" name="email" size="25" maxlength="150" value="{$email}" /></td>
+</tr>
+<tr>
+<td class="trow2"><strong>{$lang->confirm_email}</strong></td>
+<td class="trow1"><input type="text" class="textbox" name="email2" size="25" maxlength="150" value="{$email2}" /></td>
+</tr>
+</table>
+<br />
+<div align="center">
+<input type="hidden" name="action" value="do_email" />
+<input type="submit" class="button" name="submit" value="{$lang->update_email}" />
+</div>
+</td>
+</tr>
+</table>
+</form>
+{$footer}
+</body>
+</html>]]></template>
 		<template name="usercp_forumsubscriptions" version="1601"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->forum_subscriptions}</title>
@@ -4215,7 +4263,7 @@ $(document).ready(function() {
 {$footer}
 </body>
 </html>]]></template>
-		<template name="usercp_password" version="1601"><![CDATA[<html>
+		<template name="usercp_password" version="1807"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->change_password}</title>
 {$headerinclude}
@@ -4229,9 +4277,9 @@ $(document).ready(function() {
 {$errors}
 <table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
 <tr><td class="thead"><strong>{$lang->change_password}</strong></td></tr>
-<tr><td class="tcat"><strong>{$lang->current_password}:</strong></td></tr>
-<tr><td class="trow1" align="center"><input type="password" class="textbox" name="oldpassword" size="25" /></td></tr>
-<tr><td class="tcat"><strong>{$lang->new_password}:</strong></td></tr>
+<tr><td class="tcat"><strong>{$lang->current_password}</strong></td></tr>
+<tr><td class="trow1"><input type="password" class="textbox" name="oldpassword" size="25" /></td></tr>
+<tr><td class="tcat"><strong>{$lang->new_password}</strong></td></tr>
 <tr><td class="trow1"><input type="password" class="textbox" name="password" size="25" /></td></tr>
 <tr><td class="tcat"><strong>{$lang->confirm_password}</strong></td></tr>
 <tr><td class="trow1"><input type="password" class="textbox" name="password2" size="25" /></td></tr>
