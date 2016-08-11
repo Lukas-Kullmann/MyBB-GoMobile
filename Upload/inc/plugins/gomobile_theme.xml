@@ -1,66 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <theme name="MyBB GoMobile" version="1807">
 	<properties>
-		<templateset><![CDATA[2]]></templateset>
+		<templateset><![CDATA[7]]></templateset>
 		<editortheme><![CDATA[default]]></editortheme>
 		<imgdir><![CDATA[images/mobile]]></imgdir>
 		<logo><![CDATA[]]></logo>
 		<tablespace><![CDATA[6]]></tablespace>
 		<borderwidth><![CDATA[0]]></borderwidth>
-		<disporder><![CDATA[a:7:{s:10:"usercp.css";i:1;s:9:"modcp.css";i:2;s:10:"global.css";i:3;s:8:"css3.css";i:4;s:14:"showthread.css";i:5;s:17:"thread_status.css";i:6;s:16:"star_ratings.css";i:7;}]]></disporder>
+		<disporder><![CDATA[a:7:{s:10:"usercp.css";i:1;s:9:"modcp.css";i:2;s:14:"showthread.css";i:3;s:8:"css3.css";i:4;s:10:"global.css";i:5;s:17:"thread_status.css";i:6;s:16:"star_ratings.css";i:7;}]]></disporder>
 	</properties>
 	<stylesheets>
-		<stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1807"><![CDATA[div.usercp_nav_item {
-	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
-	color: #fff;
-	padding: 7px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	font-size: 11px;
-	font-weight: bold;
-}
-
-div.usercp_nav_item a {
-	width: 100%;
-	color: #fff;
-	height: 100%;
-	display: block;
-	text-decoration: none;
-}
-
-.usercp_notepad {
-	width: 95%;
-}
-
-.usercp_container {
-	margin: 5px;
-	padding: 8px;
-	border:1px solid #CCCCCC;
-}
-
-.usercp_navigation {
-  background: #23ffaa url(images/mobile/gradient.png) bottom left repeat-x;
-  width: 100%;
-  border: 1px solid #23ffaa;
-  padding: 0px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-}
-
-.usercp_navigation td {
-	padding: 3px;
-	text-align: left;
-}
-
-		
-		
-		
-		
-		
-		
-		
-		]]>
-		</stylesheet>
 		<stylesheet name="modcp.css" attachedto="modcp.php" version="1807"><![CDATA[div.modcp_nav_item {
 	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
 	color: #fff;
@@ -107,6 +56,7 @@ div.modcp_nav_item a {
 		
 		
 		
+		
 		]]>
 		</stylesheet>
 		<stylesheet name="showthread.css" attachedto="showthread.php" version="1807"><![CDATA[ul.thread_tools, ul.thread_tools li {
@@ -145,6 +95,7 @@ ul.thread_tools li a {
 }
 
 
+		
 		
 		
 		
@@ -277,12 +228,12 @@ input[type=checkbox]:checked ~ #menu {
 
 #navbar a:hover {
     background: #344B61;
-    text-decoration:none
+    text-decoration: none;
 }
 
 a {
-    color:#186f97;
-    text-decoration:none
+    color: #186f97;
+    text-decoration: none;
 }
 
 img.middle {
@@ -1048,6 +999,26 @@ a.lastpost img {
     overflow: auto;
 }
 
+.post_content ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    position: static;
+}
+
+.post_content ul > li {
+    display: list-item;
+    float: none;
+}
+
+.post_content ol {
+    position: static;
+}
+
+.post_content ol > li {
+    display: list-item;
+    float: none;
+}
+
 .post_attachments {
     background: #eee;
     color: #888;
@@ -1112,6 +1083,58 @@ rep-tborder {
     border: 1px solid #ccc;
     padding: 1px;
 }]]>
+		</stylesheet>
+		<stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1807"><![CDATA[div.usercp_nav_item {
+	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
+	color: #fff;
+	padding: 7px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+div.usercp_nav_item a {
+	width: 100%;
+	color: #fff;
+	height: 100%;
+	display: block;
+	text-decoration: none;
+}
+
+.usercp_notepad {
+	width: 95%;
+}
+
+.usercp_container {
+	margin: 5px;
+	padding: 8px;
+	border:1px solid #CCCCCC;
+}
+
+.usercp_navigation {
+  background: #23ffaa url(images/mobile/gradient.png) bottom left repeat-x;
+  width: 100%;
+  border: 1px solid #23ffaa;
+  padding: 0px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.usercp_navigation td {
+	padding: 3px;
+	text-align: left;
+}
+
+		
+		
+		
+		
+		
+		
+		
+		
+		]]>
 		</stylesheet>
 	</stylesheets>
 	<templates>
@@ -2996,7 +3019,7 @@ $(document).ready(function() {
 </script>]]></template>
 		<template name="postbit_inlinecheck" version="1601"><![CDATA[<input type="checkbox" class="checkbox" name="inlinemod_{$post['pid']}" id="inlinemod_{$post['pid']}" value="1" style="vertical-align: middle; margin: 0;" {$inlinecheck} />]]></template>
 		<template name="postbit_pm" version="1601"><![CDATA[<a href="private.php?action=send&amp;uid={$post['uid']}" class="button">{$lang->gomobile_post_pm}</a>]]></template>
-		<template name="postbit_posturl" version="1601"><![CDATA[<div style="float: right; width: auto; vertical-align: top"><img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.png" alt="" width="{$post['mobile']}6" height="{$post['mobile']}2" title="Arrow indicates this post was sent from GoMobile" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <span class="smalltext"><strong>{$lang->postbit_post} <a href="{$post['postlink']}#pid{$post['pid']}">#{$postcounter}</a></strong>{$post['inlinecheck']}</span></div>]]></template>
+		<template name="postbit_posturl" version="1601"><![CDATA[<div style="float: right; width: auto; vertical-align: top"><img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.png" alt="" width="{$post['mobile']}6" height="{$post['mobile']}2" title="Arrow indicates this post was sent from GoMobile" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <span class="smalltext"><strong>{$lang->postbit_post} <a href="{$post['postlink']}#pid{$post['pid']}">#{$postcounter}</a></strong>{$post['inlinecheck']}</span></div>]]></template>
 		<template name="postbit_quickdelete" version="1601"><![CDATA[<a href="editpost.php?pid={$post['pid']}" onclick="Thread.deletePost({$post['pid']}); return false;" style="display: none;" id="quick_delete_{$post['pid']}" class="button">{$lang->gomobile_post_delete}</a>
 <script type="text/javascript">
 // <!--
