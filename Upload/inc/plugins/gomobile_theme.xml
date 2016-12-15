@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<theme name="MyBB GoMobile" version="1807">
+<theme name="MyBB GoMobile" version="1808">
 	<properties>
-		<templateset><![CDATA[7]]></templateset>
+		<templateset><![CDATA[2]]></templateset>
 		<editortheme><![CDATA[default]]></editortheme>
 		<imgdir><![CDATA[images/mobile]]></imgdir>
 		<logo><![CDATA[]]></logo>
 		<tablespace><![CDATA[6]]></tablespace>
 		<borderwidth><![CDATA[0]]></borderwidth>
-		<disporder><![CDATA[a:7:{s:10:"usercp.css";i:1;s:9:"modcp.css";i:2;s:14:"showthread.css";i:3;s:8:"css3.css";i:4;s:10:"global.css";i:5;s:17:"thread_status.css";i:6;s:16:"star_ratings.css";i:7;}]]></disporder>
+		<disporder><![CDATA[a:7:{s:9:"modcp.css";i:1;s:14:"showthread.css";i:2;s:10:"global.css";i:3;s:10:"usercp.css";i:4;s:8:"css3.css";i:5;s:17:"thread_status.css";i:6;s:16:"star_ratings.css";i:7;}]]></disporder>
 	</properties>
 	<stylesheets>
-		<stylesheet name="modcp.css" attachedto="modcp.php" version="1807"><![CDATA[div.modcp_nav_item {
+		<stylesheet name="modcp.css" attachedto="modcp.php" version="1808"><![CDATA[div.modcp_nav_item {
 	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
 	color: #fff;
 	padding: 7px;
@@ -49,17 +49,18 @@ div.modcp_nav_item a {
 }
 
 
-		
-		
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
+
+
+
 		]]>
 		</stylesheet>
-		<stylesheet name="showthread.css" attachedto="showthread.php" version="1807"><![CDATA[ul.thread_tools, ul.thread_tools li {
+		<stylesheet name="showthread.css" attachedto="showthread.php" version="1808"><![CDATA[ul.thread_tools, ul.thread_tools li {
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -69,18 +70,18 @@ div.modcp_nav_item a {
 ul.thread_tools li.subscription_add a {
   background: #06506D;
   color: #FFFFFF;
-border-radius: 6px; 
--moz-border-radius: 6px; 
--webkit-border-radius: 6px; 
+border-radius: 6px;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
 border: 0px inset #808080;
 }
 
 ul.thread_tools li.subscription_remove a {
     background: #113E63;
     color: #FFFFFF;
-border-radius: 6px; 
--moz-border-radius: 6px; 
--webkit-border-radius: 6px; 
+border-radius: 6px;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
 border: 0px inset #808080;
 }
 ul.thread_tools li a {
@@ -94,16 +95,15 @@ ul.thread_tools li a {
   text-decoration: none;
 }
 
+.post_manage .postbit_multiquote:before {
+	content: "+ ";
+}
 
-		
-		
-		
-		
-		
-		
-		]]>
+.post_manage .postbit_multiquote_on:before {
+	content: "- ";
+}]]>
 		</stylesheet>
-		<stylesheet name="global.css" version="1807"><![CDATA[@import  //fonts.googleapis.com/css?family=Noto+Sans:400,700;
+		<stylesheet name="global.css" version="1808"><![CDATA[@import  //fonts.googleapis.com/css?family=Noto+Sans:400,700;
 
 body {
     background: none repeat scroll 0 0 #EEE !important;
@@ -850,7 +850,7 @@ div.big_button {
     padding: 10px 0 15px;
 }
 
-a.big_button {
+a.big_button, .jqi .jqibutton {
     background: #14aea8 url(images/mobile/gradient.png) bottom left repeat-x;
     color: #023836;
     padding: 9px;
@@ -1082,9 +1082,33 @@ rep-tborder {
     margin: auto;
     border: 1px solid #ccc;
     padding: 1px;
+}
+
+/** jQi box**/
+
+.jqibox {
+	background-color: rgba(0,0,0,0.5);
+}
+
+.jqibox .jqi {
+	background-color: #FFF;
+	padding: 1em;
+}
+
+.jqibox .jqiclose {
+	float: right;
+}
+
+.jqibox .jqimessage {
+	padding-bottom: 1em;
+}
+
+.jqibox .jqibuttons {
+	display: flex;
+	justify-content: space-around;
 }]]>
 		</stylesheet>
-		<stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1807"><![CDATA[div.usercp_nav_item {
+		<stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1808"><![CDATA[div.usercp_nav_item {
 	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
 	color: #fff;
 	padding: 7px;
@@ -1126,14 +1150,15 @@ div.usercp_nav_item a {
 	text-align: left;
 }
 
-		
-		
-		
-		
-		
-		
-		
-		
+
+
+
+
+
+
+
+
+
 		]]>
 		</stylesheet>
 	</stylesheets>
@@ -1437,17 +1462,17 @@ div.usercp_nav_item a {
 		<template name="global_unreadreports" version="1601"><![CDATA[<div class="red_alert" style="text-align: center;"><a href="modcp.php?action=reports">{$lang->gomobile_unreadreports}</a></div>]]></template>
 		<template name="header" version="1807"><![CDATA[<a name="top" id="top"></a>
 	<div id="header">
-       <div id="navbar">    
+       <div id="navbar">
          {$welcomeblock}
       </div>
-      
-      <div id="logo">  
+
+      <div id="logo">
 		<h1>
 			<a href="{$mybb->settings['bburl']}/index.php">{$mybb->settings['gomobile_mobile_name']}</a>
 			</h1>
 		</div>
-      
-       <div id="panel">   
+
+       <div id="panel">
 	<label for="show-menu" class="show-menu">{$lang->gomobile_showmenu}</label>
 	<input type="checkbox" id="show-menu" role="button">
 		<ul id="menu">
@@ -1461,13 +1486,13 @@ div.usercp_nav_item a {
 </div>
 <br />
 
-			
+
 	<div id="container">
 			{$pm_notice}
 			{$bannedwarning}
 			{$bbclosedwarning}
 			{$unreadreports}{$myprofile_alertbar}]]></template>
-		<template name="headerinclude" version="1805"><![CDATA[<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<template name="headerinclude" version="1808"><![CDATA[<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript">
 jQuery.noConflict();
 jQuery(document).ready(function($){
@@ -1485,12 +1510,12 @@ jQuery(document).ready(function($){
           $(this).removeClass("plus");
       }
   );
-$(".user_avatar[src='']").attr("src", default_avatar);  
+$(".user_avatar[src='']").attr("src", default_avatar);
 $(".forumbit_subforums").each(function () {
  if($(this).length){
   $(this).parents(".rowbit").find("a[data-subforum]").addClass("smalltext").attr("data-subforum", "true");
  }
-}); 
+});
 jQuery(function($) {
 $("#backtop").hide();
   $(window).scroll(function () {
@@ -1506,18 +1531,11 @@ $("#backtop").hide();
     }, 1000);
     return false;
   });
-}); 
+});
 });
 </script>
 
 {$stylesheets}
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="{$mybb->settings['bburl']}/images/mobile/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-  jQuery.noConflict();
-</script>
-<link href="{$mybb->settings['bburl']}/images/mobile/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="{$mybb->settings['bburl']}/images/mobile/css/font-awesome.min.css">
 <link rel="alternate" type="application/rss+xml" title="{$lang->latest_threads} (RSS 2.0)" href="{$mybb->settings['bburl']}/syndication.php" />
 <link rel="alternate" type="application/atom+xml" title="{$lang->latest_threads} (Atom 1.0)" href="{$mybb->settings['bburl']}/syndication.php?type=atom1.0" />
 <meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
@@ -2967,17 +2985,17 @@ $(document).ready(function() {
 		<div class="post_manage"><span style="float: left;">{$lang->posted_by} {$profilelink}</span><a href="{$mybb->settings['bburl']}/sendthread.php?tid={$announcement['tid']}"><img src="{$theme['imgdir']}/send.gif" alt="{$lang->send_to_friend}" title="{$lang->send_to_friend}" /></a></div>
 	</div>
 </div>]]></template>
-		<template name="postbit" version="1805"><![CDATA[{$ignore_bit}
+		<template name="postbit" version="1808"><![CDATA[{$ignore_bit}
 <div id="post_{$post['pid']}" style="{$post_visibility}">
 	<a name="pid{$post['pid']}" id="pid{$post['pid']}"></a>
 	<div class="post_author">
 		<span class="float_right datetime smalltext">({$post['postdate']} {$post['posttime']}) </span>
 		{$post['useravatar']} {$post['profilelink']} {$post['replink']}
 	</div>
-	<div class="post_body">
+	<div class="post_body" id="post_body_{$post['pid']}">
 		<div class="post_content {$unapproved_shade}">{$post['message']}</div>
 		{$post['attachments']}
-		<div class="post_manage"><span style="float: left;"><img src="{$theme['imgdir']}/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" /></span>{$post['button_warn']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
+		<div class="post_manage"><span style="float: left;"><img src="{$theme['imgdir']}/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" /></span>{$post['button_warn']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_multiquote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
 	</div>
 </div>]]></template>
 		<template name="postbit_attachments" version="1413"><![CDATA[<div class="post_attachments">
@@ -3019,11 +3037,11 @@ $(document).ready(function() {
 </script>]]></template>
 		<template name="postbit_inlinecheck" version="1601"><![CDATA[<input type="checkbox" class="checkbox" name="inlinemod_{$post['pid']}" id="inlinemod_{$post['pid']}" value="1" style="vertical-align: middle; margin: 0;" {$inlinecheck} />]]></template>
 		<template name="postbit_pm" version="1601"><![CDATA[<a href="private.php?action=send&amp;uid={$post['uid']}" class="button">{$lang->gomobile_post_pm}</a>]]></template>
-		<template name="postbit_posturl" version="1601"><![CDATA[<div style="float: right; width: auto; vertical-align: top"><img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.png" alt="" width="{$post['mobile']}6" height="{$post['mobile']}2" title="Arrow indicates this post was sent from GoMobile" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <span class="smalltext"><strong>{$lang->postbit_post} <a href="{$post['postlink']}#pid{$post['pid']}">#{$postcounter}</a></strong>{$post['inlinecheck']}</span></div>]]></template>
-		<template name="postbit_quickdelete" version="1601"><![CDATA[<a href="editpost.php?pid={$post['pid']}" onclick="Thread.deletePost({$post['pid']}); return false;" style="display: none;" id="quick_delete_{$post['pid']}" class="button">{$lang->gomobile_post_delete}</a>
+		<template name="postbit_posturl" version="1601"><![CDATA[<div style="float: right; width: auto; vertical-align: top"><img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.png" alt="" width="{$post['mobile']}6" height="{$post['mobile']}2" title="Arrow indicates this post was sent from GoMobile" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <span class="smalltext"><strong>{$lang->postbit_post} <a href="{$post['postlink']}#pid{$post['pid']}">#{$postcounter}</a></strong>{$post['inlinecheck']}</span></div>]]></template>
+		<template name="postbit_quickdelete" version="1808"><![CDATA[<a href="editpost.php?pid={$post['pid']}" onclick="Thread.deletePost({$post['pid']}); return false;" style="display: none;" id="quick_delete_{$post['pid']}" class="button">{$lang->gomobile_post_delete}</a>
 <script type="text/javascript">
 // <!--
-	$('quick_delete_{$post['pid']}').style.display = '';
+	$('#quick_delete_{$post['pid']}').css('display', '');
 // -->
 </script>]]></template>
 		<template name="postbit_quote" version="1807"><![CDATA[<a href="newreply.php?tid={$tid}&amp;replyto={$post['pid']}" class="button">{$lang->gomobile_post_quote}</a>]]></template>
@@ -3643,10 +3661,31 @@ $(document).ready(function() {
 		<div class="lastbytext">{$lang->gomobile_forum}{$thread['forumlink']}</div>
 	</td>
 </tr>]]></template>
-		<template name="showthread" version="1805"><![CDATA[<html>
+		<template name="showthread" version="1808"><![CDATA[<html>
 <head>
 <title>{$thread['subject']}</title>
 {$headerinclude}
+<script type="text/javascript">
+<!--
+	var quickdelete_confirm = "{$lang->quickdelete_confirm}";
+	var quickrestore_confirm = "{$lang->quickrestore_confirm}";
+	var allowEditReason = "{$mybb->settings['alloweditreason']}";
+	lang.save_changes = "{$lang->save_changes}";
+	lang.cancel_edit = "{$lang->cancel_edit}";
+	lang.quick_edit_update_error = "{$lang->quick_edit_update_error}";
+	lang.quick_reply_post_error = "{$lang->quick_reply_post_error}";
+	lang.quick_delete_error = "{$lang->quick_delete_error}";
+	lang.quick_delete_success = "{$lang->quick_delete_success}";
+	lang.quick_delete_thread_success = "{$lang->quick_delete_thread_success}";
+	lang.quick_restore_error = "{$lang->quick_restore_error}";
+	lang.quick_restore_success = "{$lang->quick_restore_success}";
+	lang.editreason = "{$lang->postbit_editreason}";
+// -->
+</script>
+<!-- jeditable (jquery) -->
+<script type="text/javascript" src="{$mybb->asset_url}/jscripts/report.js?ver=1804"></script>
+<script src="{$mybb->asset_url}/jscripts/jeditable/jeditable.min.js"></script>
+<script type="text/javascript" src="{$mybb->asset_url}/jscripts/thread.js?ver=1808"></script>
 </head>
 <body>
 	{$header}
