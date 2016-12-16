@@ -5,7 +5,7 @@
 
 function gomobile_forcetheme()
 {
-    global $db, $mybb, $plugins, $lang, $current_page;
+    global $db, $mybb, $plugins, $current_page;
 
     // We're going to work around the per forum theme setting by altering the $current_page value throughout global.php
     // Then set it back to what it's supposed to be at global_end so it doesn't muck anything up (hopefully)
@@ -22,7 +22,7 @@ function gomobile_forcetheme()
         "moderation.php"
     );
 
-    $lang->load("gomobile");
+    gomobile_load_language();
 
     if($mybb->session->is_spider == false){
         // Force some changes to our footer, but only if we're not a bot

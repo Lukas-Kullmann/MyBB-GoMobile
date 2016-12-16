@@ -27,12 +27,16 @@ $plugins->add_hook("usercp_do_options_end", "gomobile_usercp_options");
 // Misc. hooks
 $plugins->add_hook("misc_start", "gomobile_switch_version");
 
+// Settings
+$plugins->add_hook("admin_config_settings_change", "gomobile_load_language");
+
 // Require functions
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_fixcurrentpage.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_forcefooter.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_forcetheme.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_info.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_install.php';
+require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_load_language.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_is_installed.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_posts.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_showthread.php';

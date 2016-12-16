@@ -6,22 +6,22 @@
 
 
 // Setting Strings
-$l['gomobile_settings_mobile_name_title'] = "Mobile Board Name";
-$l['gomobile_settings_mobile_name'] = "Use this setting to shorten both your header and breadcrumb (navigation) text. You may use full HTML formatting.";
-$l['gomobile_settings_redirect_enabled_title'] = "Enable Portal Redirect?";
-$l['gomobile_settings_redirect_enabled'] = "Enable or disable the GoMobile portal redirect. Enabling this will automatically redirect users who visit to portal on their mobile, to a page of your choice instead.";
-$l['gomobile_settings_redirect_location_title'] = "Redirect Location";
-$l['gomobile_settings_redirect_location'] = "Enter the location (relative) that you would like to redirect users to. Ignore this if the redirect option above is not enabled.";
-$l['gomobile_settings_theme_id_title'] = "Theme ID";
-$l['gomobile_settings_theme_id'] = "Enter the tid (Theme ID) of GoMobile below. This is used to switch the user to the mobile version.";
-$l['gomobile_settings_permstoggle_title'] = "Use theme permissions?";
-$l['gomobile_settings_permstoggle'] = "Enable this setting to use the theme-specific usage permissions. If disabled, all groups will be able to use GoMobile. Selecting NO also saves a query, and is recommended unless you require theme permissions.";
-$l['gomobile_settings_homename_title'] = "Home Name";
-$l['gomobile_settings_homename'] = "This is the text that will appear in the footer of GoMobile in place of the home link. It is recommended that you keep this to as few charaters as possible.";
-$l['gomobile_settings_homelink_title'] = "Home Link";
-$l['gomobile_settings_homelink'] = "Below is the link that appears in the footer of GoMobile.";
-$l['gomobile_settings_strings_title'] = "User Agent Strings";
-$l['gomobile_settings_strings'] = "Separated by a new line, enter the strings you wish to check for and then send to the mobile theme. You should not normally need to adjust this.";
+$l['setting_gomobile_mobile_name'] = "Mobile Board Name";
+$l['setting_gomobile_mobile_name_desc'] = "Use this setting to shorten both your header and breadcrumb (navigation) text. You may use full HTML formatting.";
+$l['setting_gomobile_redirect_enabled'] = "Enable Portal Redirect?";
+$l['setting_gomobile_redirect_enabled_desc'] = "Enable or disable the GoMobile portal redirect. Enabling this will automatically redirect users who visit to portal on their mobile, to a page of your choice instead.";
+$l['setting_gomobile_redirect_location'] = "Redirect Location";
+$l['setting_gomobile_redirect_location_desc'] = "Enter the location (relative) that you would like to redirect users to. Ignore this if the redirect option above is not enabled.";
+$l['setting_gomobile_theme_id'] = "Theme ID";
+$l['setting_gomobile_theme_id_desc'] = "Enter the tid (Theme ID) of GoMobile below. This is used to switch the user to the mobile version.";
+$l['setting_gomobile_permstoggle'] = "Use theme permissions?";
+$l['setting_gomobile_permstoggle_desc'] = "Enable this setting to use the theme-specific usage permissions. If disabled, all groups will be able to use GoMobile. Selecting NO also saves a query, and is recommended unless you require theme permissions.";
+$l['setting_gomobile_homename'] = "Home Name";
+$l['setting_gomobile_homename_desc'] = "This is the text that will appear in the footer of GoMobile in place of the home link. It is recommended that you keep this to as few charaters as possible.";
+$l['setting_gomobile_homelink'] = "Home Link";
+$l['setting_gomobile_homelink_desc'] = "Below is the link that appears in the footer of GoMobile.";
+$l['setting_gomobile_strings'] = "User Agent Strings";
+$l['setting_gomobile_strings_desc'] = "Separated by a new line, enter the strings you wish to check for and then send to the mobile theme. You should not normally need to adjust this.";
 
 // Misc. strings used through GoMobile
 $l['gomobile_mobile_version'] = "Mobile Version";
@@ -88,4 +88,3 @@ $l['gomobile_mcp_pid'] = "Post #";
 $l['gomobile_mcp_in'] = " in ";
 $l['gomobile_mcp_reports'] = "Report Center";
 
-?>

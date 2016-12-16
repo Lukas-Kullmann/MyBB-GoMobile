@@ -2,7 +2,7 @@
 // Installation functions
 
 function gomobile_install(){
-    global $db, $mybb;
+    global $db, $mybb, $lang;
     // Clean up the database before installing
     // MyBB tables cleanup
 
@@ -88,14 +88,73 @@ Doris
 Dorothy";
     // Edit existing templates (shows when posts are from GoMobile)
     require_once MYBB_ROOT."inc/adminfunctions_templates.php";
-    find_replace_templatesets("postbit_posturl", '#'.preg_quote('<span').'#', '<img src="{$mybb->settings[\'bburl\']}/images/mobile/posted_{$post[\'mobile\']}.gif" alt="" width="{$post[\'mobile\']}8" height="{$post[\'mobile\']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> '.'<span');
+    
+    find_replace_templatesets(
+        "postbit_posturl",
+        '#'.preg_quote('<span').'#', 
+        '<img src="{$mybb->settings[\'bburl\']}/images/mobile/posted_{$post[\'mobile\']}.gif" alt="" width="{$post[\'mobile\']}8" height="{$post[\'mobile\']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> '.'<span'
+    );
+    
     // Prepare to insert the settings
-    $setting_group = array("gid" => 0,"name" => "gomobile","title" => "GoMobile Settings","description" => "Options, settings and strings used by MyBB GoMobile.","disporder" => 1,"isdefault" => 0,);
+    $setting_group = array(
+        "gid"         => 0,
+        "name"        => "gomobile",
+        "title"       => "GoMobile Settings",
+        "description" => "Options, settings and strings used by MyBB GoMobile.",
+        "disporder"   => 1,
+        "isdefault"   => 0
+    );
+    
     $gid = $db->insert_query("settinggroups", $setting_group);
     $dispnum = 0;
-    global $lang;
-    $lang->load("../gomobile");
-    $settings = array("gomobile_mobile_name" => array("title"=> $lang->gomobile_settings_mobile_name_title,"description"=> $lang->gomobile_settings_mobile_name,"optionscode"=> "text","value"=> $db->escape_string($mybb->settings['bbname']),"disporder"=> ++$dispnum),"gomobile_theme_id" => array("title"=> $lang->gomobile_settings_theme_id_title,"description"=> $lang->gomobile_settings_theme_id,"optionscode"=> "text","value"=> $theme,"disporder"=> ++$dispnum),"gomobile_permstoggle" => array("title"=> $lang->gomobile_settings_permstoggle_title,"description"=> $lang->gomobile_settings_permstoggle,"optionscode"=> "yesno","value"=> 0,"disporder"=> ++$dispnum),"gomobile_homename" => array("title"=> $lang->gomobile_settings_homename_title,"description"=> $lang->gomobile_settings_homename,"optionscode"=> "text","value"=> $db->escape_string($mybb->settings['homename']),"disporder"=> ++$dispnum),"gomobile_homelink" => array("title"=> $lang->gomobile_settings_homelink_title,"description"=> $lang->gomobile_settings_homelink,"optionscode"=> "text","value"=> $db->escape_string($mybb->settings['homeurl']),"disporder"=> ++$dispnum),"gomobile_strings" => array("title"=> $lang->gomobile_settings_strings_title,"description"=> $lang->gomobile_settings_strings,"optionscode"=> "textarea","value"=> $db->escape_string($strings),"disporder"=> ++$dispnum));
+    
+    gomobile_load_language();
+    
+    $settings = array(
+        "gomobile_mobile_name" => array(
+            "title"       => $lang->setting_gomobile_mobile_name,
+            "description" => $lang->setting_gomobile_mobile_name_desc,
+            "optionscode" => "text",
+            "value"       => $db->escape_string($mybb->settings['bbname']),
+            "disporder"   => ++$dispnum
+        ),
+        "gomobile_theme_id" => array(
+            "title"       => $lang->setting_gomobile_theme_id,
+            "description" => $lang->setting_gomobile_theme_id_desc,
+            "optionscode" => "text",
+            "value"       => $theme,
+            "disporder"   => ++$dispnum
+        ),
+        "gomobile_permstoggle" => array(
+            "title"       => $lang->setting_gomobile_permstoggle,
+            "description" => $lang->setting_gomobile_permstoggle_desc,
+            "optionscode" => "yesno",
+            "value"       => 0,
+            "disporder"   => ++$dispnum
+        ),
+        "gomobile_homename" => array(
+            "title"       => $lang->setting_gomobile_homename,
+            "description" => $lang->setting_gomobile_homename_desc,
+            "optionscode" => "text",
+            "value"       => $db->escape_string($mybb->settings['homename']),
+            "disporder"   => ++$dispnum
+        ),
+        "gomobile_homelink" => array(
+            "title"       => $lang->setting_gomobile_homelink,
+            "description" => $lang->setting_gomobile_homelink_desc,
+            "optionscode" => "text",
+            "value"       => $db->escape_string($mybb->settings['homeurl']),
+            "disporder"   => ++$dispnum
+        ),
+        "gomobile_strings" => array(
+            "title"       => $lang->setting_gomobile_strings,
+            "description" => $lang->setting_gomobile_strings_desc,
+            "optionscode" => "textarea",
+            "value"       => $db->escape_string($strings),
+            "disporder"   => ++$dispnum
+        )
+    );
+    
     // Insert the settings listed above
     foreach($settings as $name => $setting){
         $setting['gid'] = $gid;
