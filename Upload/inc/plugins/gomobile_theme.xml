@@ -2,12 +2,13 @@
 <theme name="MyBB GoMobile" version="1808">
 	<properties>
 		<templateset><![CDATA[2]]></templateset>
-		<editortheme><![CDATA[default]]></editortheme>
+		<editortheme><![CDATA[default.css]]></editortheme>
 		<imgdir><![CDATA[images/mobile]]></imgdir>
 		<logo><![CDATA[]]></logo>
 		<tablespace><![CDATA[6]]></tablespace>
 		<borderwidth><![CDATA[0]]></borderwidth>
-		<disporder><![CDATA[a:7:{s:9:"modcp.css";i:1;s:14:"showthread.css";i:2;s:10:"global.css";i:3;s:10:"usercp.css";i:4;s:8:"css3.css";i:5;s:17:"thread_status.css";i:6;s:16:"star_ratings.css";i:7;}]]></disporder>
+		<color><![CDATA[]]></color>
+		<disporder><![CDATA[a:8:{s:9:"modcp.css";i:1;s:14:"showthread.css";i:2;s:10:"global.css";i:3;s:10:"usercp.css";i:4;s:8:"css3.css";i:5;s:17:"thread_status.css";i:6;s:16:"star_ratings.css";i:7;s:19:"smilie-inserter.css";i:8;}]]></disporder>
 	</properties>
 	<stylesheets>
 		<stylesheet name="modcp.css" attachedto="modcp.php" version="1808"><![CDATA[div.modcp_nav_item {
@@ -1175,6 +1176,51 @@ div.usercp_nav_item a {
 
 		]]>
 		</stylesheet>
+		<stylesheet name="smilie-inserter.css" attachedto="newreply.php|newthread.php|editpost.php|private.php?send" version="1808"><![CDATA[.smilieinserter ul {
+	display: block;
+	max-width: calc(100vw - 16px - 12px);
+	overflow-x: scroll;
+	white-space: nowrap;
+}
+
+.smilieinserter ul *{
+	float: none;
+	width: auto;
+}
+
+.smilieinserter ul img{
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.smilieinserter ul li:first-child img{
+	padding-left: 0;
+}
+
+.smilieinserter ul li:last-child img{
+	padding-right: 0;
+}
+
+body {
+	position: relative;
+}
+
+body > .modal {
+	background-color: rgba(0,0,0,0.5);
+	box-sizing: border-box;
+	height: 100%;
+	padding: 1em;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+div.sceditor-toolbar {
+	overflow-x: scroll!important;
+	white-space: nowrap;
+}]]>
+		</stylesheet>
 	</stylesheets>
 	<templates>
 		<template name="announcement_edit" version="1601"><![CDATA[<a href="modcp.php?action=edit_announcement&amp;aid={$post['aid']}&amp;fid={$fid}" class="button">{$lang->gomobile_post_edit}</a>]]></template>
@@ -1215,6 +1261,8 @@ div.usercp_nav_item a {
 
 	<tr><td class="tcat" valign="top"><strong>{$lang->your_message}:</strong></td></tr>
 	<tr><td class="trow2" align="center"><textarea name="message" id="message" style="height: 150px; width: 95%;"tabindex="3">{$message}</textarea></td></tr>
+	{$smilieinserter}
+	{$codebuttons}
 
 	<tr><td class="tcat" valign="top"><strong>{$lang->post_options}</strong></td></tr>
 	<tr><td class="trow1 smalltext">
@@ -1908,6 +1956,19 @@ $(document).ready(function() {
 </tbody>
 </table>
 <br />]]></template>
+		<template name="misc_smilies_popup" version="1808"><![CDATA[<div class="modal" onclick="$(this).remove();">
+  <div style="overflow-y: auto; max-height: 400px;" class="modal_{$pid}">
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
+<tr>
+<td class="thead" colspan="4"><strong>{$lang->smilies_listing}</strong></td>
+</tr>
+<tr>
+<td class="tcat" colspan="4"><span class="smalltext">{$lang->click_to_add}</span></td>
+</tr>
+{$smilies}
+</table>
+</div>
+</div>]]></template>
 		<template name="modcp" version="1601"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->modcp}</title>
@@ -2818,6 +2879,8 @@ $(document).ready(function() {
 		<textarea id="message" name="message" style="width: 97%; height: 150px;" tabindex="2" >{$message}</textarea>
 		{$multiquote_external}
 	</td></tr>
+	{$smilieinserter}
+	{$codebuttons}
 	<tr><td class="tcat"><strong>{$lang->post_options}</strong></td></tr>
 	<tr><td class="trow1">
 		<label><input type="checkbox" class="checkbox" name="postoptions[signature]" value="1" tabindex="6"{$postoptionschecked['signature']} /> {$lang->gomobile_showsig}</label>
@@ -2872,9 +2935,11 @@ $(document).ready(function() {
 	{$posticons}
 	<tr><td class="tcat"><strong>{$lang->your_message}</strong></td></tr>
 	<tr><td class="trow2" align="center">
-		<textarea name="message" style="width: 95%; height: 150px;" tabindex="2">{$message}</textarea>
+		<textarea name="message" style="width: 95%; height: 150px;" tabindex="2" id="message">{$message}</textarea>
 		{$multiquote_external}
 	</td></tr>
+	{$smilieinserter}
+	{$codebuttons}
 	<tr><td class="tcat" valign="top"><strong>{$lang->post_options}</strong></td></tr>
 	<tr><td class="trow1">
 		<label><input type="checkbox" class="checkbox" name="postoptions[signature]" value="1" tabindex="7"{$postoptionschecked['signature']} /> {$lang->gomobile_showsig}</label>
@@ -3435,7 +3500,7 @@ $(document).ready(function() {
 {$footer}
 </body>
 </html>]]></template>
-		<template name="private_send" version="1601"><![CDATA[<html>
+		<template name="private_send" version="1808"><![CDATA[<html>
 <head>
 <title>{$lang->compose_pm}</title>
 {$headerinclude}
@@ -3458,6 +3523,8 @@ $(document).ready(function() {
 
 	<tr><td class="tcat" valign="top"><strong>{$lang->compose_message}</strong></td>
 	<tr><td class="trow2" align="middle"><textarea name="message" id="message" style="width: 95%; height: 150px;" tabindex="4">{$message}</textarea></td></tr>
+	{$smilieinserter}
+	{$codebuttons}
 
 	<tr><td class="tcat" valign="top"><strong>{$lang->compose_options}</strong></td></tr>
 	<tr><td class="trow1">
@@ -4145,6 +4212,22 @@ $(document).ready(function() {
 		</tbody>
 	</table>
 </form>]]></template>
+		<template name="smilieinsert" version="1808"><![CDATA[<tr>
+	<td class="tcat"><strong>{$lang->smilieinsert}</strong></td>
+</tr>
+<tr>
+	<td class="smilieinserter smilielist">
+		<ul>
+			{$smilies}
+		</ul>
+
+		{$getmore}
+	</td>
+</div>]]></template>
+		<template name="smilieinsert_getmore" version="1808"><![CDATA[<strong class="more">[<a href="javascript:MyBB.popupWindow('/misc.php?action=smilies&popup=true&editor=MyBBEditor&modal=1')">{$lang->smilieinsert_getmore}</a>]</strong>]]></template>
+		<template name="smilieinsert_row" version="1808"><![CDATA[{$smilie_icons}]]></template>
+		<template name="smilieinsert_row_empty" version="1808"><![CDATA[{$smilie_icons}]]></template>
+		<template name="smilieinsert_smilie" version="1808"><![CDATA[<li>{$smilie}</li>]]></template>
 		<template name="usercp" version="1601"><![CDATA[<html>
 <head>
 <title>{$lang->user_cp}</title>
