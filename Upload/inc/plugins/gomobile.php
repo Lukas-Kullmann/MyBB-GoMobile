@@ -21,8 +21,10 @@ $plugins->add_hook("datahandler_post_insert_thread_post", "gomobile_threads");
 $plugins->add_hook("showthread_end", "gomobile_showthread");
 
 // UCP options
-$plugins->add_hook("usercp_options_end",    "gomobile_usercp_options");
-$plugins->add_hook("usercp_do_options_end", "gomobile_usercp_options");
+$plugins->add_hook("usercp_options_start",    "gomobile_usercp_resetstyle");
+$plugins->add_hook("usercp_options_end",      "gomobile_usercp_options");
+$plugins->add_hook("usercp_do_options_start", "gomobile_usercp_resetstyle");
+$plugins->add_hook("usercp_do_options_end",   "gomobile_usercp_options");
 
 // Misc. hooks
 $plugins->add_hook("misc_start", "gomobile_switch_version");
@@ -45,4 +47,5 @@ require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_switch_version.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_threads.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_uninstall.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_usercp_options.php';
+require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_usercp_resetstyle.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_validstyles.php';
