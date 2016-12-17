@@ -2,7 +2,7 @@
 
 function gomobile_usercp_resetstyle()
 {
-    global $mybb;
+    global $mybb, $templates;
 
     if(isset($GLOBALS['gmb_orig_style']))
     {

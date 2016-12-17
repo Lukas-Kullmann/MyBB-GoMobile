@@ -23,8 +23,7 @@ $plugins->add_hook("showthread_end", "gomobile_showthread");
 // UCP options
 $plugins->add_hook("usercp_options_start",    "gomobile_usercp_resetstyle");
 $plugins->add_hook("usercp_options_end",      "gomobile_usercp_options");
-$plugins->add_hook("usercp_do_options_start", "gomobile_usercp_resetstyle");
-$plugins->add_hook("usercp_do_options_end",   "gomobile_usercp_options");
+$plugins->add_hook("usercp_do_options_end",   "gomobile_usercp_updateuser");
 
 // Misc. hooks
 $plugins->add_hook("misc_start", "gomobile_switch_version");
