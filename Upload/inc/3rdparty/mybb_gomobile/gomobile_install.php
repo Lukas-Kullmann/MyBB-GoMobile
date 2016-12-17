@@ -3,36 +3,16 @@
 
 function gomobile_install(){
     global $db, $mybb, $lang;
+
     // Clean up the database before installing
-    // MyBB tables cleanup
+    gomobile_uninstall();
 
-    if($db->field_exists("mobile", "posts")){
-        $db->query("ALTER TABLE ".TABLE_PREFIX."posts DROP COLUMN mobile");
-    }
-
-
-    if($db->field_exists("mobile", "threads")){
-        $db->query("ALTER TABLE ".TABLE_PREFIX."threads DROP COLUMN mobile");
-    }
-
-
-    if($db->field_exists("usemobileversion", "users")){
-        $db->query("ALTER TABLE ".TABLE_PREFIX."users DROP COLUMN usemobileversion");
-    }
-
-    // Settings cleanup
-    $db->query("DELETE FROM ".TABLE_PREFIX."settinggroups WHERE name='gomobile'");
-    $db->query("DELETE FROM ".TABLE_PREFIX."settings WHERE name='gomobile_header_text'");
-    $db->query("DELETE FROM ".TABLE_PREFIX."settings WHERE name='gomobile_theme_id'");
-    $db->query("DELETE FROM ".TABLE_PREFIX."settings WHERE name='gomobile_permstoggle'");
-    $db->query("DELETE FROM ".TABLE_PREFIX."settings WHERE name='gomobile_homename'");
-    $db->query("DELETE FROM ".TABLE_PREFIX."settings WHERE name='gomobile_homelink'");
-    $db->query("DELETE FROM ".TABLE_PREFIX."settings WHERE name='gomobile_strings'");
     // Add a column to the posts & threads tables for tracking mobile posts
-    $db->query("ALTER TABLE ".TABLE_PREFIX."posts ADD mobile int NOT NULL default '0'");
-    $db->query("ALTER TABLE ".TABLE_PREFIX."threads ADD mobile int NOT NULL default '0'");
+    $db->query("ALTER TABLE ".TABLE_PREFIX."posts ADD mobile tinyint(1) NOT NULL default 0");
+    $db->query("ALTER TABLE ".TABLE_PREFIX."threads ADD mobile tinyint(1) NOT NULL default 0");
     // And another to the users table for options
-    $db->query("ALTER TABLE ".TABLE_PREFIX."users ADD usemobileversion int NOT NULL default '1'");
+    $db->query("ALTER TABLE ".TABLE_PREFIX."users ADD usemobileversion tinyint(1) NOT NULL default 1");
+    $db->query("ALTER TABLE ".TABLE_PREFIX."users ADD mobilestyle smallint(5) unsigned NOT NULL default 0");
     // First, check that our theme doesn't already exist
     $query = $db->simple_select("themes", "tid", "LOWER(name) LIKE '%mybb gomobile%'");
 
