@@ -4483,7 +4483,7 @@ $(document).ready(function() {
 </td></tr>
 </table>
 </form>]]></template>
-		<template name="usercp_options" version="1601"><![CDATA[<html>
+		<template name="usercp_options" version="1808"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->edit_options}</title>
 {$headerinclude}
@@ -4534,6 +4534,14 @@ $(document).ready(function() {
 <tr>
 <td valign="top" width="1"><input type="checkbox" class="checkbox" name="pmnotify" id="pmnotify" value="1" {$pmnotifycheck} /></td>
 <td><span class="smalltext"><label for="pmnotify">{$lang->pm_notify}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="buddyrequestspm" id="buddyrequestspm" value="1" {$buddyrequestspmcheck} /></td>
+<td><span class="smalltext"><label for="buddyrequestspm">{$lang->buddyrequests_pm}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="buddyrequestsauto" id="buddyrequestsauto" value="1" {$buddyrequestsautocheck} /></td>
+<td><span class="smalltext"><label for="buddyrequestsauto">{$lang->buddyrequests_auto}</label></span></td>
 </tr>
 <tr>
 <td colspan="2"><span class="smalltext"><label for="subscriptionmethod">{$lang->subscription_method}</label></span></td>
@@ -4628,6 +4636,14 @@ $(document).ready(function() {
 	<td><span class="smalltext"><label for="classicpostbit">{$lang->show_classic_postbit}</label></span></td>
 	</tr>
 <tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="showimages" id="showimages" value="1" {$showimagescheck} /></td>
+<td><span class="smalltext"><label for="showimages">{$lang->show_images}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="showvideos" id="showvideos" value="1" {$showvideoscheck} /></td>
+<td><span class="smalltext"><label for="showvideos">{$lang->show_videos}</label></span></td>
+</tr>
+<tr>
 <td valign="top" width="1"><input type="checkbox" class="checkbox" name="showsigs" id="showsigs" value="1" {$showsigscheck} /></td>
 <td><span class="smalltext"><label for="showsigs">{$lang->show_sigs}</label></span></td>
 </tr>
@@ -4661,17 +4677,11 @@ $(document).ready(function() {
 <td><span class="smalltext"><label for="showcodebuttons">{$lang->show_codebuttons}</label></span></td>
 </tr>
 <tr>
-<td colspan="2"><span class="smalltext">{$lang->style}</span></td>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="sourceeditor" id="sourceeditor" value="1" {$sourcemodecheck} /></td>
+<td><span class="smalltext"><label for="sourceeditor">{$lang->source_editor}</label></span></td>
 </tr>
-<tr>
-<td colspan="2">{$stylelist}</td>
-</tr>
-<tr>
-<td colspan="2"><span class="smalltext">{$lang->board_language}</span></td>
-</tr>
-<tr>
-<td colspan="2"><select name="language"><option value="">{$lang->use_default}</option><option value="0">-----------</option>{$langoptions}</select></td>
-</tr>
+{$board_style}
+{$board_language}
 </table>
 </fieldset>
 </td>
