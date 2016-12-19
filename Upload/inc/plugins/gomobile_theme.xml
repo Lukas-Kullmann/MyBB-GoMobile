@@ -1495,6 +1495,7 @@ div.sceditor-toolbar {
 	{$newthread}
 </div>
 <br class="clear" />]]></template>
+		<template name="forumdisplay_thread_gotounread" version="1808"><![CDATA[<a href="{$thread['newpostlink']}"><img src="{$theme['imgdir']}/jump.gif" alt="{$lang->goto_first_unread}" title="{$lang->goto_first_unread}" /></a>]]></template>
 		<template name="forumdisplay_thread_multipage" version="1601"><![CDATA[({$lang->pages} {$thread['pages']})]]></template>
 		<template name="forumjump_advanced" version="1413"><![CDATA[<div class="forumjump">
 <form action="forumdisplay.php" method="get">
@@ -3340,17 +3341,17 @@ $(document).ready(function() {
 </div>]]></template>
 		<template name="postbit_attachments_attachment" version="1413"><![CDATA[<div>{$attachment['icon']}&nbsp;&nbsp;<a href="attachment.php?aid={$attachment['aid']}" target="_blank">{$attachment['filename']}</a> ({$lang->postbit_attachment_size} {$attachment['filesize']})</div>]]></template>
 		<template name="postbit_avatar" version="1807"><![CDATA[<a href="{$post['profilelink_plain']}"><img src="{$useravatar['image']}" alt="{$useravatar['width_height']}" class="post_avatar" /></a>]]></template>
-		<template name="postbit_classic" version="1601"><![CDATA[{$ignore_bit}
+		<template name="postbit_classic" version="1808"><![CDATA[{$ignore_bit}
 <div id="post_{$post['pid']}" style="{$post_visibility}">
 	<a name="pid{$post['pid']}" id="pid{$post['pid']}"></a>
 	<div class="post_author">
 		<span class="float_right datetime smalltext">({$post['postdate']} {$post['posttime']}) </span>
 		{$post['useravatar']} {$post['profilelink']} {$post['replink']}
 	</div>
-	<div class="post_body">
+	<div class="post_body" id="post_body_{$post['pid']}">
 		<div class="post_content {$unapproved_shade}">{$post['message']}</div>
 		{$post['attachments']}
-		<div class="post_manage"><span style="float: left;"><img src="{$mybb->settings['bburl']}/{$theme['imgdir']}/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" /></span>{$post['button_warn']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
+		<div class="post_manage"><span style="float: left;"><img src="{$theme['imgdir']}/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" /></span>{$post['button_warn']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_multiquote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
 	</div>
 </div>]]></template>
 		<template name="postbit_delete_pm" version="1601"><![CDATA[<a href="private.php?action=delete&amp;pmid={$id}&amp;my_post_key={$mybb->post_code}" class="button">{$lang->gomobile_pm_delete}</a>]]></template>
