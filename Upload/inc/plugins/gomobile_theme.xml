@@ -8,9 +8,113 @@
 		<tablespace><![CDATA[6]]></tablespace>
 		<borderwidth><![CDATA[0]]></borderwidth>
 		<color><![CDATA[]]></color>
-		<disporder><![CDATA[a:8:{s:9:"modcp.css";i:1;s:14:"showthread.css";i:2;s:10:"global.css";i:3;s:10:"usercp.css";i:4;s:8:"css3.css";i:5;s:17:"thread_status.css";i:6;s:16:"star_ratings.css";i:7;s:19:"smilie-inserter.css";i:8;}]]></disporder>
+		<disporder><![CDATA[a:8:{s:9:"modcp.css";i:2;s:14:"showthread.css";i:3;s:10:"global.css";i:5;s:10:"usercp.css";i:7;s:19:"smilie-inserter.css";i:10;s:8:"css3.css";i:11;s:17:"thread_status.css";i:13;s:16:"star_ratings.css";i:15;}]]></disporder>
 	</properties>
 	<stylesheets>
+		<stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1808"><![CDATA[div.usercp_nav_item {
+	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
+	color: #fff;
+	padding: 7px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+div.usercp_nav_item a {
+	width: 100%;
+	color: #fff;
+	height: 100%;
+	display: block;
+	text-decoration: none;
+}
+
+.usercp_notepad {
+	width: 95%;
+}
+
+.usercp_container {
+	margin: 5px;
+	padding: 8px;
+	border:1px solid #CCCCCC;
+}
+
+.usercp_navigation {
+  background: #23ffaa url(images/mobile/gradient.png) bottom left repeat-x;
+  width: 100%;
+  border: 1px solid #23ffaa;
+  padding: 0px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.usercp_navigation td {
+	padding: 3px;
+	text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+		]]>
+		</stylesheet>
+		<stylesheet name="smilie-inserter.css" attachedto="newreply.php|newthread.php|editpost.php|private.php?send" version="1808"><![CDATA[.smilieinserter ul, div.sceditor-toolbar {
+	max-width: 90vw;
+	max-width: calc(100vw - 16px - 12px);
+}
+
+.smilieinserter ul {
+	display: block;
+	overflow-x: scroll;
+	white-space: nowrap;
+}
+
+.smilieinserter ul *{
+	float: none;
+	width: auto;
+}
+
+.smilieinserter ul img{
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.smilieinserter ul li:first-child img{
+	padding-left: 0;
+}
+
+.smilieinserter ul li:last-child img{
+	padding-right: 0;
+}
+
+body {
+	position: relative;
+}
+
+body > .modal {
+	background-color: rgba(0,0,0,0.5);
+	box-sizing: border-box;
+	height: 100%;
+	padding: 1em;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 100;
+}
+
+div.sceditor-toolbar {
+	overflow-x: scroll!important;
+	white-space: nowrap;
+}
+		]]>
+		</stylesheet>
 		<stylesheet name="modcp.css" attachedto="modcp.php" version="1808"><![CDATA[div.modcp_nav_item {
 	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
 	color: #fff;
@@ -48,6 +152,7 @@ div.modcp_nav_item a {
 	padding: 3px;
 	text-align: left;
 }
+
 
 
 
@@ -102,7 +207,8 @@ ul.thread_tools li a {
 
 .post_manage .postbit_multiquote_on:before {
 	content: "- ";
-}]]>
+}
+		]]>
 		</stylesheet>
 		<stylesheet name="global.css" version="1808"><![CDATA[@import  //fonts.googleapis.com/css?family=Noto+Sans:400,700;
 
@@ -1054,10 +1160,17 @@ a.lastpost img {
 }
 
 .lastpost img {
-    height: 10px;
-    width: 10px;
-    margin-top: -2px;
+    height: 1em;
+    width: 1em;
+    margin-top: 0.2em;
     vertical-align: middle;
+}
+
+.newpost img {
+    float: left;
+    height: 2em;
+    margin-top: 0.4em;
+    width: 2em;
 }
 
 a.tclosed_1 {
@@ -1121,104 +1234,10 @@ rep-tborder {
 .jqibox .jqibuttons {
 	display: flex;
 	justify-content: space-around;
-}]]>
-		</stylesheet>
-		<stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1808"><![CDATA[div.usercp_nav_item {
-	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
-	color: #fff;
-	padding: 7px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	font-size: 11px;
-	font-weight: bold;
 }
 
-div.usercp_nav_item a {
-	width: 100%;
-	color: #fff;
-	height: 100%;
-	display: block;
-	text-decoration: none;
-}
-
-.usercp_notepad {
-	width: 95%;
-}
-
-.usercp_container {
-	margin: 5px;
-	padding: 8px;
-	border:1px solid #CCCCCC;
-}
-
-.usercp_navigation {
-  background: #23ffaa url(images/mobile/gradient.png) bottom left repeat-x;
-  width: 100%;
-  border: 1px solid #23ffaa;
-  padding: 0px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-}
-
-.usercp_navigation td {
-	padding: 3px;
-	text-align: left;
-}
-
-
-
-
-
-
-
-
-
-
-		]]>
-		</stylesheet>
-		<stylesheet name="smilie-inserter.css" attachedto="newreply.php|newthread.php|editpost.php|private.php?send" version="1808"><![CDATA[.smilieinserter ul {
-	display: block;
-	max-width: calc(100vw - 16px - 12px);
-	overflow-x: scroll;
-	white-space: nowrap;
-}
-
-.smilieinserter ul *{
-	float: none;
-	width: auto;
-}
-
-.smilieinserter ul img{
-	padding-left: 1em;
-	padding-right: 1em;
-}
-
-.smilieinserter ul li:first-child img{
-	padding-left: 0;
-}
-
-.smilieinserter ul li:last-child img{
-	padding-right: 0;
-}
-
-body {
-	position: relative;
-}
-
-body > .modal {
-	background-color: rgba(0,0,0,0.5);
-	box-sizing: border-box;
-	height: 100%;
-	padding: 1em;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	z-index: 100;
-}
-
-div.sceditor-toolbar {
-	overflow-x: scroll!important;
-	white-space: nowrap;
+.scaleimages img {
+    max-width: 100%;
 }]]>
 		</stylesheet>
 	</stylesheets>
@@ -1454,10 +1473,10 @@ div.sceditor-toolbar {
 {$forums}
 </table>
 <br />]]></template>
-		<template name="forumdisplay_thread" version="1601"><![CDATA[<tr>
+		<template name="forumdisplay_thread" version="1808"><![CDATA[<tr>
 	<td class="{$bgcolor}{$thread_type_class}" onclick="location.href='{$thread['threadlink']}';">
-		{$prefix} <span class="lastpost">{$gotounread}</span>{$thread['threadprefix']}<a href="{$thread['threadlink']}" class="{$inline_edit_class} {$new_class} tclosed_{$thread['closed']}" id="tid_{$inline_edit_tid}">{$thread['subject']}</a>
-		<div class="lastbytext">{$lang->gomobile_lastby} {$thread['lastposter']}</div>
+		<span class="newpost">{$gotounread}</span> {$prefix} {$thread['threadprefix']}<a href="{$thread['threadlink']}" class="{$inline_edit_class} {$new_class} tclosed_{$thread['closed']}" id="tid_{$inline_edit_tid}">{$thread['subject']}</a>
+		<div class="lastpost">{$lang->by} {$thread['profilelink']}</div>
 	</td>
 	<td class="{$bgcolor}{$thread_type_class}" width="1"><a href="{$thread['lastpostlink']}" class="lastpost">{$lang->gomobile_last}<img src="{$theme['imgdir']}/jump.gif" height="10" width="10" class="middle" /></a></td>
 </tr>]]></template>
@@ -1495,6 +1514,7 @@ div.sceditor-toolbar {
 	{$newthread}
 </div>
 <br class="clear" />]]></template>
+		<template name="forumdisplay_thread_gotounread" version="1808"><![CDATA[<a href="{$thread['newpostlink']}"><img src="{$theme['imgdir']}/jump.gif" alt="{$lang->goto_first_unread}" title="{$lang->goto_first_unread}" /></a>]]></template>
 		<template name="forumdisplay_thread_multipage" version="1601"><![CDATA[({$lang->pages} {$thread['pages']})]]></template>
 		<template name="forumjump_advanced" version="1413"><![CDATA[<div class="forumjump">
 <form action="forumdisplay.php" method="get">
@@ -1523,7 +1543,7 @@ div.sceditor-toolbar {
 	<div><a href="private.php">Unread Message(s).</a></div>
 </div>]]></template>
 		<template name="global_unreadreports" version="1601"><![CDATA[<div class="red_alert" style="text-align: center;"><a href="modcp.php?action=reports">{$lang->gomobile_unreadreports}</a></div>]]></template>
-		<template name="header" version="1807"><![CDATA[<a name="top" id="top"></a>
+		<template name="header" version="1808"><![CDATA[<a name="top" id="top"></a>
 	<div id="header">
        <div id="navbar">
          {$welcomeblock}
@@ -1536,8 +1556,6 @@ div.sceditor-toolbar {
 		</div>
 
        <div id="panel">
-	<label for="show-menu" class="show-menu">{$lang->gomobile_showmenu}</label>
-	<input type="checkbox" id="show-menu" role="button">
 		<ul id="menu">
 		<li><a href="{$mybb->settings['bburl']}/index.php">{$lang->gomobile_home}</a></li>
 		<li><a href="{$mybb->settings['bburl']}/portal.php">{$lang->toplinks_portal}</a></li>
@@ -3340,17 +3358,17 @@ $(document).ready(function() {
 </div>]]></template>
 		<template name="postbit_attachments_attachment" version="1413"><![CDATA[<div>{$attachment['icon']}&nbsp;&nbsp;<a href="attachment.php?aid={$attachment['aid']}" target="_blank">{$attachment['filename']}</a> ({$lang->postbit_attachment_size} {$attachment['filesize']})</div>]]></template>
 		<template name="postbit_avatar" version="1807"><![CDATA[<a href="{$post['profilelink_plain']}"><img src="{$useravatar['image']}" alt="{$useravatar['width_height']}" class="post_avatar" /></a>]]></template>
-		<template name="postbit_classic" version="1601"><![CDATA[{$ignore_bit}
+		<template name="postbit_classic" version="1808"><![CDATA[{$ignore_bit}
 <div id="post_{$post['pid']}" style="{$post_visibility}">
 	<a name="pid{$post['pid']}" id="pid{$post['pid']}"></a>
 	<div class="post_author">
 		<span class="float_right datetime smalltext">({$post['postdate']} {$post['posttime']}) </span>
 		{$post['useravatar']} {$post['profilelink']} {$post['replink']}
 	</div>
-	<div class="post_body">
+	<div class="post_body" id="post_body_{$post['pid']}">
 		<div class="post_content {$unapproved_shade}">{$post['message']}</div>
 		{$post['attachments']}
-		<div class="post_manage"><span style="float: left;"><img src="{$mybb->settings['bburl']}/{$theme['imgdir']}/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" /></span>{$post['button_warn']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
+		<div class="post_manage"><span style="float: left;"><img src="{$theme['imgdir']}/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" /></span>{$post['button_warn']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_multiquote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
 	</div>
 </div>]]></template>
 		<template name="postbit_delete_pm" version="1601"><![CDATA[<a href="private.php?action=delete&amp;pmid={$id}&amp;my_post_key={$mybb->post_code}" class="button">{$lang->gomobile_pm_delete}</a>]]></template>
@@ -4177,7 +4195,7 @@ $(document).ready(function() {
 </tr>
 </table>
 <br />]]></template>
-		<template name="showthread_quickreply" version="1807"><![CDATA[<form method="post" action="newreply.php?tid={$tid}&amp;processed=1" name="quick_reply_form" id="quick_reply_form">
+		<template name="showthread_quickreply" version="1808"><![CDATA[<form method="post" action="newreply.php?tid={$tid}&amp;processed=1" name="quick_reply_form" id="quick_reply_form">
 	<input type="hidden" name="my_post_key" value="{$mybb->post_code}" />
 	<input type="hidden" name="subject" value="RE: {$thread['subject']}" />
 	<input type="hidden" name="action" value="do_newreply" />
@@ -4190,6 +4208,7 @@ $(document).ready(function() {
 	<input type="hidden" name="postoptions[signature]" value="1" {$postoptionschecked['signature']} />
 	<input type="hidden" name="postoptions[disablesmilies]" value="0" />
 	<input type="hidden" name="mobile" value="1" />
+        {$closeoption}
 
 	<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
 		<thead>
@@ -4212,6 +4231,8 @@ $(document).ready(function() {
 		</tbody>
 	</table>
 </form>]]></template>
+		<template name="showthread_quickreply_options_close" version="1808"><![CDATA[<input type="checkbox" name="modoptions[closethread]" value="1"{$closelinkch} style="display:none;" />]]></template>
+		<template name="showthread_quickreply_options_stick" version="1808"><![CDATA[<input type="checkbox" name="modoptions[stickthread]" value="1" {$stickch} style="display:none;" />]]></template>
 		<template name="smilieinsert" version="1808"><![CDATA[<tr>
 	<td class="tcat"><strong>{$lang->smilieinsert}</strong></td>
 </tr>
@@ -4483,7 +4504,7 @@ $(document).ready(function() {
 </td></tr>
 </table>
 </form>]]></template>
-		<template name="usercp_options" version="1601"><![CDATA[<html>
+		<template name="usercp_options" version="1808"><![CDATA[<html>
 <head>
 <title>{$mybb->settings['bbname']} - {$lang->edit_options}</title>
 {$headerinclude}
@@ -4534,6 +4555,14 @@ $(document).ready(function() {
 <tr>
 <td valign="top" width="1"><input type="checkbox" class="checkbox" name="pmnotify" id="pmnotify" value="1" {$pmnotifycheck} /></td>
 <td><span class="smalltext"><label for="pmnotify">{$lang->pm_notify}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="buddyrequestspm" id="buddyrequestspm" value="1" {$buddyrequestspmcheck} /></td>
+<td><span class="smalltext"><label for="buddyrequestspm">{$lang->buddyrequests_pm}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="buddyrequestsauto" id="buddyrequestsauto" value="1" {$buddyrequestsautocheck} /></td>
+<td><span class="smalltext"><label for="buddyrequestsauto">{$lang->buddyrequests_auto}</label></span></td>
 </tr>
 <tr>
 <td colspan="2"><span class="smalltext"><label for="subscriptionmethod">{$lang->subscription_method}</label></span></td>
@@ -4628,6 +4657,14 @@ $(document).ready(function() {
 	<td><span class="smalltext"><label for="classicpostbit">{$lang->show_classic_postbit}</label></span></td>
 	</tr>
 <tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="showimages" id="showimages" value="1" {$showimagescheck} /></td>
+<td><span class="smalltext"><label for="showimages">{$lang->show_images}</label></span></td>
+</tr>
+<tr>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="showvideos" id="showvideos" value="1" {$showvideoscheck} /></td>
+<td><span class="smalltext"><label for="showvideos">{$lang->show_videos}</label></span></td>
+</tr>
+<tr>
 <td valign="top" width="1"><input type="checkbox" class="checkbox" name="showsigs" id="showsigs" value="1" {$showsigscheck} /></td>
 <td><span class="smalltext"><label for="showsigs">{$lang->show_sigs}</label></span></td>
 </tr>
@@ -4661,17 +4698,11 @@ $(document).ready(function() {
 <td><span class="smalltext"><label for="showcodebuttons">{$lang->show_codebuttons}</label></span></td>
 </tr>
 <tr>
-<td colspan="2"><span class="smalltext">{$lang->style}</span></td>
+<td valign="top" width="1"><input type="checkbox" class="checkbox" name="sourceeditor" id="sourceeditor" value="1" {$sourcemodecheck} /></td>
+<td><span class="smalltext"><label for="sourceeditor">{$lang->source_editor}</label></span></td>
 </tr>
-<tr>
-<td colspan="2">{$stylelist}</td>
-</tr>
-<tr>
-<td colspan="2"><span class="smalltext">{$lang->board_language}</span></td>
-</tr>
-<tr>
-<td colspan="2"><select name="language"><option value="">{$lang->use_default}</option><option value="0">-----------</option>{$langoptions}</select></td>
-</tr>
+{$board_style}
+{$board_language}
 </table>
 </fieldset>
 </td>
