@@ -1480,14 +1480,13 @@ rep-tborder {
 
       <div id="logo">
 		<h1>
-			<a href="{$mybb->settings['bburl']}/index.php">{$mybb->settings['gomobile_mobile_name']}</a>
+			<a href="{$mybb->settings['bburl']}//forumdisplay.php?fid=2">{$mybb->settings['gomobile_mobile_name']}</a>
 			</h1>
 		</div>
 
        <div id="panel">
 		<ul id="menu">
 		<li><a href="{$mybb->settings['bburl']}/index.php">{$lang->gomobile_home}</a></li>
-		<li><a href="{$mybb->settings['bburl']}/portal.php">{$lang->toplinks_portal}</a></li>
 		<li><a href="{$mybb->settings['bburl']}/memberlist.php">{$lang->toplinks_memberlist}</a></li>
 		<li><a href="{$mybb->settings['bburl']}/misc.php?action=help">{$lang->toplinks_help}</a></li>
 		<li><a href="{$mybb->settings['bburl']}/search.php">{$lang->toplinks_search}</a></li>
