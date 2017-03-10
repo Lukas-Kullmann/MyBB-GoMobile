@@ -67,7 +67,7 @@ div.usercp_nav_item a {
 
         ]]>
         </stylesheet>
-        <stylesheet name="smilie-inserter.css" attachedto="newreply.php|newthread.php|editpost.php|private.php?send" version="1808"><![CDATA[.smilieinserter ul, div.sceditor-toolbar {
+        <stylesheet name="smilie-inserter.css" attachedto="private.php|newreply.php|newthread.php|editpost.php" version="1808"><![CDATA[.smilieinserter ul, div.sceditor-toolbar {
 	max-width: 90vw;
 	max-width: calc(100vw - 16px - 12px);
 }
