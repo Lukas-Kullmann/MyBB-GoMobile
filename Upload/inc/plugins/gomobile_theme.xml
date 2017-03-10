@@ -222,6 +222,12 @@ ul.thread_tools li a {
 	content: "- ";
 }
 
+label.poll_option_label {
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+}
+
 
         ]]>
         </stylesheet>
@@ -4149,6 +4155,22 @@ $(document).ready(function() {
 <div class="smalltext">{$publicnote}</div>
 </form>
 <br />]]></template>
+        <template name="showthread_poll_option" version="1808"><![CDATA[<tr>
+<td class="trow1" style="text-align: center;">
+		<label class="poll_option_label"><input type="radio" class="radio" name="option" id="option_{$number}" value="{$number}" /></label>
+	</td>
+	<td class="trow2 scaleimages">
+		<label class="poll_option_label" for="option_{$number}">{$option}</label>
+	</td>
+</tr>]]></template>
+        <template name="showthread_poll_option_multiple" version="1808"><![CDATA[<tr>
+	<td class="trow1" style="text-align: center;">
+		<label class="poll_option_label"><input type="checkbox" class="checkbox" name="option[{$number}]" id="option_{$number}" value="1" /></label>
+	</td>
+	<td class="trow2 scaleimages">
+		<label class="poll_option_label" for="option_{$number}">{$option}</label>
+	</td>
+</tr>]]></template>
         <template name="showthread_poll_resultbit" version="1601"><![CDATA[<tr>
 <td class="{$optionbg}" align="right">{$option}{$votestar}
 <div class="lastbytext">{$votes} {$lang->gomobile_votes}, {$percent}%</div></td>
