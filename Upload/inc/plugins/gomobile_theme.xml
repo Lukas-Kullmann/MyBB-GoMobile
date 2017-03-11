@@ -1485,9 +1485,8 @@ rep-tborder {
 <strong>{$lang->banned_warning3}:</strong> {$banlift}<br />
 </div>]]></template>
         <template name="global_boardclosed_warning" version="1601"><![CDATA[<div class="red_alert" style="text-align: center;">{$lang->gomobile_bbclosed}</div>]]></template>
-        <template name="global_pm_alert" version="1601"><![CDATA[<div class="pm_alert" id="pm_notice">
-	<div class="float_right"><a href="private.php?action=dismiss_notice&amp;my_post_key={$mybb->post_code}" title="{$lang->dismiss_notice}" onclick="return MyBB.dismissPMNotice()">[Dismiss]</a></div>
-	<div><a href="private.php">Unread Message(s).</a></div>
+        <template name="global_pm_alert" version="1808"><![CDATA[<div class="pm_alert" id="pm_notice">
+	<div>{$privatemessage_text}</div>
 </div>]]></template>
         <template name="global_unreadreports" version="1601"><![CDATA[<div class="red_alert" style="text-align: center;"><a href="modcp.php?action=reports">{$lang->gomobile_unreadreports}</a></div>]]></template>
         <template name="header" version="1808"><![CDATA[<a name="top" id="top"></a>

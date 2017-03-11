@@ -79,6 +79,8 @@ $l['gomobile_pm_reply'] = "Antworten";
 $l['gomobile_pm_delete'] = "Löschen";
 $l['gomobile_pm_forward'] = "Weiterleiten";
 $l['gomobile_pm_replyall'] = "Allen antworten";
+$l['newpm_notice_one'] = "Eine ungelesene PN: <a href=\"{2}/private.php?action=read&amp;pmid={3}\" style=\"font-weight:bold;\">{4}</a> von {1}";
+$l['newpm_notice_multiple'] = "{1} ungelesene PNs. Neueste: <a href=\"{3}/private.php?action=read&amp;pmid={4}\" style=\"font-weight:bold;\">{5}</a> von {2}";
 
 // MCP Strings
 $l['gomobile_mcp_until'] = " - bis: ";
