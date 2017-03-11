@@ -13,10 +13,6 @@ if(!defined("IN_MYBB")){
 $plugins->add_hook("global_start", "gomobile_forcetheme");
 $plugins->add_hook("global_end",   "gomobile_fixcurrentpage");
 
-// Used to insert data into the posts/threads table for posts made via GoMobile
-$plugins->add_hook("datahandler_post_insert_post",        "gomobile_posts");
-$plugins->add_hook("datahandler_post_insert_thread_post", "gomobile_threads");
-
 // Page numbers
 $plugins->add_hook("showthread_end", "gomobile_showthread");
 
@@ -38,9 +34,7 @@ require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_info.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_install.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_load_language.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_is_installed.php';
-require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_posts.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_showthread.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_switch_version.php';
-require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_threads.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_uninstall.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_usercp_options.php';

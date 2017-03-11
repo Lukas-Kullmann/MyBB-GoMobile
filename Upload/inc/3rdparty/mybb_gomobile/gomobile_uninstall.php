@@ -10,11 +10,13 @@ function gomobile_uninstall(){
 
     if($db->field_exists("mobile", "posts"))
     {
+        // older version cleanup
         $db->query("ALTER TABLE ".TABLE_PREFIX."posts DROP COLUMN mobile");
     }
 
     if($db->field_exists("mobile", "threads"))
     {
+        // older version cleanup
         $db->query("ALTER TABLE ".TABLE_PREFIX."threads DROP COLUMN mobile");
     }
 
@@ -31,16 +33,4 @@ function gomobile_uninstall(){
     $db->query("DELETE FROM ".TABLE_PREFIX."settings WHERE name='gomobile_homename'");
     $db->query("DELETE FROM ".TABLE_PREFIX."settings WHERE name='gomobile_homelink'");
     $db->query("DELETE FROM ".TABLE_PREFIX."settings WHERE name='gomobile_strings'");
-
-    // Undo the template edits we made earlier
-    require_once MYBB_ROOT . "inc/adminfunctions_templates.php";
-
-    find_replace_templatesets(
-        "postbit_posturl",
-        '#' . preg_quote(
-                '<img src="{$mybb->settings[\'bburl\']}/images/mobile/posted_{$post[\'mobile\']}.gif" alt="" width="{$post[\'mobile\']}8" height="{$post[\'mobile\']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> '.''
-            ) . '#',
-        '',
-        0
-    );
 }

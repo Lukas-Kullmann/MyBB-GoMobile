@@ -1485,9 +1485,8 @@ rep-tborder {
 <strong>{$lang->banned_warning3}:</strong> {$banlift}<br />
 </div>]]></template>
         <template name="global_boardclosed_warning" version="1601"><![CDATA[<div class="red_alert" style="text-align: center;">{$lang->gomobile_bbclosed}</div>]]></template>
-        <template name="global_pm_alert" version="1601"><![CDATA[<div class="pm_alert" id="pm_notice">
-	<div class="float_right"><a href="private.php?action=dismiss_notice&amp;my_post_key={$mybb->post_code}" title="{$lang->dismiss_notice}" onclick="return MyBB.dismissPMNotice()">[Dismiss]</a></div>
-	<div><a href="private.php">Unread Message(s).</a></div>
+        <template name="global_pm_alert" version="1808"><![CDATA[<div class="pm_alert" id="pm_notice">
+	<div>{$privatemessage_text}</div>
 </div>]]></template>
         <template name="global_unreadreports" version="1601"><![CDATA[<div class="red_alert" style="text-align: center;"><a href="modcp.php?action=reports">{$lang->gomobile_unreadreports}</a></div>]]></template>
         <template name="header" version="1808"><![CDATA[<a name="top" id="top"></a>
@@ -2863,7 +2862,6 @@ $(document).ready(function() {
 <input type="hidden" name="attachmentact" value="" />
 <input type="hidden" name="quoted_ids" value="{$quoted_ids}" />
 <input type="hidden" name="tid" value="{$tid}" />
-<input type="hidden" name="mobile" value="1" />
 {$editdraftpid}
 </form>
 {$forumrules}
@@ -2922,7 +2920,6 @@ $(document).ready(function() {
 <input type="hidden" name="attachmentact" value="" />
 <input type="hidden" name="quoted_ids" value="{$quoted_ids}" />
 <input type="hidden" name="tid" value="{$tid}" />
-<input type="hidden" name="mobile" value="1" />
 {$editdraftpid}
 </form>
 {$forumrules}
@@ -3293,7 +3290,7 @@ $(document).ready(function() {
 	<div class="post_body" id="post_body_{$post['pid']}">
 		<div class="post_content {$unapproved_shade}">{$post['message']}</div>
 		{$post['attachments']}
-		<div class="post_manage"><span style="float: left;"><img src="{$theme['imgdir']}/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" /></span>{$post['button_warn']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_multiquote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
+		<div class="post_manage">{$post['button_warn']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_multiquote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
 	</div>
 </div>]]></template>
         <template name="postbit_attachments" version="1413"><![CDATA[<div class="post_attachments">
@@ -3314,7 +3311,7 @@ $(document).ready(function() {
 	<div class="post_body" id="post_body_{$post['pid']}">
 		<div class="post_content {$unapproved_shade}">{$post['message']}</div>
 		{$post['attachments']}
-		<div class="post_manage"><span style="float: left;"><img src="{$theme['imgdir']}/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" /></span>{$post['button_warn']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_multiquote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
+		<div class="post_manage">{$post['button_warn']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_multiquote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
 	</div>
 </div>]]></template>
         <template name="postbit_delete_pm" version="1601"><![CDATA[<a href="private.php?action=delete&amp;pmid={$id}&amp;my_post_key={$mybb->post_code}" class="button">{$lang->gomobile_pm_delete}</a>]]></template>
@@ -3335,7 +3332,6 @@ $(document).ready(function() {
 </script>]]></template>
         <template name="postbit_inlinecheck" version="1601"><![CDATA[<input type="checkbox" class="checkbox" name="inlinemod_{$post['pid']}" id="inlinemod_{$post['pid']}" value="1" style="vertical-align: middle; margin: 0;" {$inlinecheck} />]]></template>
         <template name="postbit_pm" version="1601"><![CDATA[<a href="private.php?action=send&amp;uid={$post['uid']}" class="button">{$lang->gomobile_post_pm}</a>]]></template>
-        <template name="postbit_posturl" version="1601"><![CDATA[<div style="float: right; width: auto; vertical-align: top"><img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.png" alt="" width="{$post['mobile']}6" height="{$post['mobile']}2" title="Arrow indicates this post was sent from GoMobile" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="Posted from GoMobile (when icon is displayed)" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <img src="{$mybb->settings['bburl']}/images/mobile/posted_{$post['mobile']}.gif" alt="" width="{$post['mobile']}8" height="{$post['mobile']}8" title="{$lang->gomobile_posted_from}" style="vertical-align: middle;" /> <span class="smalltext"><strong>{$lang->postbit_post} <a href="{$post['postlink']}#pid{$post['pid']}">#{$postcounter}</a></strong>{$post['inlinecheck']}</span></div>]]></template>
         <template name="postbit_quickdelete" version="1808"><![CDATA[<a href="editpost.php?pid={$post['pid']}" onclick="Thread.deletePost({$post['pid']}); return false;" style="display: none;" id="quick_delete_{$post['pid']}" class="button">{$lang->gomobile_post_delete}</a>
 <script type="text/javascript">
 // <!--
@@ -4203,7 +4199,6 @@ $(document).ready(function() {
 	<input type="hidden" name="method" value="quickreply" />
 	<input type="hidden" name="postoptions[signature]" value="1" {$postoptionschecked['signature']} />
 	<input type="hidden" name="postoptions[disablesmilies]" value="0" />
-	<input type="hidden" name="mobile" value="1" />
         {$closeoption}
 
 	<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">

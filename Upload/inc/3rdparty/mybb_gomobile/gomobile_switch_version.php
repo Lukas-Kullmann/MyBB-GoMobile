@@ -41,7 +41,5 @@ function gomobile_switch_version()
         my_setcookie("gomobile", "force", -1);
     }
 
-    gomobile_load_language();
-
     redirect($url, $lang->gomobile_switched_version);
 }
