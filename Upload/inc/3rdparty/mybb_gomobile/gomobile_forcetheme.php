@@ -22,8 +22,6 @@ function gomobile_forcetheme()
         "moderation.php"
     );
 
-    gomobile_load_language();
-
     if($mybb->session->is_spider == false){
         // Force some changes to our footer, but only if we're not a bot
         $GLOBALS['gmb_orig_style'] = intval($mybb->user['style']);
@@ -40,14 +38,14 @@ function gomobile_forcetheme()
         $mybb->cookies['gomobile'] != "force"
     )
     {
-        return false;
+        return;
     }
 
     // Has the user temporarily disabled GoMobile via cookies?
 
     if($mybb->cookies['gomobile'] == "disabled")
     {
-        return false;
+        return;
     }
 
     // Is the admin using theme permission settings?
@@ -75,50 +73,50 @@ function gomobile_forcetheme()
             $canuse = explode(",", $tperms);
 
             if(!in_array($mybb->user['usergroup'], $canuse) && !in_array($userag, $canuse)){
-                return false;
+                return;
             }
 
         }
 
     }
 
-    // Grab the strings and put them into an array
-    $list = $mybb->settings['gomobile_strings'];
-    $replace = array("\n", "\r");
-    $list = str_replace($replace, ",", $list);
-    $list = str_replace(",,", ",", $list);
-    $list = explode(",", $list);
     $switch = false;
 
-    foreach($list as $uastring)
+    if($mybb->cookies['gomobile'] === "force")
     {
-        // Run as long as there hasn't been a match yet
+        // switch if the theme is forced
+        $switch = true;
+    }
+    else
+    {
+        // Grab the strings and put them into an array
+        $list = $mybb->settings['gomobile_strings'];
+        $replace = array("\n", "\r");
+        $list = str_replace($replace, ",", $list);
+        $list = str_replace(",,", ",", $list);
+        $list = explode(",", $list);
 
-        if(!$switch && $uastring)
+        foreach ($list as $uastring)
         {
             // Switch to GoMobile if the UA matches our list
+            $uastring = trim($uastring);
 
-            if(stristr($_SERVER['HTTP_USER_AGENT'], $uastring))
+            if ($uastring !== '' && stristr($_SERVER['HTTP_USER_AGENT'], $uastring))
             {
                 $switch = true;
-                $mybb->user['style'] = $mybb->settings['gomobile_theme_id'];
             }
-
         }
-
     }
 
-    // Have we got this far without catching somewhere? Have we enabled mobile version?
-
-    if($mybb->cookies['gomobile'] == "force" && $switch == false)
+    if($switch)
     {
         $mybb->user['style'] = $mybb->settings['gomobile_theme_id'];
+
+        gomobile_load_language();
+
+        if(in_array($current_page, $valid) && $mybb->user['style'] == $mybb->settings['gomobile_theme_id'])
+        {
+            $current_page = "gomobile_temp";
+        }
     }
-
-
-    if(in_array($current_page, $valid) && $mybb->user['style'] == $mybb->settings['gomobile_theme_id'])
-    {
-        $current_page = "gomobile_temp";
-    }
-
 }
