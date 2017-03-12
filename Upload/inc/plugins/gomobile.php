@@ -41,4 +41,5 @@ require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_switch_version.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_uninstall.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_usercp_options.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_usercp_resetstyle.php';
+require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_usercp_updateuser.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_validstyles.php';
