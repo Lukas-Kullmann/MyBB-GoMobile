@@ -3,21 +3,22 @@
 // Add GoMobile-related options to the UCP
 function gomobile_usercp_options()
 {
-    global $db, $mybb, $templates, $user;
+    global $user;
 
-    if(isset($GLOBALS['gmb_orig_style']))
-    {
-        // Because we override this above, reset it to the original
-        $mybb->user['style'] = $GLOBALS['gmb_orig_style'];
+    inject_use_mobile_option();
+    inject_style_option();
+
+    // We're just viewing the page
+    $GLOBALS['$usemobileversioncheck'] = '';
+
+    if($user['usemobileversion']){
+        $GLOBALS['$usemobileversioncheck'] = "checked=\"checked\"";
     }
+}
 
-
-    if($mybb->request_method == "post")
-    {
-        // We're saving our options here
-        $update_array = array("usemobileversion" => intval($mybb->input['usemobileversion']));
-        $db->update_query("users", $update_array, "uid = '".$user['uid']."'");
-    }
+function inject_use_mobile_option()
+{
+    global $templates;
 
     $usercp_option =
         '</tr>
@@ -28,14 +29,67 @@ function gomobile_usercp_options()
             <td>
                 <span class="smalltext"><label for="usemobileversion">{$lang->gomobile_use_mobile_version}</span>
             </td>';
+
     $find = '{$lang->show_codebuttons}</label></span></td>';
+
     $templates->cache['usercp_options'] = str_replace($find, $find.$usercp_option, $templates->cache['usercp_options']);
+}
 
-    // We're just viewing the page
-    $GLOBALS['$usemobileversioncheck'] = '';
+function inject_style_option()
+{
+    global $templates, $mybb, $lang;
 
-    if($user['usemobileversion']){
-        $GLOBALS['$usemobileversioncheck'] = "checked=\"checked\"";
+    $styleOption = $templates->get('usercp_options_style');
+    $stylelist = get_theme_selector((int) $mybb->user['mobilestyle']);
+
+    $styleOption = str_replace('{$lang->style}', '{$lang->gomobile_mobile_style}', $styleOption);
+    eval('$styleOption = "' . $styleOption . '";');
+
+    $templates->cache['usercp_options'] = str_replace('{$board_style}', '{$board_style}' . $styleOption, $templates->cache['usercp_options']);
+}
+/**
+ * Get the theme selector
+ * @param int $selected
+ * @return string
+ */
+function get_theme_selector($selected)
+{
+    global $db, $templates, $lang;
+
+    $allowedStyles = gomobile_validstyles();
+
+    $query = $db->simple_select(
+        'themes',
+        'tid, name, pid, allowedgroups',
+        'pid!=\'0\' AND tid IN (' . implode(',', $allowedStyles) . ')'
+    );
+
+    $num_themes = 0;
+    $depth = '';
+
+    while($theme = $db->fetch_array($query))
+    {
+        $sel = "";
+
+        // Show theme if allowed
+        if(is_member($theme['allowedgroups']) || $theme['allowedgroups'] == "all")
+        {
+            if((int) $theme['tid'] === $selected)
+            {
+                $sel = " selected=\"selected\"";
+            }
+
+            $theme['name'] = htmlspecialchars_uni($theme['name']);
+            eval("\$themeselect_option .= \"".$templates->get("usercp_themeselector_option")."\";");
+
+            ++$num_themes;
+        }
     }
 
+    $themeselect = '';
+    $name = 'mobilestyle';
+
+    eval("\$themeselect = \"".$templates->get("usercp_themeselector")."\";");
+
+    return $themeselect;
 }

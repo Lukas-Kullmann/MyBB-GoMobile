@@ -9,18 +9,8 @@ function gomobile_forcetheme()
 
     // We're going to work around the per forum theme setting by altering the $current_page value throughout global.php
     // Then set it back to what it's supposed to be at global_end so it doesn't muck anything up (hopefully)
-    $valid = array(
-        "showthread.php",
-        "forumdisplay.php",
-        "newthread.php",
-        "newreply.php",
-        "ratethread.php",
-        "editpost.php",
-        "polls.php",
-        "sendthread.php",
-        "printthread.php",
-        "moderation.php"
-    );
+
+    gomobile_load_language();
 
     if($mybb->session->is_spider == false){
         // Force some changes to our footer, but only if we're not a bot
@@ -29,24 +19,20 @@ function gomobile_forcetheme()
         $plugins->add_hook("global_end", "gomobile_forcefooter");
     }
 
-    // Has the user chosen to disable GoMobile completely?
-
     if(
+        // Has the user chosen to disable GoMobile completely?
         isset($mybb->user['usemobileversion']) &&
         $mybb->user['usemobileversion'] == 0 &&
         $mybb->user['uid'] &&
-        $mybb->cookies['gomobile'] != "force"
+        $mybb->cookies['gomobile'] != "force" ||
+        // Or has the user temporarily disabled GoMobile via cookies?
+        $mybb->cookies['gomobile'] == "disabled"
     )
     {
         return;
     }
 
-    // Has the user temporarily disabled GoMobile via cookies?
-
-    if($mybb->cookies['gomobile'] == "disabled")
-    {
-        return;
-    }
+    $userMobileStyle = gomobile_get_user_mobilestyle(gomobile_validstyles(), (int) $mybb->user['mobilestyle']);
 
     // Is the admin using theme permission settings?
     // If so, check them
@@ -54,7 +40,7 @@ function gomobile_forcetheme()
     if($mybb->settings['gomobile_permstoggle'] == 1)
     {
         // Fetch the theme permissions from the database
-        $tquery = $db->simple_select("themes", "*", "tid = '{$mybb->settings['gomobile_theme_id']}'");
+        $tquery = $db->simple_select("themes", "*", "tid = '{$userMobileStyle}'");
         $tperms = $db->fetch_field($tquery, "allowedgroups");
 
         // Also explode our user's additional groups
@@ -82,9 +68,10 @@ function gomobile_forcetheme()
 
     $switch = false;
 
-    if($mybb->cookies['gomobile'] === "force")
+    if($mybb->cookies['gomobile'] == "force")
     {
-        // switch if the theme is forced
+        // if the mobile style is forced, it will get changed anyways
+        // so the user agent string is not checked
         $switch = true;
     }
     else
@@ -96,27 +83,42 @@ function gomobile_forcetheme()
         $list = str_replace(",,", ",", $list);
         $list = explode(",", $list);
 
-        foreach ($list as $uastring)
+        foreach($list as $uastring)
         {
             // Switch to GoMobile if the UA matches our list
-            $uastring = trim($uastring);
 
-            if ($uastring !== '' && stristr($_SERVER['HTTP_USER_AGENT'], $uastring))
+            if($uastring && stristr($_SERVER['HTTP_USER_AGENT'], $uastring))
             {
                 $switch = true;
+
+                break;
             }
+
         }
     }
 
     if($switch)
     {
-        $mybb->user['style'] = $mybb->settings['gomobile_theme_id'];
+        $mybb->user['style'] = $userMobileStyle;
 
-        gomobile_load_language();
+        $validPages = array(
+            "showthread.php",
+            "forumdisplay.php",
+            "newthread.php",
+            "newreply.php",
+            "ratethread.php",
+            "editpost.php",
+            "polls.php",
+            "sendthread.php",
+            "printthread.php",
+            "moderation.php"
+        );
 
-        if(in_array($current_page, $valid) && $mybb->user['style'] == $mybb->settings['gomobile_theme_id'])
+        if(in_array($current_page, $validPages))
         {
             $current_page = "gomobile_temp";
         }
     }
+
+    $GLOBALS['gmb_uses_mobile_version'] = $switch;
 }

@@ -12,8 +12,7 @@ function gomobile_forcefooter()
     );
 
     // If we have a match, override the default breadcrumb
-
-    if($mybb->user['style'] == $mybb->settings['gomobile_theme_id'])
+    if(isset($GLOBALS['gmb_uses_mobile_version']) && (bool) $GLOBALS['gmb_uses_mobile_version'])
     {
         $navbits = array();
         $navbits[0]['url'] = $mybb->settings['bburl'];

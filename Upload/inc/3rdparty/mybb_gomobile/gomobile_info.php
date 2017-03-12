@@ -11,7 +11,7 @@ function gomobile_info()
         "website"       => "http://www.mybbgm.com",
         "author"        => "MyBB GoMobile",
         "authorsite"    => "http://www.mybbgm.com",
-        "version"       => "1.3.2",
+        "version"       => "1.8.2",
         "compatibility" => "18*"
     );
 }

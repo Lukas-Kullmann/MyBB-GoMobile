@@ -1,7 +1,6 @@
 <?php
 
 // Uninstall MyBB GoMobile
-// Not that anyone would want to do that, right? ;P
 
 function gomobile_uninstall(){
     global $db;
@@ -23,6 +22,10 @@ function gomobile_uninstall(){
     if($db->field_exists("usemobileversion", "users"))
     {
         $db->query("ALTER TABLE ".TABLE_PREFIX."users DROP COLUMN usemobileversion");
+    }
+
+    if($db->field_exists("mobilestyle", "users")){
+        $db->query("ALTER TABLE ".TABLE_PREFIX."users DROP COLUMN mobilestyle");
     }
 
     // Settings cleanup

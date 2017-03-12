@@ -17,8 +17,9 @@ $plugins->add_hook("global_end",   "gomobile_fixcurrentpage");
 $plugins->add_hook("showthread_end", "gomobile_showthread");
 
 // UCP options
-$plugins->add_hook("usercp_options_end",    "gomobile_usercp_options");
-$plugins->add_hook("usercp_do_options_end", "gomobile_usercp_options");
+$plugins->add_hook("usercp_options_start",    "gomobile_usercp_resetstyle");
+$plugins->add_hook("usercp_options_end",      "gomobile_usercp_options");
+$plugins->add_hook("usercp_do_options_end",   "gomobile_usercp_updateuser");
 
 // Misc. hooks
 $plugins->add_hook("misc_start", "gomobile_switch_version");
@@ -30,6 +31,7 @@ $plugins->add_hook("admin_config_settings_change", "gomobile_load_language");
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_fixcurrentpage.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_forcefooter.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_forcetheme.php';
+require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_get_user_mobilestyle.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_info.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_install.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_load_language.php';
@@ -38,3 +40,5 @@ require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_showthread.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_switch_version.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_uninstall.php';
 require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_usercp_options.php';
+require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_usercp_resetstyle.php';
+require_once __DIR__ . '/../3rdparty/mybb_gomobile/gomobile_validstyles.php';

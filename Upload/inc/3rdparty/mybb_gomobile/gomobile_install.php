@@ -3,13 +3,13 @@
 
 function gomobile_install(){
     global $db, $mybb, $lang;
-    // Clean up the database before installing
-    // MyBB tables cleanup
 
+    // Clean up the database before installing
     gomobile_uninstall();
 
     // And another to the users table for options
-    $db->query("ALTER TABLE ".TABLE_PREFIX."users ADD usemobileversion int NOT NULL default '1'");
+    $db->query("ALTER TABLE ".TABLE_PREFIX."users ADD usemobileversion tinyint(1) NOT NULL default 1");
+    $db->query("ALTER TABLE ".TABLE_PREFIX."users ADD mobilestyle smallint(5) unsigned NOT NULL default 0");
     // First, check that our theme doesn't already exist
     $query = $db->simple_select("themes", "tid", "LOWER(name) LIKE '%mybb gomobile%'");
 
