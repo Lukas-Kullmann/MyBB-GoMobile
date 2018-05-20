@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<theme name="MyBB GoMobile" version="1810">
+<theme name="MyBB GoMobile" version="1815">
     <properties>
         <templateset><![CDATA[5]]></templateset>
         <editortheme><![CDATA[default.css]]></editortheme>
@@ -11,7 +11,7 @@
         <disporder><![CDATA[a:8:{s:10:"usercp.css";i:1;s:19:"smilie-inserter.css";i:2;s:9:"modcp.css";i:3;s:14:"showthread.css";i:4;s:10:"global.css";i:5;s:8:"css3.css";i:6;s:17:"thread_status.css";i:7;s:16:"star_ratings.css";i:8;}]]></disporder>
     </properties>
     <stylesheets>
-        <stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1810"><![CDATA[div.usercp_nav_item {
+        <stylesheet name="usercp.css" attachedto="usercp.php|usercp2.php|private.php" version="1815"><![CDATA[div.usercp_nav_item {
 	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
 	color: #fff;
 	padding: 7px;
@@ -65,9 +65,10 @@ div.usercp_nav_item a {
 
 
 
+
         ]]>
         </stylesheet>
-        <stylesheet name="smilie-inserter.css" attachedto="private.php|newreply.php|newthread.php|editpost.php" version="1810"><![CDATA[.smilieinserter ul, div.sceditor-toolbar {
+        <stylesheet name="smilie-inserter.css" attachedto="private.php|newreply.php|newthread.php|editpost.php" version="1815"><![CDATA[.smilieinserter ul, div.sceditor-toolbar {
 	max-width: 90vw;
 	max-width: calc(100vw - 16px - 12px);
 }
@@ -124,9 +125,10 @@ div.sceditor-toolbar {
 }
 
 
+
         ]]>
         </stylesheet>
-        <stylesheet name="modcp.css" attachedto="modcp.php" version="1810"><![CDATA[div.modcp_nav_item {
+        <stylesheet name="modcp.css" attachedto="modcp.php" version="1815"><![CDATA[div.modcp_nav_item {
 	background: transparent url(images/mobile/cpanels/nav_item_bg.png) top left repeat;
 	color: #fff;
 	padding: 7px;
@@ -177,9 +179,10 @@ div.modcp_nav_item a {
 
 
 
+
         ]]>
         </stylesheet>
-        <stylesheet name="showthread.css" attachedto="showthread.php" version="1810"><![CDATA[ul.thread_tools, ul.thread_tools li {
+        <stylesheet name="showthread.css" attachedto="showthread.php" version="1815"><![CDATA[ul.thread_tools, ul.thread_tools li {
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -229,9 +232,10 @@ label.poll_option_label {
 }
 
 
+
         ]]>
         </stylesheet>
-        <stylesheet name="global.css" version="1810"><![CDATA[@import  "https://fonts.googleapis.com/css?family=Noto+Sans";
+        <stylesheet name="global.css" version="1815"><![CDATA[@import  "https://fonts.googleapis.com/css?family=Noto+Sans";
 
 body {
     background: none repeat scroll 0 0 #EEE !important;
@@ -1035,6 +1039,11 @@ a.lastpost img {
     text-decoration: underline;
 }
 
+.post_author a.postdate,.post_ignored a.postdate {
+    color: #fff;
+    text-decoration: none;
+}
+
 .post_avatar {
     width: 20px;
     height: 20px;
@@ -1184,6 +1193,7 @@ rep-tborder {
 	height: auto;
     max-width: 100%;
 }
+
 
         ]]>
         </stylesheet>
@@ -3238,17 +3248,17 @@ $(document).ready(function() {
 		<div class="post_manage"><span style="float: left;">{$lang->posted_by} {$profilelink}</span><a href="{$mybb->settings['bburl']}/sendthread.php?tid={$announcement['tid']}"><img src="{$theme['imgdir']}/send.gif" alt="{$lang->send_to_friend}" title="{$lang->send_to_friend}" /></a></div>
 	</div>
 </div>]]></template>
-        <template name="postbit" version="1808"><![CDATA[{$ignore_bit}
+        <template name="postbit" version="1815"><![CDATA[{$ignore_bit}
 <div id="post_{$post['pid']}" style="{$post_visibility}">
 	<a name="pid{$post['pid']}" id="pid{$post['pid']}"></a>
 	<div class="post_author">
-		<span class="float_right datetime smalltext">({$post['postdate']} {$post['posttime']}) </span>
+		<a class="float_right datetime smalltext postdate" href="#pid{$post['pid']}">({$post['postdate']} {$post['posttime']}) </a>
 		{$post['useravatar']} {$post['profilelink']} {$post['replink']}
 	</div>
 	<div class="post_body" id="post_body_{$post['pid']}">
 		<div class="post_content {$unapproved_shade}">{$post['message']}</div>
 		{$post['attachments']}
-		<div class="post_manage">{$post['button_warn']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_multiquote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
+		<div class="post_manage">{$post['button_warn']}{$post['button_report']}{$post['button_pm']}{$post['button_edit']}{$post['button_quickdelete']}{$post['button_quote']}{$post['button_multiquote']}{$post['button_reply_pm']}{$post['button_replyall_pm']}{$post['button_forward_pm']}{$post['button_delete_pm']}</div>
 	</div>
 </div>]]></template>
         <template name="postbit_attachments" version="1413"><![CDATA[<div class="post_attachments">
@@ -3258,7 +3268,7 @@ $(document).ready(function() {
 {$post['attachmentlist']}
 </div>]]></template>
         <template name="postbit_attachments_attachment" version="1413"><![CDATA[<div>{$attachment['icon']}&nbsp;&nbsp;<a href="attachment.php?aid={$attachment['aid']}" target="_blank">{$attachment['filename']}</a> ({$lang->postbit_attachment_size} {$attachment['filesize']})</div>]]></template>
-        <template name="postbit_avatar" version="1807"><![CDATA[<a href="{$post['profilelink_plain']}"><img src="{$useravatar['image']}" alt="{$useravatar['width_height']}" class="post_avatar" /></a>]]></template>
+        <template name="postbit_avatar" version="1815"><![CDATA[<a href="{$post['profilelink_plain']}"><img src="{$useravatar['image']}" alt="" {$useravatar['width_height']} class="post_avatar" /></a>]]></template>
         <template name="postbit_classic" version="1808"><![CDATA[{$ignore_bit}
 <div id="post_{$post['pid']}" style="{$post_visibility}">
 	<a name="pid{$post['pid']}" id="pid{$post['pid']}"></a>
@@ -3299,6 +3309,7 @@ $(document).ready(function() {
         <template name="postbit_quote" version="1807"><![CDATA[<a href="newreply.php?tid={$tid}&amp;replyto={$post['pid']}" class="button">{$lang->gomobile_post_quote}</a>]]></template>
         <template name="postbit_replyall_pm" version="1601"><![CDATA[<a href="private.php?action=send&amp;pmid={$id}&amp;do=replyall" class="button">{$lang->gomobile_pm_replyall}</a>]]></template>
         <template name="postbit_reply_pm" version="1601"><![CDATA[<a href="private.php?action=send&amp;pmid={$id}&amp;do=reply" class="button">{$lang->gomobile_pm_reply}</a>]]></template>
+        <template name="postbit_report" version="1815"><![CDATA[<a href="javascript:void(0)" onclick="Report.reportPost({$post['pid']}); return false;" title="{$lang->postbit_report}" class="button"><span>{$lang->postbit_button_report}</span></a>]]></template>
         <template name="postbit_reputation" version="1601"><![CDATA[[{$post['userreputation']}]]]></template>
         <template name="postbit_warn" version="1601"><![CDATA[<a href="warnings.php?action=warn&amp;uid={$post['uid']}&amp;pid={$post['pid']}" class="button">{$lang->gomobile_post_warn}</a>]]></template>
         <template name="posticons" version="1413"><![CDATA[<input type="hidden" name="icon" value="-1"{$no_icons_checked} />]]></template>
@@ -4388,15 +4399,18 @@ $(document).ready(function() {
 <strong><a href="{$forum_url}">{$forum['name']}</a></strong><br /><span class="smalltext"><a href="usercp2.php?action=removesubscription&amp;type=forum&amp;fid={$forum['fid']}&amp;my_post_key={$mybb->post_code}">{$lang->unsubscribe}</a> | <a href="newthread.php?fid={$forum['fid']}">{$lang->new_thread}</a></span></td>
 <td class="trow2" valign="top" style="white-space: nowrap">{$lastpost}</td>
 </tr>]]></template>
-        <template name="usercp_latest_subscribed" version="1601"><![CDATA[<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
+        <template name="usercp_latest_subscribed" version="1815"><![CDATA[<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
 <tr>
-<td class="thead" colspan="2"><strong>{$lang->gomobile_newsubs}</strong></td>
+<td class="thead" colspan="3"><strong>{$lang->gomobile_newsubs}</strong></td>
 </tr>
 {$latest_subscribed_threads}
 </table>]]></template>
-        <template name="usercp_latest_subscribed_threads" version="1601"><![CDATA[<tr>
-<td class="{$bgcolor}">{$thread['displayprefix']}<a href="{$thread['threadlink']}" class="{$new_class}">{$thread['subject']}</a><div class="lastbytext">{$lang->gomobile_lastby} {$lastposter}</div></td>
-<td class="{$bgcolor}" style="white-space: nowrap" align="right" width="1"><a href="{$thread['lastpostlink']}" class="lastpost">{$lang->gomobile_last}<img src="{$theme['imgdir']}/jump.gif" height="10" width="10" class="middle" /></a></td>
+        <template name="usercp_latest_subscribed_threads" version="1815"><![CDATA[<tr>
+	<td class="{$bgcolor}" style="width: 20px;">
+		<a href="{$thread['newpostlink']}"><img src="{$theme['imgdir']}/jump.gif" alt="{$lang->goto_first_unread}" title="{$lang->goto_first_unread}" /></a>
+	</td>
+	<td class="{$bgcolor}">{$thread['displayprefix']}<a href="{$thread['threadlink']}" class="{$new_class}">{$thread['subject']}</a><div class="lastbytext">{$lang->gomobile_lastby} {$lastposter}</div></td>
+	<td class="{$bgcolor}" style="white-space: nowrap" align="right" width="1"><a href="{$thread['lastpostlink']}" class="lastpost">{$lang->gomobile_last}<img src="{$theme['imgdir']}/jump.gif" height="10" width="10" class="middle" /></a></td>
 </tr>]]></template>
         <template name="usercp_latest_threads" version="1601"><![CDATA[<br />
 <table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
