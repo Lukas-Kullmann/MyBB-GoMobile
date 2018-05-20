@@ -4400,15 +4400,18 @@ $(document).ready(function() {
 <strong><a href="{$forum_url}">{$forum['name']}</a></strong><br /><span class="smalltext"><a href="usercp2.php?action=removesubscription&amp;type=forum&amp;fid={$forum['fid']}&amp;my_post_key={$mybb->post_code}">{$lang->unsubscribe}</a> | <a href="newthread.php?fid={$forum['fid']}">{$lang->new_thread}</a></span></td>
 <td class="trow2" valign="top" style="white-space: nowrap">{$lastpost}</td>
 </tr>]]></template>
-        <template name="usercp_latest_subscribed" version="1601"><![CDATA[<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
+        <template name="usercp_latest_subscribed" version="1815"><![CDATA[<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
 <tr>
-<td class="thead" colspan="2"><strong>{$lang->gomobile_newsubs}</strong></td>
+<td class="thead" colspan="3"><strong>{$lang->gomobile_newsubs}</strong></td>
 </tr>
 {$latest_subscribed_threads}
 </table>]]></template>
-        <template name="usercp_latest_subscribed_threads" version="1601"><![CDATA[<tr>
-<td class="{$bgcolor}">{$thread['displayprefix']}<a href="{$thread['threadlink']}" class="{$new_class}">{$thread['subject']}</a><div class="lastbytext">{$lang->gomobile_lastby} {$lastposter}</div></td>
-<td class="{$bgcolor}" style="white-space: nowrap" align="right" width="1"><a href="{$thread['lastpostlink']}" class="lastpost">{$lang->gomobile_last}<img src="{$theme['imgdir']}/jump.gif" height="10" width="10" class="middle" /></a></td>
+        <template name="usercp_latest_subscribed_threads" version="1815"><![CDATA[<tr>
+	<td class="{$bgcolor}" style="width: 20px;">
+		<a href="{$thread['newpostlink']}"><img src="{$theme['imgdir']}/jump.gif" alt="{$lang->goto_first_unread}" title="{$lang->goto_first_unread}" /></a>
+	</td>
+	<td class="{$bgcolor}">{$thread['displayprefix']}<a href="{$thread['threadlink']}" class="{$new_class}">{$thread['subject']}</a><div class="lastbytext">{$lang->gomobile_lastby} {$lastposter}</div></td>
+	<td class="{$bgcolor}" style="white-space: nowrap" align="right" width="1"><a href="{$thread['lastpostlink']}" class="lastpost">{$lang->gomobile_last}<img src="{$theme['imgdir']}/jump.gif" height="10" width="10" class="middle" /></a></td>
 </tr>]]></template>
         <template name="usercp_latest_threads" version="1601"><![CDATA[<br />
 <table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
