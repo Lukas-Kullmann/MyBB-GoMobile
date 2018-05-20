@@ -1039,6 +1039,11 @@ a.lastpost img {
     text-decoration: underline;
 }
 
+.post_author a.postdate,.post_ignored a.postdate {
+    color: #fff;
+    text-decoration: none;
+}
+
 .post_avatar {
     width: 20px;
     height: 20px;
@@ -3248,7 +3253,7 @@ $(document).ready(function() {
 <div id="post_{$post['pid']}" style="{$post_visibility}">
 	<a name="pid{$post['pid']}" id="pid{$post['pid']}"></a>
 	<div class="post_author">
-		<span class="float_right datetime smalltext">({$post['postdate']} {$post['posttime']}) </span>
+		<a class="float_right datetime smalltext postdate" href="#pid{$post['pid']}">({$post['postdate']} {$post['posttime']}) </a>
 		{$post['useravatar']} {$post['profilelink']} {$post['replink']}
 	</div>
 	<div class="post_body" id="post_body_{$post['pid']}">
