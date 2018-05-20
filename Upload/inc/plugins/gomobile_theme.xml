@@ -3259,7 +3259,7 @@ $(document).ready(function() {
 {$post['attachmentlist']}
 </div>]]></template>
         <template name="postbit_attachments_attachment" version="1413"><![CDATA[<div>{$attachment['icon']}&nbsp;&nbsp;<a href="attachment.php?aid={$attachment['aid']}" target="_blank">{$attachment['filename']}</a> ({$lang->postbit_attachment_size} {$attachment['filesize']})</div>]]></template>
-        <template name="postbit_avatar" version="1807"><![CDATA[<a href="{$post['profilelink_plain']}"><img src="{$useravatar['image']}" alt="{$useravatar['width_height']}" class="post_avatar" /></a>]]></template>
+        <template name="postbit_avatar" version="1807"><![CDATA[<a href="{$post['profilelink_plain']}"><img src="{$useravatar['image']}" alt="" {$useravatar['width_height']} class="post_avatar" /></a>]]></template>
         <template name="postbit_classic" version="1808"><![CDATA[{$ignore_bit}
 <div id="post_{$post['pid']}" style="{$post_visibility}">
 	<a name="pid{$post['pid']}" id="pid{$post['pid']}"></a>
